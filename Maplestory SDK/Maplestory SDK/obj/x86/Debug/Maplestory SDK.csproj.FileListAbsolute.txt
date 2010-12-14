@@ -1,0 +1,13 @@
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Maplestory SDK.exe
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Maplestory SDK.pdb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\obj\x86\Debug\Maplestory SDK.exe
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\obj\x86\Debug\Maplestory SDK.pdb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\color_backing.xnb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\crosshair.xnb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\gridcell.xnb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\lucas.xnb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\stage.xnb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\tileSheet.xnb
+C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Window_Scene.xnb

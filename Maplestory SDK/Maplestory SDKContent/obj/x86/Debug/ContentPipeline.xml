@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>color_backing.png</Source>
+      <Name>color_backing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\color_backing.xnb</Output>
+      <Time>2010-12-15T06:27:15.7006279+07:00</Time>
+    </Item>
+    <Item>
+      <Source>crosshair.png</Source>
+      <Name>crosshair</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\crosshair.xnb</Output>
+      <Time>2010-12-15T06:27:34.6137097+07:00</Time>
+    </Item>
+    <Item>
+      <Source>gridcell.png</Source>
+      <Name>gridcell</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\gridcell.xnb</Output>
+      <Time>2010-12-15T06:27:39.7730048+07:00</Time>
+    </Item>
+    <Item>
+      <Source>lucas.png</Source>
+      <Name>lucas</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\lucas.xnb</Output>
+      <Time>2010-12-15T06:27:44.8352943+07:00</Time>
+    </Item>
+    <Item>
+      <Source>stage.PNG</Source>
+      <Name>stage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\stage.xnb</Output>
+      <Time>2010-12-15T06:27:49.5575644+07:00</Time>
+    </Item>
+    <Item>
+      <Source>tileSheet.png</Source>
+      <Name>tileSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\tileSheet.xnb</Output>
+      <Time>2010-12-15T06:27:52.5497355+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Window_Scene.png</Source>
+      <Name>Window_Scene</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Window_Scene.xnb</Output>
+      <Time>2010-12-15T06:27:55.5699083+07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDKContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDKContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18+07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2010-11-30T04:32:42.1515625+07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
