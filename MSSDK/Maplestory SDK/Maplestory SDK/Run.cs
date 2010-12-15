@@ -23,7 +23,6 @@ namespace Maplestory_SDK
 
         const int size = 32;
 
-        Texture2D bg;
         Texture2D gridCell;
         Texture2D tileSheet;
         Texture2D crosshair;
@@ -70,7 +69,6 @@ namespace Maplestory_SDK
             // TODO: use this.Content to load your game content here
             Player = new Character(this,"Skin1","0004","0001", 4, 4);
 
-            bg = this.Content.Load<Texture2D>("stage");
             gridCell = this.Content.Load<Texture2D>("gridcell");
             tileSheet = this.Content.Load<Texture2D>("tileSheet");
             crosshair = this.Content.Load<Texture2D>("crosshair");
