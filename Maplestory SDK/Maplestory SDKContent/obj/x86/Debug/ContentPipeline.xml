@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\color_backing.xnb</Output>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\color_backing.xnb</Output>
       <Time>2010-12-15T06:27:15.7006279+07:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\crosshair.xnb</Output>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\crosshair.xnb</Output>
       <Time>2010-12-15T06:27:34.6137097+07:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\gridcell.xnb</Output>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\gridcell.xnb</Output>
       <Time>2010-12-15T06:27:39.7730048+07:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\lucas.xnb</Output>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\lucas.xnb</Output>
       <Time>2010-12-15T06:27:44.8352943+07:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\stage.xnb</Output>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\stage.xnb</Output>
       <Time>2010-12-15T06:27:49.5575644+07:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\tileSheet.xnb</Output>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\tileSheet.xnb</Output>
       <Time>2010-12-15T06:27:52.5497355+07:00</Time>
     </Item>
     <Item>
@@ -61,8 +61,593 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Window_Scene.xnb</Output>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Window_Scene.xnb</Output>
       <Time>2010-12-15T06:27:55.5699083+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\body_0.png</Source>
+      <Name>Character\Skin\Skin1\Stand\body_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\body_0.xnb</Output>
+      <Time>2010-12-15T21:28:11.3014314+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\body_1.png</Source>
+      <Name>Character\Skin\Skin1\Stand\body_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\body_1.xnb</Output>
+      <Time>2010-12-15T21:28:20.6679671+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\body_2.png</Source>
+      <Name>Character\Skin\Skin1\Stand\body_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\body_2.xnb</Output>
+      <Time>2010-12-15T21:28:33.2046842+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\arm_0.png</Source>
+      <Name>Character\Skin\Skin1\Stand\arm_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\arm_0.xnb</Output>
+      <Time>2010-12-15T21:28:49.6776264+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\arm_1.png</Source>
+      <Name>Character\Skin\Skin1\Stand\arm_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\arm_1.xnb</Output>
+      <Time>2010-12-15T21:28:55.3419504+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\arm_2.png</Source>
+      <Name>Character\Skin\Skin1\Stand\arm_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\arm_2.xnb</Output>
+      <Time>2010-12-15T21:28:59.9182121+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Head\head_back.png</Source>
+      <Name>Character\Skin\Skin1\Head\head_back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Head\head_back.xnb</Output>
+      <Time>2010-12-15T21:29:35.0312205+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Head\head_front.png</Source>
+      <Name>Character\Skin\Skin1\Head\head_front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Head\head_front.xnb</Output>
+      <Time>2010-12-15T21:29:40.215517+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\arm_0.png</Source>
+      <Name>Character\Skin\Skin1\Walk\arm_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\arm_0.xnb</Output>
+      <Time>2010-12-15T22:21:08.499413+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\arm_1.png</Source>
+      <Name>Character\Skin\Skin1\Walk\arm_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\arm_1.xnb</Output>
+      <Time>2010-12-15T22:21:08.499413+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\arm_2.png</Source>
+      <Name>Character\Skin\Skin1\Walk\arm_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\arm_2.xnb</Output>
+      <Time>2010-12-15T22:21:08.499413+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\arm_3.png</Source>
+      <Name>Character\Skin\Skin1\Walk\arm_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\arm_3.xnb</Output>
+      <Time>2010-12-15T22:21:08.499413+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\body_0.png</Source>
+      <Name>Character\Skin\Skin1\Walk\body_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\body_0.xnb</Output>
+      <Time>2010-12-15T22:21:08.499413+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\body_1.png</Source>
+      <Name>Character\Skin\Skin1\Walk\body_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\body_1.xnb</Output>
+      <Time>2010-12-15T22:21:08.515013+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\body_2.png</Source>
+      <Name>Character\Skin\Skin1\Walk\body_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\body_2.xnb</Output>
+      <Time>2010-12-15T22:21:08.515013+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\body_3.png</Source>
+      <Name>Character\Skin\Skin1\Walk\body_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\body_3.xnb</Output>
+      <Time>2010-12-15T22:21:08.499413+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\body_3.png</Source>
+      <Name>Character\Skin\Skin1\Stand\body_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\body_3.xnb</Output>
+      <Time>2010-12-15T23:22:11.4587793+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Stand\arm_3.png</Source>
+      <Name>Character\Skin\Skin1\Stand\arm_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Stand\arm_3.xnb</Output>
+      <Time>2010-12-15T23:22:47.7054244+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\arm_4.png</Source>
+      <Name>Character\Skin\Skin1\Walk\arm_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\arm_4.xnb</Output>
+      <Time>2010-12-16T00:20:42.5968025+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin1\Walk\body_4.png</Source>
+      <Name>Character\Skin\Skin1\Walk\body_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin1\Walk\body_4.xnb</Output>
+      <Time>2010-12-16T00:20:53.9968182+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0001\default.png</Source>
+      <Name>Character\Face\0001\default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0001\default.xnb</Output>
+      <Time>2010-12-16T02:05:09.1323759+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0001\hit.png</Source>
+      <Name>Character\Face\0001\hit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0001\hit.xnb</Output>
+      <Time>2010-12-16T02:05:09.1353761+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0001\backHairBelowCap_backDefault.png</Source>
+      <Name>Character\Hair\0001\backHairBelowCap_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0001\backHairBelowCap_backDefault.xnb</Output>
+      <Time>2010-12-16T03:18:25.7108458+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0001\backHair_backDefault.png</Source>
+      <Name>Character\Hair\0001\backHair_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0001\backHair_backDefault.xnb</Output>
+      <Time>2010-12-16T03:18:25.7068456+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0001\hairOverHead_default.png</Source>
+      <Name>Character\Hair\0001\hairOverHead_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0001\hairOverHead_default.xnb</Output>
+      <Time>2010-12-16T03:18:25.7038454+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0001\hair_default.png</Source>
+      <Name>Character\Hair\0001\hair_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0001\hair_default.xnb</Output>
+      <Time>2010-12-16T03:18:25.713846+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Head\head_back.png</Source>
+      <Name>Character\Skin\Skin2\Head\head_back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Head\head_back.xnb</Output>
+      <Time>2010-12-16T02:55:19.0905356+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Head\head_front.png</Source>
+      <Name>Character\Skin\Skin2\Head\head_front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Head\head_front.xnb</Output>
+      <Time>2010-12-16T02:55:19.0875355+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\arm_0.png</Source>
+      <Name>Character\Skin\Skin2\Stand\arm_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\arm_0.xnb</Output>
+      <Time>2010-12-16T02:55:53.1434834+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\arm_1.png</Source>
+      <Name>Character\Skin\Skin2\Stand\arm_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\arm_1.xnb</Output>
+      <Time>2010-12-16T02:55:53.1464835+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\arm_2.png</Source>
+      <Name>Character\Skin\Skin2\Stand\arm_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\arm_2.xnb</Output>
+      <Time>2010-12-16T02:55:53.1494837+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\body_0.png</Source>
+      <Name>Character\Skin\Skin2\Stand\body_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\body_0.xnb</Output>
+      <Time>2010-12-16T02:55:53.1354829+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\body_1.png</Source>
+      <Name>Character\Skin\Skin2\Stand\body_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\body_1.xnb</Output>
+      <Time>2010-12-16T02:55:53.1384831+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\body_2.png</Source>
+      <Name>Character\Skin\Skin2\Stand\body_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\body_2.xnb</Output>
+      <Time>2010-12-16T02:55:53.1414833+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\arm_0.png</Source>
+      <Name>Character\Skin\Skin2\Walk\arm_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\arm_0.xnb</Output>
+      <Time>2010-12-16T02:56:08.0593365+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\arm_1.png</Source>
+      <Name>Character\Skin\Skin2\Walk\arm_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\arm_1.xnb</Output>
+      <Time>2010-12-16T02:56:09.2194029+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\arm_2.png</Source>
+      <Name>Character\Skin\Skin2\Walk\arm_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\arm_2.xnb</Output>
+      <Time>2010-12-16T02:56:09.2204029+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\arm_3.png</Source>
+      <Name>Character\Skin\Skin2\Walk\arm_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\arm_3.xnb</Output>
+      <Time>2010-12-16T02:56:09.222403+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\body_0.png</Source>
+      <Name>Character\Skin\Skin2\Walk\body_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\body_0.xnb</Output>
+      <Time>2010-12-16T02:56:09.2234031+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\body_1.png</Source>
+      <Name>Character\Skin\Skin2\Walk\body_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\body_1.xnb</Output>
+      <Time>2010-12-16T02:56:09.2244031+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\body_2.png</Source>
+      <Name>Character\Skin\Skin2\Walk\body_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\body_2.xnb</Output>
+      <Time>2010-12-16T02:56:09.2254032+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\body_3.png</Source>
+      <Name>Character\Skin\Skin2\Walk\body_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\body_3.xnb</Output>
+      <Time>2010-12-16T02:56:07.2962929+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\arm_3.png</Source>
+      <Name>Character\Skin\Skin2\Stand\arm_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\arm_3.xnb</Output>
+      <Time>2010-12-16T02:56:13.4566452+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Stand\body_3.png</Source>
+      <Name>Character\Skin\Skin2\Stand\body_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Stand\body_3.xnb</Output>
+      <Time>2010-12-16T02:56:15.7277751+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\arm_4.png</Source>
+      <Name>Character\Skin\Skin2\Walk\arm_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\arm_4.xnb</Output>
+      <Time>2010-12-16T02:56:58.6192284+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Skin\Skin2\Walk\body_4.png</Source>
+      <Name>Character\Skin\Skin2\Walk\body_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Skin\Skin2\Walk\body_4.xnb</Output>
+      <Time>2010-12-16T02:57:00.4233316+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0002\default.png</Source>
+      <Name>Character\Face\0002\default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0002\default.xnb</Output>
+      <Time>2010-12-16T03:03:56.1421093+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0002\hit.png</Source>
+      <Name>Character\Face\0002\hit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0002\hit.xnb</Output>
+      <Time>2010-12-16T03:03:56.1451095+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0003\default.png</Source>
+      <Name>Character\Face\0003\default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0003\default.xnb</Output>
+      <Time>2010-12-16T03:04:23.148654+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0003\hit.png</Source>
+      <Name>Character\Face\0003\hit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0003\hit.xnb</Output>
+      <Time>2010-12-16T03:04:23.1446538+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0004\default.png</Source>
+      <Name>Character\Face\0004\default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0004\default.xnb</Output>
+      <Time>2010-12-16T03:04:50.5602218+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Face\0004\hit.png</Source>
+      <Name>Character\Face\0004\hit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Face\0004\hit.xnb</Output>
+      <Time>2010-12-16T03:04:50.5642221+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0002\backHair_backDefault.png</Source>
+      <Name>Character\Hair\0002\backHair_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0002\backHair_backDefault.xnb</Output>
+      <Time>2010-12-16T03:59:23.2834109+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0002\backHairBelowCap_backDefault.png</Source>
+      <Name>Character\Hair\0002\backHairBelowCap_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0002\backHairBelowCap_backDefault.xnb</Output>
+      <Time>2010-12-16T03:59:23.7624383+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0002\hair_default.png</Source>
+      <Name>Character\Hair\0002\hair_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0002\hair_default.xnb</Output>
+      <Time>2010-12-16T03:59:22.0233388+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0002\hairOverHead_default.png</Source>
+      <Name>Character\Hair\0002\hairOverHead_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0002\hairOverHead_default.xnb</Output>
+      <Time>2010-12-16T03:59:22.8333852+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0004\backHair_backDefault.png</Source>
+      <Name>Character\Hair\0004\backHair_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0004\backHair_backDefault.xnb</Output>
+      <Time>2010-12-16T04:08:15.7538665+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0004\backHairBelowCap_backDefault.png</Source>
+      <Name>Character\Hair\0004\backHairBelowCap_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0004\backHairBelowCap_backDefault.xnb</Output>
+      <Time>2010-12-16T04:08:15.7598668+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0004\hair_default.png</Source>
+      <Name>Character\Hair\0004\hair_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0004\hair_default.xnb</Output>
+      <Time>2010-12-16T04:08:15.7618669+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0004\hairOverHead_default.png</Source>
+      <Name>Character\Hair\0004\hairOverHead_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0004\hairOverHead_default.xnb</Output>
+      <Time>2010-12-16T04:08:15.7558666+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0003\backHair_backDefault.png</Source>
+      <Name>Character\Hair\0003\backHair_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0003\backHair_backDefault.xnb</Output>
+      <Time>2010-12-16T04:02:41.8217666+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0003\backHairBelowCap_backDefault.png</Source>
+      <Name>Character\Hair\0003\backHairBelowCap_backDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0003\backHairBelowCap_backDefault.xnb</Output>
+      <Time>2010-12-16T04:02:42.3077944+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0003\hair_default.png</Source>
+      <Name>Character\Hair\0003\hair_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0003\hair_default.xnb</Output>
+      <Time>2010-12-16T04:02:40.6106974+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Character\Hair\0003\hairOverHead_default.png</Source>
+      <Name>Character\Hair\0003\hairOverHead_default</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Character\Hair\0003\hairOverHead_default.xnb</Output>
+      <Time>2010-12-16T04:02:41.4897477+07:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Segoe UI Mono.spritefont</Source>
+      <Name>Fonts\Segoe UI Mono</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\Fonts\Segoe UI Mono.xnb</Output>
+      <Time>2010-12-15T23:52:33.1746423+07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -70,10 +655,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDKContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDKContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDKContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDKContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\NamKazt\Documents\Visual Studio 2010\Projects\Maplestory SDK\MSSDK\Maplestory SDK\Maplestory SDK\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

@@ -11,8 +11,9 @@ using Maplestory_SDK.Root_Class;
 
 namespace Maplestory_SDK.User_Class
 {
-    class Player : Character
+    class Player 
     {
+
         /// <summary>
         /// Đường dẫn file xml chứa thông tin nhân vật
         /// </summary>

@@ -23,14 +23,13 @@ namespace Maplestory_SDK
 
         const int size = 32;
 
-        Texture2D bg;
-        Texture2D lucasTxtr;
         Texture2D gridCell;
         Texture2D tileSheet;
         Texture2D crosshair;
         Texture2D window_backing;
 
-        Character lucas = new Character();
+        Character Player;
+
         Editor editor;
         Map tileMap;
 
@@ -68,8 +67,8 @@ namespace Maplestory_SDK
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            bg = this.Content.Load<Texture2D>("stage");
-            lucasTxtr = this.Content.Load<Texture2D>("lucas");
+            Player = new Character(this,"Skin1","0004","0001", 4, 4);
+
             gridCell = this.Content.Load<Texture2D>("gridcell");
             tileSheet = this.Content.Load<Texture2D>("tileSheet");
             crosshair = this.Content.Load<Texture2D>("crosshair");
@@ -100,18 +99,35 @@ namespace Maplestory_SDK
                 this.Exit();
 
             // TODO: Add your update logic here
-            lucas.KeyInput();
-            lucas.Move();
+
+            Player.KeyInput();
+            Player.Move();
 
             KeyboardState keyState = Keyboard.GetState(); //The below code changes the game to/from editor mode
             if (keyState.IsKeyDown(Keys.PageUp))
                 editorOn = true;
             else if (keyState.IsKeyDown(Keys.PageDown))
                 editorOn = false;
-            else if (keyState.IsKeyDown(Keys.O))
-                tileMap.CreateTextOutput("test", "test", "test", lucas.GetPos()); // save map
-            else if (keyState.IsKeyDown(Keys.I))
-                tileMap.ImportMap("test", lucas); // load map
+            else if (keyState.IsKeyDown(Keys.D1))
+                Player.Skin = "Skin1";
+            else if (keyState.IsKeyDown(Keys.D2))
+                Player.Skin = "Skin2";
+            else if (keyState.IsKeyDown(Keys.D3))
+                Player.Face = "0001";
+            else if (keyState.IsKeyDown(Keys.D4))
+                Player.Face = "0002";
+            else if (keyState.IsKeyDown(Keys.D5))
+                Player.Face = "0003";
+            else if (keyState.IsKeyDown(Keys.D6))
+                Player.Face = "0004";
+            else if (keyState.IsKeyDown(Keys.D7))
+                Player.Hair = "0001";
+            else if (keyState.IsKeyDown(Keys.D8))
+                Player.Hair = "0002";
+            else if (keyState.IsKeyDown(Keys.D9))
+                Player.Hair = "0003";
+            else if (keyState.IsKeyDown(Keys.D0))
+                Player.Hair = "0004";
 
             MouseState mouseState = Mouse.GetState();
             Vector2 cursorLoc = new Vector2((mouseState.X / size) * size - 2, (mouseState.Y / size) * size - 2);
@@ -135,14 +151,14 @@ namespace Maplestory_SDK
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.AliceBlue);
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
             tileMap.DrawMap(spriteBatch, tileSheet);
 
-            lucas.Draw(spriteBatch, lucasTxtr);
+            Player.Draw(spriteBatch);
 
             if (editorOn)
                 editor.DrawEditor(spriteBatch, crosshair, gridCell, tileSheet, window_backing);
