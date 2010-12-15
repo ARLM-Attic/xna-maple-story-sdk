@@ -27,6 +27,8 @@
 # &joe = r
 # * =
 
-# [repository:/baz/fuz]
+[repository:/baz/fuz]
 # @harry_and_sally = rw
 # * = r
+$anonymous = ''
+$authenticated = rw
