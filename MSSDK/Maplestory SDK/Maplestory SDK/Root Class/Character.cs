@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
+using XmlContent;
 
 namespace Maplestory_SDK.Root_Class
 {
@@ -15,7 +16,8 @@ namespace Maplestory_SDK.Root_Class
 
         string direction = "stand";
         string facing = "left";
-        
+
+        bool DEBUG = false;
 
         int frameCount = 8; // frame count
         int delay; // number frame when texture next positon
@@ -55,7 +57,7 @@ namespace Maplestory_SDK.Root_Class
         // hành động của người chơi
         // action of player
         string Action = "Stand";
-
+        Gadget Gface;
         /// <summary>
         /// hàm khởi tạo 
         /// </summary>
@@ -78,11 +80,15 @@ namespace Maplestory_SDK.Root_Class
             this.Skin = skinname;
             this.Face = facename;
             this.Hair = hairname;
-            // load bounds
+            // load gadget
+            Gface = main.Content.Load<Gadget>("Character\\Face\\" + facename + "\\" + facename);
+            
+            // load body and head
             Bodybounds = new Rectangle(x, y, Pbody.Width, Pbody.Height);
             Armbounds = new Rectangle(x + 16, y + 2, Parm.Width, Parm.Height);
             Headbounds = new Rectangle(x - 5, y - 33, Phead.Width, Phead.Height);
-            Facebounds = new Rectangle(x - 1, y - 17, Pface.Width, Pface.Height);
+            // gadget
+            Facebounds = new Rectangle(x + Gface.action[0].face[0].position[0].x, y + Gface.action[0].face[0].position[0].y, Pface.Width, Pface.Height);
             Hairbounds = new Rectangle(x - 13, y - 41, Pface.Width, Pface.Height);
             // load max image
             this.standmax = standmax;
@@ -94,11 +100,14 @@ namespace Maplestory_SDK.Root_Class
         /// </summary>
         public void UpdateTexture()
         {
+            // update texture
             Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\body_" + texture_position.ToString());
             Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\arm_" + texture_position.ToString());
             Phead = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\Head\\head_front");
             Pface = main.Content.Load<Texture2D>("Character\\Face\\" + Face + "\\default");
             PHair = main.Content.Load<Texture2D>("Character\\Hair\\" + Hair + "\\hairOverHead_default");
+            // update gadget
+            Gface = main.Content.Load<Gadget>("Character\\Face\\" + Face + "\\" + Face);
             // đặt lại kích cỡ
             Bodybounds.Width = Pbody.Width;
             Bodybounds.Height = Pbody.Height;
@@ -225,8 +234,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 5;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 2;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 41;
                         Bodybounds.X += 1;
@@ -237,8 +246,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 6;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 3;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 11;
                         Hairbounds.Y = Bodybounds.Y - 41;
                         Bodybounds.X -= 1;
@@ -249,8 +258,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 5;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 2;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 41;
                         Bodybounds.X -= 1;
@@ -261,8 +270,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 4;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 1;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 9;
                         Hairbounds.Y = Bodybounds.Y - 41;
                         Bodybounds.X += 1;
@@ -276,8 +285,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 10;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 0;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 13;
                         Hairbounds.Y = Bodybounds.Y - 41;
                     }
@@ -287,8 +296,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 10;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 0;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 13;
                         Hairbounds.Y = Bodybounds.Y - 41;
                     }
@@ -298,8 +307,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 10;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 0;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 13;
                         Hairbounds.Y = Bodybounds.Y - 41;
                     }
@@ -309,8 +318,8 @@ namespace Maplestory_SDK.Root_Class
                         Armbounds.Y = Bodybounds.Y + 2;
                         Headbounds.X = Bodybounds.X - 10;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 0;
-                        Facebounds.Y = Bodybounds.Y - 17;
+                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
                         Hairbounds.X = Bodybounds.X - 13;
                         Hairbounds.Y = Bodybounds.Y - 41;
                     }
@@ -324,10 +333,13 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Headbounds.X = Bodybounds.X - 6;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X + 19;
                         Armbounds.Y = Bodybounds.Y + 3;
-                        Facebounds.X = Bodybounds.X - 3;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
@@ -335,10 +347,13 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Headbounds.X = Bodybounds.X - 5;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X + 9;
                         Armbounds.Y = Bodybounds.Y + 4;
-                        Facebounds.X = Bodybounds.X - 2;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
@@ -346,10 +361,13 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Headbounds.X = Bodybounds.X - 5;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X + 19;
                         Armbounds.Y = Bodybounds.Y + 2;
-                        Facebounds.X = Bodybounds.X - 2;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
@@ -357,21 +375,13 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Headbounds.X = Bodybounds.X - 5;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X + 21;
                         Armbounds.Y = Bodybounds.Y + 2;
-                        Facebounds.X = Bodybounds.X - 2;
-                        Facebounds.Y = Bodybounds.Y - 16;
-                        Hairbounds.X = Bodybounds.X - 10;
-                        Hairbounds.Y = Bodybounds.Y - 40;
-                    }
-                    if (texture_position == 4)
-                    {
-                        Headbounds.X = Bodybounds.X - 6;
-                        Headbounds.Y = Bodybounds.Y - 32;
-                        Armbounds.X = Bodybounds.X + 17;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Facebounds.X = Bodybounds.X - 3;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
@@ -380,12 +390,16 @@ namespace Maplestory_SDK.Root_Class
                 {
                     if (texture_position == 0)
                     {
+                        // dont touch if u dont know what are u doing
                         Headbounds.X = Bodybounds.X - 8;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X - 4;
                         Armbounds.Y = Bodybounds.Y + 3;
-                        Facebounds.X = Bodybounds.X + 2;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
@@ -393,10 +407,13 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Headbounds.X = Bodybounds.X - 7;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X + 3;
                         Armbounds.Y = Bodybounds.Y + 4;
-                        Facebounds.X = Bodybounds.X + 3;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 9;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
@@ -404,10 +421,13 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Headbounds.X = Bodybounds.X - 7;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X - 6;
                         Armbounds.Y = Bodybounds.Y + 2;
-                        Facebounds.X = Bodybounds.X + 3;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 9;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
@@ -415,22 +435,14 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Headbounds.X = Bodybounds.X - 6;
                         Headbounds.Y = Bodybounds.Y - 32;
+
                         Armbounds.X = Bodybounds.X - 6;
                         Armbounds.Y = Bodybounds.Y + 2;
-                        Facebounds.X = Bodybounds.X + 4;
-                        Facebounds.Y = Bodybounds.Y - 16;
+
+                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
+                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
+
                         Hairbounds.X = Bodybounds.X - 8;
-                        Hairbounds.Y = Bodybounds.Y - 40;
-                    }
-                    if (texture_position == 4)
-                    {
-                        Headbounds.X = Bodybounds.X - 8;
-                        Headbounds.Y = Bodybounds.Y - 32;
-                        Armbounds.X = Bodybounds.X - 6;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Facebounds.X = Bodybounds.X + 2;
-                        Facebounds.Y = Bodybounds.Y - 16;
-                        Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 40;
                     }
                 }
@@ -443,10 +455,12 @@ namespace Maplestory_SDK.Root_Class
             if (Action == "Stand")
             {
                 delay = 8;
+                if (DEBUG == true) delay = 80;
             }
             else if (Action == "Walk")
             {
                 delay = 4;
+                if (DEBUG == true) delay = 80;
             }
 
             // chuyển động

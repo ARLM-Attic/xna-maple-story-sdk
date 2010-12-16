@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maplestory SDK", "Maplestor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maplestory SDKContent", "Maplestory SDK\Maplestory SDKContent\Maplestory SDKContent.contentproj", "{7AD0CABA-EA0E-4489-BDD7-5EFB63EE2C4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlContent", "XmlContent\XmlContent.csproj", "{C31D86E6-53EF-43CE-8D9B-BF6F2649B49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -17,6 +19,10 @@ Global
 		{045F7E9E-A341-468E-94DD-4704E86CC9AA}.Release|x86.Build.0 = Release|x86
 		{7AD0CABA-EA0E-4489-BDD7-5EFB63EE2C4A}.Debug|x86.ActiveCfg = Debug|x86
 		{7AD0CABA-EA0E-4489-BDD7-5EFB63EE2C4A}.Release|x86.ActiveCfg = Release|x86
+		{C31D86E6-53EF-43CE-8D9B-BF6F2649B49B}.Debug|x86.ActiveCfg = Debug|x86
+		{C31D86E6-53EF-43CE-8D9B-BF6F2649B49B}.Debug|x86.Build.0 = Debug|x86
+		{C31D86E6-53EF-43CE-8D9B-BF6F2649B49B}.Release|x86.ActiveCfg = Release|x86
+		{C31D86E6-53EF-43CE-8D9B-BF6F2649B49B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
