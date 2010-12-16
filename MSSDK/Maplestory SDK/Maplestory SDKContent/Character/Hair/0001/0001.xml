@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hair id=0001>
+	<stand>
+		<face value="left">
+			<position id=0>
+				<x value=-9></x>
+				<y value=-41></y>
+			</position>
+			<position id=1>
+				<x value=-11></x>
+				<y value=-41></y>
+			</position>
+			<position id=2>
+				<x value=-11></x>
+				<y value=-41></y>
+			</position>
+			<position id=3>
+				<x value=-9></x>
+				<y value=-41></y>
+			</position>
+		</face>
+		<face value="right">
+			<position id=0>
+				<x value=-13></x>
+				<y value=-41></y>
+			</position>
+			<position id=1>
+				<x value=-13></x>
+				<y value=-41></y>
+			</position>
+			<position id=2>
+				<x value=-13></x>
+				<y value=-41></y>
+			</position>
+			<position id=3>
+				<x value=-13></x>
+				<y value=-41></y>
+			</position>
+		</face>
+	</stand>
+	<walk>
+		<face value="left">
+			<position id=0>
+				<x value=-10></x>
+				<y value=-40></y>
+			</position>
+			<position id=1>
+				<x value=-10></x>
+				<y value=-40></y>
+			</position>
+			<position id=2>
+				<x value=-10></x>
+				<y value=-40></y>
+			</position>
+			<position id=3>
+				<x value=-10></x>
+				<y value=-40></y>
+			</position>
+			<position id=4>
+				<x value=-10></x>
+				<y value=-40></y>
+			</position>
+		</face>
+		<face value="right">
+			<position id=0>
+				<x value=-10></x>
+				<y value=-40></y>
+			</position>
+			<position id=1>
+				<x value=-9></x>
+				<y value=-40></y>
+			</position>
+			<position id=2>
+				<x value=-9></x>
+				<y value=-40></y>
+			</position>
+			<position id=3>
+				<x value=-8></x>
+				<y value=-40></y>
+			</position>
+			<position id=4>
+				<x value=-10></x>
+				<y value=-40></y>
+			</position>
+		</face>
+	</walk>
+</hair>
