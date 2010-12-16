@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maplestory SDK", "Maplestory SDK\Maplestory SDK\Maplestory SDK.csproj", "{045F7E9E-A341-468E-94DD-4704E86CC9AA}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Maplestory SDKContent", "Maplestory SDK\Maplestory SDKContent\Maplestory SDKContent.contentproj", "{7AD0CABA-EA0E-4489-BDD7-5EFB63EE2C4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maplestory SDKContent", "Maplestory SDK\Maplestory SDKContent\Maplestory SDKContent.contentproj", "{7AD0CABA-EA0E-4489-BDD7-5EFB63EE2C4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

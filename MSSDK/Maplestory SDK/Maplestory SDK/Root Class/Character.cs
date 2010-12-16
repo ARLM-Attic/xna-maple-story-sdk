@@ -223,11 +223,11 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Armbounds.X = Bodybounds.X + 16;
                         Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 4;
+                        Headbounds.X = Bodybounds.X - 5;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 1;
+                        Facebounds.X = Bodybounds.X - 2;
                         Facebounds.Y = Bodybounds.Y - 17;
-                        Hairbounds.X = Bodybounds.X - 9;
+                        Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 41;
                         Bodybounds.X += 1;
                     }
@@ -247,11 +247,11 @@ namespace Maplestory_SDK.Root_Class
                     {
                         Armbounds.X = Bodybounds.X + 16;
                         Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 6;
+                        Headbounds.X = Bodybounds.X - 5;
                         Headbounds.Y = Bodybounds.Y - 33;
-                        Facebounds.X = Bodybounds.X - 3;
+                        Facebounds.X = Bodybounds.X - 2;
                         Facebounds.Y = Bodybounds.Y - 17;
-                        Hairbounds.X = Bodybounds.X - 11;
+                        Hairbounds.X = Bodybounds.X - 10;
                         Hairbounds.Y = Bodybounds.Y - 41;
                         Bodybounds.X -= 1;
                     }
