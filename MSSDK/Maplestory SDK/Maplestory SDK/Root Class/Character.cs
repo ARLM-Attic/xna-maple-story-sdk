@@ -17,7 +17,8 @@ namespace Maplestory_SDK.Root_Class
         string direction = "stand";
         string facing = "left";
 
-        bool DEBUG = false;
+        public bool DEBUG = false;
+        public bool INFO = true;
 
         int frameCount = 8; // frame count
         int delay; // number frame when texture next positon
@@ -27,6 +28,7 @@ namespace Maplestory_SDK.Root_Class
 
         int startY = 0;
         int jumpCount = 0;
+        const int maxjumpcount = 20;
 
         int x = 150;
         int y = 337;
@@ -37,20 +39,20 @@ namespace Maplestory_SDK.Root_Class
         public string Hair;
         // khởi tạo texture chứa hình ảnh nhân vật
         Texture2D Pbody;
-        Rectangle Bodybounds;
+        public Rectangle Bodybounds;
         Texture2D Parm;
-        Rectangle Armbounds;
+        public Rectangle Armbounds;
         Texture2D Phead;
-        Rectangle Headbounds;
+        public Rectangle Headbounds;
         Texture2D Pface;
-        Rectangle Facebounds;
+        public Rectangle Facebounds;
         Texture2D PHair;
-        Rectangle Hairbounds;
+        public Rectangle Hairbounds;
         // chứa tổng số ảnh mà cần cho di chuyển
-        int standmax;
-        int walkmax;
+        public int standmax;
+        public int walkmax;
         // vị trí ảnh
-        int texture_position = 0;
+        public int texture_position = 0;
         // biến main dùng để gọi content
         // main variable use for call content
         Run main;
@@ -58,8 +60,18 @@ namespace Maplestory_SDK.Root_Class
         // action of player
         string Action = "Stand";
         // create gadget
+        Gadget Ghead;
+        Gadget Garm;
         Gadget Gface;
         Gadget Ghair;
+        // check equipment
+        bool haveArmor = false;
+        bool haveWeapon = false;
+        bool haveAcc = false;
+        bool havePant = false;
+        bool haveshoe = false;
+        bool haveglove = false;
+
         /// <summary>
         /// hàm khởi tạo 
         /// </summary>
@@ -83,6 +95,8 @@ namespace Maplestory_SDK.Root_Class
             this.Face = facename;
             this.Hair = hairname;
             // load gadget
+            Ghead = main.Content.Load<Gadget>("Character\\Skin\\" + skinname + "\\Head\\head");
+            Garm = main.Content.Load<Gadget>("Character\\Skin\\" + skinname + "\\arm");
             Gface = main.Content.Load<Gadget>("Character\\Face\\" + facename + "\\" + facename);
             Ghair = main.Content.Load<Gadget>("Character\\Hair\\" + hairname + "\\" + hairname);
             // load body and head
@@ -97,6 +111,7 @@ namespace Maplestory_SDK.Root_Class
             this.walkmax = walkmax;
         }
 
+
         /// <summary>
         /// update dữ liệu
         /// </summary>
@@ -109,6 +124,8 @@ namespace Maplestory_SDK.Root_Class
             Pface = main.Content.Load<Texture2D>("Character\\Face\\" + Face + "\\default");
             PHair = main.Content.Load<Texture2D>("Character\\Hair\\" + Hair + "\\hairOverHead_default");
             // update gadget
+            Ghead = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Head\\head");
+            Garm = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\arm");
             Gface = main.Content.Load<Gadget>("Character\\Face\\" + Face + "\\" + Face);
             Ghair = main.Content.Load<Gadget>("Character\\Hair\\" + Hair + "\\" + Hair);
             // đặt lại kích cỡ
@@ -130,10 +147,15 @@ namespace Maplestory_SDK.Root_Class
         public void Draw(SpriteBatch spriteBatch)
         {
             // debug
-            spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Frame : " + texture_position.ToString(), new Vector2(15f, 15f), Color.Black);
-            spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Body X : " + Bodybounds.X.ToString() + " - Body Y : " + Bodybounds.Y.ToString(), new Vector2(15f, 25f), Color.Black);
-            spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Arm X : " + Armbounds.X.ToString() + " - Arm Y : " + Armbounds.Y.ToString(), new Vector2(15f, 35f), Color.Black);
-            spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Head X : " + Headbounds.X.ToString() + " - Head Y : " + Headbounds.Y.ToString(), new Vector2(15f, 45f), Color.Black);
+            if (INFO == true)
+            {
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Frame : " + texture_position.ToString() + "    Jump Count : " + jumpCount, new Vector2(15f, 5f), Color.Black);
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Body X : " + Bodybounds.X.ToString() + " - Body Y : " + Bodybounds.Y.ToString(), new Vector2(15f, 25f), Color.Black);
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Arm  X : " + Armbounds.X.ToString() + " - Arm  Y : " + Armbounds.Y.ToString(), new Vector2(15f, 35f), Color.Black);
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Head X : " + Headbounds.X.ToString() + " - Head Y : " + Headbounds.Y.ToString(), new Vector2(15f, 45f), Color.Black);
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Face X : " + Facebounds.X.ToString() + " - Face Y : " + Facebounds.Y.ToString(), new Vector2(15f, 65f), Color.Black);
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Hair X : " + Hairbounds.X.ToString() + " - Hair Y : " + Hairbounds.Y.ToString(), new Vector2(15f, 75f), Color.Black);
+            }
             spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 1, 2 to choose skin", new Vector2(15f, 400f), Color.Black);
             spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 3, 4, 5, 6 to choose eye", new Vector2(15f, 415f), Color.Black);
             spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 7, 8, 9, 0 to choose hair", new Vector2(15f, 430f), Color.Black);
@@ -195,8 +217,8 @@ namespace Maplestory_SDK.Root_Class
                 // wait for code
                 if (keyState.IsKeyDown(Keys.Up))
                 {
-                    direction = "stand";
-                    Action = "Stand";
+                    direction = "up";
+                    Action = "Jump";
                 }
                 // dont use
                 // khi nhả nút di chuyển
@@ -215,267 +237,75 @@ namespace Maplestory_SDK.Root_Class
                     speed = 0;
                 }
             } // end if (direction != "up")
+            else // jumping
+            {
+                if (keyState.IsKeyDown(Keys.Right))
+                {
+                    if (speed < maxspeed)
+                        speed += .2f;
+                    facing = "right";
+                }
+                if (keyState.IsKeyDown(Keys.Left))
+                {
+                    if (speed > -maxspeed)
+                        speed -= .2f;
+                    facing = "left";
+                }
+            }
         }
 
         /// <summary>
         ///  dựa theo file XML trong Character.wz
         ///  fix as xml file in character.wz
-        ///  
-        ///  tôi sẽ chuyển nó sang file xml sau
-        ///  i'll change it to xml file soon
         /// </summary>
-        /// <param name="TexturePos"></param>
+        /// <param name="TexturePos">frame position</param>
         public void FixPosition(int TexturePos)
         {
-            if (Action == "Stand")
-            {
-                if (facing == "left")
-                {
-                    // Action :
-                    // 0 - Stand
-                    // 1 - Walk
-                    // will add more soon
-                    // Face : 
-                    // 0 - left
-                    // 1 - right
-                    if (texture_position == 0)
-                    {
-                        Armbounds.X = Bodybounds.X + 16;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 5;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[0].position[texture_position].y;
-                        Bodybounds.X += 1;
-                    }
-                    if (texture_position == 1)
-                    {
-                        Armbounds.X = Bodybounds.X + 16;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 6;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[0].position[texture_position].y;
-                        Bodybounds.X -= 1;
-                    }
-                    if (texture_position == 2)
-                    {
-                        Armbounds.X = Bodybounds.X + 16;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 5;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[0].position[texture_position].y;
-                        Bodybounds.X -= 1;
-                    }
-                    if (texture_position == 3)
-                    {
-                        Armbounds.X = Bodybounds.X + 16;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 4;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[0].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[0].position[texture_position].y;
-                        Bodybounds.X += 1;
-                    }
-                }
-                else if (facing == "right")
-                {
-                    if (texture_position == 0)
-                    {
-                        Armbounds.X = Bodybounds.X - 4;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 10;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[1].position[texture_position].y;
-                    }
-                    if (texture_position == 1)
-                    {
-                        Armbounds.X = Bodybounds.X - 5;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 10;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[1].position[texture_position].y;
-                    }
-                    if (texture_position == 2)
-                    {
-                        Armbounds.X = Bodybounds.X - 4;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 10;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[1].position[texture_position].y;
-                    }
-                    if (texture_position == 3)
-                    {
-                        Armbounds.X = Bodybounds.X - 4;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        Headbounds.X = Bodybounds.X - 10;
-                        Headbounds.Y = Bodybounds.Y - 33;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[0].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[0].face[1].position[texture_position].y;
-                        Hairbounds.X = Bodybounds.X + Ghair.action[0].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[0].face[1].position[texture_position].y;
-                    }
-                }
-            } // end if (Action == "Stand")
-            else if (Action == "Walk")
-            {
-                if (direction == "left")
-                {
-                    if (texture_position == 0)
-                    {
-                        Headbounds.X = Bodybounds.X - 6;
-                        Headbounds.Y = Bodybounds.Y - 32;
+            // Action :
+            // 0 - Stand
+            // 1 - Walk
+            // will add more soon
+            // Face : 
+            // 0 - left
+            // 1 - right
 
-                        Armbounds.X = Bodybounds.X + 19;
-                        Armbounds.Y = Bodybounds.Y + 3;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
+            int f = 0;
+            int a = 0;
+            // get action
+            if (Action == "Stand") a = 0;
+            if (Action == "Walk") a = 1;
+            if (Action == "Jump") a = 1;
+            // get face
+            if (facing == "left") f = 0;
+            if (facing == "right") f = 1;
 
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[0].position[texture_position].y;
-                    }
-                    if (texture_position == 1)
-                    {
-                        Headbounds.X = Bodybounds.X - 5;
-                        Headbounds.Y = Bodybounds.Y - 32;
-
-                        Armbounds.X = Bodybounds.X + 9;
-                        Armbounds.Y = Bodybounds.Y + 4;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
-
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[0].position[texture_position].y;
-                    }
-                    if (texture_position == 2)
-                    {
-                        Headbounds.X = Bodybounds.X - 5;
-                        Headbounds.Y = Bodybounds.Y - 32;
-
-                        Armbounds.X = Bodybounds.X + 19;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
-
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[0].position[texture_position].y;
-                    }
-                    if (texture_position == 3)
-                    {
-                        Headbounds.X = Bodybounds.X - 5;
-                        Headbounds.Y = Bodybounds.Y - 32;
-
-                        Armbounds.X = Bodybounds.X + 21;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[0].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[0].position[texture_position].y;
-
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[0].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[0].position[texture_position].y;
-                    }
-                }
-                else if (direction == "right")
-                {
-                    if (texture_position == 0)
-                    {
-                        // dont touch if u dont know what are u doing
-                        Headbounds.X = Bodybounds.X - 8;
-                        Headbounds.Y = Bodybounds.Y - 32;
-
-                        Armbounds.X = Bodybounds.X - 4;
-                        Armbounds.Y = Bodybounds.Y + 3;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
-
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[1].position[texture_position].y;
-                    }
-                    if (texture_position == 1)
-                    {
-                        Headbounds.X = Bodybounds.X - 7;
-                        Headbounds.Y = Bodybounds.Y - 32;
-
-                        Armbounds.X = Bodybounds.X + 3;
-                        Armbounds.Y = Bodybounds.Y + 4;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
-
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[1].position[texture_position].y;
-                    }
-                    if (texture_position == 2)
-                    {
-                        Headbounds.X = Bodybounds.X - 7;
-                        Headbounds.Y = Bodybounds.Y - 32;
-
-                        Armbounds.X = Bodybounds.X - 6;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
-
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[1].position[texture_position].y;
-                    }
-                    if (texture_position == 3)
-                    {
-                        Headbounds.X = Bodybounds.X - 6;
-                        Headbounds.Y = Bodybounds.Y - 32;
-
-                        Armbounds.X = Bodybounds.X - 6;
-                        Armbounds.Y = Bodybounds.Y + 2;
-                        // gadget
-                        Facebounds.X = Bodybounds.X + Gface.action[1].face[1].position[texture_position].x;
-                        Facebounds.Y = Bodybounds.Y + Gface.action[1].face[1].position[texture_position].y;
-
-                        Hairbounds.X = Bodybounds.X + Ghair.action[1].face[1].position[texture_position].x;
-                        Hairbounds.Y = Bodybounds.Y + Ghair.action[1].face[1].position[texture_position].y;
-                    }
-                }
-            } // end if (Action == "Walk")
+            Armbounds.X = Bodybounds.X + Garm.action[a].face[f].position[texture_position].x;
+            Armbounds.Y = Bodybounds.Y + Garm.action[a].face[f].position[texture_position].y;
+            Headbounds.X = Bodybounds.X + Ghead.action[a].face[f].position[texture_position].x;
+            Headbounds.Y = Bodybounds.Y + Ghead.action[a].face[f].position[texture_position].y;
+            // gadget
+            Facebounds.X = Bodybounds.X + Gface.action[a].face[f].position[texture_position].x;
+            Facebounds.Y = Bodybounds.Y + Gface.action[a].face[f].position[texture_position].y;
+            Hairbounds.X = Bodybounds.X + Ghair.action[a].face[f].position[texture_position].x;
+            Hairbounds.Y = Bodybounds.Y + Ghair.action[a].face[f].position[texture_position].y;
+            
                 
         }
 
         public void Move()
         {
+            
             if (Action == "Stand")
             {
                 delay = 8;
                 if (DEBUG == true) delay = 80;
             }
             else if (Action == "Walk")
+            {
+                delay = 4;
+                if (DEBUG == true) delay = 80;
+            }
+            else if (Action == "Jump")
             {
                 delay = 4;
                 if (DEBUG == true) delay = 80;
@@ -487,7 +317,7 @@ namespace Maplestory_SDK.Root_Class
                 switch (direction)
                 {
                     case "stand":
-
+                        speed = 0;
                         // di chuyển ảnh
                         //Bodybounds.X += (int)speed;
                         // nếu vị trí ảnh lớn hơn số lượng ảnh
@@ -495,6 +325,23 @@ namespace Maplestory_SDK.Root_Class
                             texture_position = 0; // đặt vị trí về 0
 
                         FixPosition(texture_position);
+
+                        // fix body for stand left
+                        if (facing == "left")
+                        {
+                            switch (texture_position)
+                            {
+                                case 0: Bodybounds.X += 1;
+                                    break;
+                                case 1: Bodybounds.X -= 1;
+                                    break;
+                                case 2: Bodybounds.X -= 1;
+                                    break;
+                                case 3: Bodybounds.X += 1;
+                                    break;
+                            }
+                        }
+
                         // update lại hình ảnh
                         UpdateTexture();
                         break;
@@ -509,6 +356,7 @@ namespace Maplestory_SDK.Root_Class
                             texture_position = 0; // đặt vị trí về 0
 
                         FixPosition(texture_position);
+
                         UpdateTexture();
                         break;
                     case "right":
@@ -519,6 +367,38 @@ namespace Maplestory_SDK.Root_Class
                         Bodybounds.X += (int)speed;
 
                         if (texture_position >= walkmax)
+                            texture_position = 0; // đặt vị trí về 0
+
+                        FixPosition(texture_position);
+                        UpdateTexture();
+                        break;
+                    case "up":
+                        // set start Y if jump start
+                        if (jumpCount == 0)
+                            startY = Bodybounds.Y;
+
+                        //Sets function for determining jump y-position
+                        float jump_positionY = (jumpCount - 10) * (jumpCount - 10) - 100 + startY;
+                        //Sets terminal velocity
+                        float max_velocityY = 2 * (maxjumpcount - 10); //derivative of jump_positionY where 20 is max jumpCount value
+                        float max_positionY = startY + max_velocityY * (jumpCount - maxjumpcount);
+                        // if jump complete
+                        if (jumpCount >= maxjumpcount)
+                        {
+                            // set action is stand
+                            jump_positionY = max_positionY;
+                            jumpCount = 0;
+                            Action = "Stand";
+                            direction = "stand";
+                            Bodybounds.Y = startY;
+                        }
+                        // set body bounds
+                        Bodybounds = new Rectangle(Bodybounds.X + (int)speed,
+                            (int)jump_positionY, 40, 48);
+                        jumpCount++;
+
+                        // set texture
+                        if (texture_position > 0)
                             texture_position = 0; // đặt vị trí về 0
 
                         FixPosition(texture_position);

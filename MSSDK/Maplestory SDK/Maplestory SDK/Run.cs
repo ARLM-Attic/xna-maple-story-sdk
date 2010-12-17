@@ -21,22 +21,7 @@ namespace Maplestory_SDK
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        const int size = 32;
-
-        Texture2D gridCell;
-        Texture2D tileSheet;
-        Texture2D crosshair;
-        Texture2D window_backing;
-
         Character Player;
-
-        Editor editor;
-        Map tileMap;
-
-        // enable editor mode
-        bool editorOn = false;
-        // cursor location
-        Vector2 cursorLoc = new Vector2(0, 0);
 
         public Run()
         {
@@ -67,15 +52,10 @@ namespace Maplestory_SDK
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            // initialize player   main  skin    face   hair  framestand  framewalk
+            // frame's default value is : 4 for all skin in maple story
+            // frame stand is 3, but i have been inserted 1 frame to improve smoothing
             Player = new Character(this,"Skin1","0004","0001", 4, 4);
-
-            gridCell = this.Content.Load<Texture2D>("gridcell");
-            tileSheet = this.Content.Load<Texture2D>("tileSheet");
-            crosshair = this.Content.Load<Texture2D>("crosshair");
-            window_backing = this.Content.Load<Texture2D>("color_backing");
-
-            editor = new Editor(GraphicsDevice); //Initializes editor
-            tileMap = new Map(GraphicsDevice);   //Initializes map
         }
 
         /// <summary>
@@ -103,15 +83,14 @@ namespace Maplestory_SDK
             Player.KeyInput();
             Player.Move();
 
-            KeyboardState keyState = Keyboard.GetState(); //The below code changes the game to/from editor mode
-            if (keyState.IsKeyDown(Keys.PageUp))
-                editorOn = true;
-            else if (keyState.IsKeyDown(Keys.PageDown))
-                editorOn = false;
-            else if (keyState.IsKeyDown(Keys.D1))
+            KeyboardState keyState = Keyboard.GetState(); 
+            // option
+            // choose skin and gadget
+            if (keyState.IsKeyDown(Keys.D1))
                 Player.Skin = "Skin1";
             else if (keyState.IsKeyDown(Keys.D2))
                 Player.Skin = "Skin2";
+                // face
             else if (keyState.IsKeyDown(Keys.D3))
                 Player.Face = "0001";
             else if (keyState.IsKeyDown(Keys.D4))
@@ -120,6 +99,7 @@ namespace Maplestory_SDK
                 Player.Face = "0003";
             else if (keyState.IsKeyDown(Keys.D6))
                 Player.Face = "0004";
+                // hair
             else if (keyState.IsKeyDown(Keys.D7))
                 Player.Hair = "0001";
             else if (keyState.IsKeyDown(Keys.D8))
@@ -128,18 +108,17 @@ namespace Maplestory_SDK
                 Player.Hair = "0003";
             else if (keyState.IsKeyDown(Keys.D0))
                 Player.Hair = "0004";
-
-            MouseState mouseState = Mouse.GetState();
-            Vector2 cursorLoc = new Vector2((mouseState.X / size) * size - 2, (mouseState.Y / size) * size - 2);
-            if (editorOn) //Performs editor code based on current condition of the mouse
+            // debug : haft-press
+            // - slow 
+            else if (keyState.IsKeyDown(Keys.PageUp))
             {
-                if (mouseState.LeftButton == ButtonState.Pressed)
-                    editor.Click(cursorLoc, tileMap, tileSheet);
-                else
-                    editor.Release();
-
-                if (mouseState.RightButton == ButtonState.Pressed)
-                    editor.Erase(cursorLoc, tileMap);
+                if (Player.DEBUG == false) Player.DEBUG = true;
+                else Player.DEBUG = false;
+            } // show/hide infomation of body and gadget
+            else if (keyState.IsKeyDown(Keys.PageDown)) // haft-press
+            {
+                if (Player.INFO == false) Player.INFO = true;
+                else Player.INFO = false;
             }
 
             base.Update(gameTime);
@@ -151,17 +130,14 @@ namespace Maplestory_SDK
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.AliceBlue);
+            GraphicsDevice.Clear(Color.ForestGreen);
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            tileMap.DrawMap(spriteBatch, tileSheet);
+            //tileMap.DrawMap(spriteBatch, tileSheet);
 
             Player.Draw(spriteBatch);
-
-            if (editorOn)
-                editor.DrawEditor(spriteBatch, crosshair, gridCell, tileSheet, window_backing);
 
             spriteBatch.End();
 
