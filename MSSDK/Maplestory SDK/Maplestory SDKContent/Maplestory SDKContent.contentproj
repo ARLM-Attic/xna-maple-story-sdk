@@ -526,20 +526,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\Face\0001\0001.xml">
-      <Name>0001</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Face\0002\0002.xml">
-      <Name>0002</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Character\Face\0003\0003.xml">
       <Name>0003</Name>
       <Importer>XmlImporter</Importer>
@@ -549,27 +535,6 @@
   <ItemGroup>
     <Compile Include="Character\Hair\0001\0001.xml">
       <Name>0001</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Hair\0002\0002.xml">
-      <Name>0002</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Hair\0003\0003.xml">
-      <Name>0003</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Hair\0004\0004.xml">
-      <Name>0004</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -609,6 +574,53 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
     <Compile Include="Character\Skin\Skin1\Jump\body_0.png">
+      <Name>body_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Hair\0002\0002.xml">
+      <Name>0002</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Hair\0003\0003.xml">
+      <Name>0003</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Hair\0004\0004.xml">
+      <Name>0004</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Face\0002\0002.xml">
+      <Name>0002</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Face\0001\0001.xml">
+      <Name>0001</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Skin\Skin2\Jump\arm_0.png">
+      <Name>arm_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Character\Skin\Skin2\Jump\body_0.png">
       <Name>body_0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>

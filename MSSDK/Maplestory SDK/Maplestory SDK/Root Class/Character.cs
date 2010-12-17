@@ -270,24 +270,24 @@ namespace Maplestory_SDK.Root_Class
             // 1 - right
 
             int f = 0;
-            int a = 0;
+            int ab = 0;
             // get action
-            if (Action == "Stand") a = 0;
-            if (Action == "Walk") a = 1;
-            if (Action == "Jump") a = 1;
+            if (Action == "Stand") ab = 0;
+            if (Action == "Walk") ab = 1; 
+            if (Action == "Jump") ab = 2; 
             // get face
             if (facing == "left") f = 0;
             if (facing == "right") f = 1;
 
-            Armbounds.X = Bodybounds.X + Garm.action[a].face[f].position[texture_position].x;
-            Armbounds.Y = Bodybounds.Y + Garm.action[a].face[f].position[texture_position].y;
-            Headbounds.X = Bodybounds.X + Ghead.action[a].face[f].position[texture_position].x;
-            Headbounds.Y = Bodybounds.Y + Ghead.action[a].face[f].position[texture_position].y;
+            Armbounds.X = Bodybounds.X + Garm.action[ab].face[f].position[texture_position].x;
+            Armbounds.Y = Bodybounds.Y + Garm.action[ab].face[f].position[texture_position].y;
+            Headbounds.X = Bodybounds.X + Ghead.action[ab].face[f].position[texture_position].x;
+            Headbounds.Y = Bodybounds.Y + Ghead.action[ab].face[f].position[texture_position].y;
             // gadget
-            Facebounds.X = Bodybounds.X + Gface.action[a].face[f].position[texture_position].x;
-            Facebounds.Y = Bodybounds.Y + Gface.action[a].face[f].position[texture_position].y;
-            Hairbounds.X = Bodybounds.X + Ghair.action[a].face[f].position[texture_position].x;
-            Hairbounds.Y = Bodybounds.Y + Ghair.action[a].face[f].position[texture_position].y;
+            Facebounds.X = Bodybounds.X + Gface.action[ab].face[f].position[texture_position].x;
+            Facebounds.Y = Bodybounds.Y + Gface.action[ab].face[f].position[texture_position].y;
+            Hairbounds.X = Bodybounds.X + Ghair.action[ab].face[f].position[texture_position].x;
+            Hairbounds.Y = Bodybounds.Y + Ghair.action[ab].face[f].position[texture_position].y;
             
                 
         }
@@ -307,7 +307,7 @@ namespace Maplestory_SDK.Root_Class
             }
             else if (Action == "Jump")
             {
-                delay = 4;
+                delay = 3;
                 if (DEBUG == true) delay = 80;
             }
 
