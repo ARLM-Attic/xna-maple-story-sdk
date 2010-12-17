@@ -1,5 +1,10 @@
-This is a Subversion repository; use the 'svnadmin' tool to examine
-it.  Do not add, delete, or modify files here unless you know how
-to avoid corrupting the repository.
+Project use :
+- Visual C# 2010
+- XNA 4.0
+- Dotnet 4.0
 
-Visit http://subversion.tigris.org/ for more information.
+Complie :
+1, open  Maplestory SDK in MSSDK folder
+2, Choose Debug > Build Solution
+
+u can add more resource to use;
