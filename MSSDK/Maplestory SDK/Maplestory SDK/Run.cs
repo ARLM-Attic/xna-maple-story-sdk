@@ -88,8 +88,6 @@ namespace Maplestory_SDK
             // choose skin and gadget
             if (keyState.IsKeyDown(Keys.D1))
                 Player.Skin = "Skin1";
-            else if (keyState.IsKeyDown(Keys.D2))
-                Player.Skin = "Skin2";
                 // face
             else if (keyState.IsKeyDown(Keys.D3))
                 Player.Face = "0001";

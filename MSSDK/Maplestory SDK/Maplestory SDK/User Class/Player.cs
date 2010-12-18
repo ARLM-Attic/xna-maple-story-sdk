@@ -11,22 +11,8 @@ using Maplestory_SDK.Root_Class;
 
 namespace Maplestory_SDK.User_Class
 {
-    class Player 
+    class Player
     {
-
-        /// <summary>
-        /// Đường dẫn file xml chứa thông tin nhân vật
-        /// </summary>
-        string XmlLocation;
-        /// <summary>
-        /// Body
-        /// </summary>
-        int[] Body; // thân
-        int[] LHand; // tay trái
-        int[] RHand; // tay phải
-        int[] Head; // đầu
-        int[] Face; // mặt
-        int[] Hair; // tóc
         /// <summary>
         /// Equipment
         /// </summary>
@@ -73,40 +59,5 @@ namespace Maplestory_SDK.User_Class
         public int crit;
         public int droprate;
         public int exprate;
-        /// <summary>
-        /// khởi tạo
-        /// </summary>
-        /// <param name="path">lấy đường dẫn file xml chứa info</param>
-        public Player(string path)
-        {
-            this.XmlLocation = path;
-        }
-
-        public Player(string path, int hp, int maxhp, int mp, int maxmp,
-                        int chari, int maxchari, int crit, int droprate,
-                        int mgatk, int mgdef, int mgatkspeed, int pysatk,
-                        int pysdef, int pysatkspeed, int str, int agi, int luk, int itel)
-        {
-            this.XmlLocation = path;
-        }
-
-        /// <summary>
-        /// đặt giá trị vị trí cho phần thân
-        /// </summary>
-        /// <param name="x">vị trí x</param>
-        /// <param name="y">vị trí y</param>
-        /// <param name="idpic">Id của ảnh hiển thị cho nhân vật</param>
-        public void Body_Pos(int x, int y, int idpic)
-        {
-            Body = new int[] { x, y, idpic };
-        }
-        /// <summary>
-        /// lấy giá trị vị trí cho phần thân
-        /// </summary>
-        /// <returns></returns>
-        public int[] Body_Pos()
-        {
-            return Body;
-        }
     }
 }

@@ -64,13 +64,22 @@ namespace Maplestory_SDK.Root_Class
         Gadget Garm;
         Gadget Gface;
         Gadget Ghair;
+        // equipment gadget
+        Gadget Garmor;
+        Gadget Gweapon;
+        Gadget Gacc;
+        Gadget Gpant;
+        Gadget Gshoe;
+        Gadget Gglove;
+        Gadget Gcape;
         // check equipment
         bool haveArmor = false;
         bool haveWeapon = false;
         bool haveAcc = false;
         bool havePant = false;
-        bool haveshoe = false;
-        bool haveglove = false;
+        bool haveShoe = false;
+        bool haveGlove = false;
+        bool haveCape = false;
 
         /// <summary>
         /// hàm khởi tạo 
@@ -149,14 +158,13 @@ namespace Maplestory_SDK.Root_Class
             // debug
             if (INFO == true)
             {
-                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Frame : " + texture_position.ToString() + "    Jump Count : " + jumpCount, new Vector2(15f, 5f), Color.Black);
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Frame : " + texture_position.ToString() + "   Jump Count : " + jumpCount, new Vector2(15f, 5f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Body X : " + Bodybounds.X.ToString() + " - Body Y : " + Bodybounds.Y.ToString(), new Vector2(15f, 25f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Arm  X : " + Armbounds.X.ToString() + " - Arm  Y : " + Armbounds.Y.ToString(), new Vector2(15f, 35f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Head X : " + Headbounds.X.ToString() + " - Head Y : " + Headbounds.Y.ToString(), new Vector2(15f, 45f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Face X : " + Facebounds.X.ToString() + " - Face Y : " + Facebounds.Y.ToString(), new Vector2(15f, 65f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Hair X : " + Hairbounds.X.ToString() + " - Hair Y : " + Hairbounds.Y.ToString(), new Vector2(15f, 75f), Color.Black);
             }
-            spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 1, 2 to choose skin", new Vector2(15f, 400f), Color.Black);
             spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 3, 4, 5, 6 to choose eye", new Vector2(15f, 415f), Color.Black);
             spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 7, 8, 9, 0 to choose hair", new Vector2(15f, 430f), Color.Black);
             if (facing == "right")
@@ -261,33 +269,51 @@ namespace Maplestory_SDK.Root_Class
         /// <param name="TexturePos">frame position</param>
         public void FixPosition(int TexturePos)
         {
-            // Action :
-            // 0 - Stand
-            // 1 - Walk
-            // will add more soon
-            // Face : 
-            // 0 - left
-            // 1 - right
-
             int f = 0;
             int ab = 0;
             // get action
             if (Action == "Stand") ab = 0;
             if (Action == "Walk") ab = 1; 
-            if (Action == "Jump") ab = 2; 
+            if (Action == "Jump") ab = 2;
+            if (Action == "Attack") ab = 3;
+            if (Action == "Ladder") ab = 4;
+            if (Action == "Rope") ab = 5;
+            if (Action == "Dead") ab = 6; 
             // get face
             if (facing == "left") f = 0;
             if (facing == "right") f = 1;
-
+            // set body position
             Armbounds.X = Bodybounds.X + Garm.action[ab].face[f].position[texture_position].x;
             Armbounds.Y = Bodybounds.Y + Garm.action[ab].face[f].position[texture_position].y;
             Headbounds.X = Bodybounds.X + Ghead.action[ab].face[f].position[texture_position].x;
             Headbounds.Y = Bodybounds.Y + Ghead.action[ab].face[f].position[texture_position].y;
-            // gadget
+            // gadget position
             Facebounds.X = Bodybounds.X + Gface.action[ab].face[f].position[texture_position].x;
             Facebounds.Y = Bodybounds.Y + Gface.action[ab].face[f].position[texture_position].y;
             Hairbounds.X = Bodybounds.X + Ghair.action[ab].face[f].position[texture_position].x;
             Hairbounds.Y = Bodybounds.Y + Ghair.action[ab].face[f].position[texture_position].y;
+            // check equipment get position
+            if (haveArmor)
+            {
+            }
+            if (haveWeapon)
+            {
+            }
+            if (haveAcc)
+            {
+            }
+            if (havePant)
+            {
+            }
+            if (haveGlove)
+            {
+            }
+            if (haveShoe)
+            {
+            }
+            if (haveCape)
+            {
+            }
             
                 
         }
@@ -318,8 +344,6 @@ namespace Maplestory_SDK.Root_Class
                 {
                     case "stand":
                         speed = 0;
-                        // di chuyển ảnh
-                        //Bodybounds.X += (int)speed;
                         // nếu vị trí ảnh lớn hơn số lượng ảnh
                         if (texture_position >= standmax)
                             texture_position = 0; // đặt vị trí về 0
@@ -398,7 +422,7 @@ namespace Maplestory_SDK.Root_Class
                         jumpCount++;
 
                         // set texture
-                        if (texture_position > 0)
+                        if (texture_position > 0) // by default, jump have only 1 frame lolz
                             texture_position = 0; // đặt vị trí về 0
 
                         FixPosition(texture_position);
@@ -411,176 +435,8 @@ namespace Maplestory_SDK.Root_Class
             frameCount++; // xác định độ trễ khi chạy ảnh
         }
 
+
         /*
-        public void KeyInput()
-        {
-            KeyboardState keyState = Keyboard.GetState();
-            // move or stand
-            if (direction != "up")
-            {
-                if (keyState.IsKeyDown(Keys.Right))
-                {
-                    direction = "right";
-                    facing = "right";
-                }
-                if (keyState.IsKeyDown(Keys.Left))
-                {
-                    direction = "left";
-                    facing = "left";
-                }
-                if (keyState.IsKeyDown(Keys.Up))
-                {
-                    direction = "up";
-                }
-                if (keyState.IsKeyUp(Keys.Right) && direction == "right")
-                {
-                    direction = "stand";
-                    facing = "right";
-                }
-                if (keyState.IsKeyUp(Keys.Left) && direction == "left")
-                {
-                    direction = "stand";
-                    facing = "left";
-                }
-            }
-            else // jumping
-            {
-                if (keyState.IsKeyDown(Keys.Right))
-                {
-                    if (speed < maxspeed)
-                        speed += .2f;
-                    facing = "right";
-                }
-                if (keyState.IsKeyDown(Keys.Left))
-                {
-                    if (speed > -maxspeed)
-                        speed -= .2f;
-                    facing = "left";
-                }
-            }
-        }
-
-        bool debug = false;
-        public void Move()
-        {
-            if (direction != "up" && !CheckCollision(bounds) && debug)
-            {
-                //fall
-                startY = bounds.Y + 99;
-                direction = "up";
-                jumpCount = 11;
-            }
-
-            if (frameCount % delay == 0)
-            {
-                switch (direction)
-                {
-                    case "stand":
-                        Equalize(2);
-                        bounds.X += (int)speed;
-                        if (frameCount / delay >= 4)
-                            frameCount = 0;
-                        srcBounds = new Rectangle(frameCount / delay * 40, 0, 40, 48);
-                        break;
-                    case "left":
-                        if (speed > -maxspeed)
-                            speed -= 1;
-                        bounds.X += (int)speed;
-                        if (frameCount / delay >= 8)
-                            frameCount = 0;
-                        srcBounds = new Rectangle(frameCount / delay * 40, 48, 40, 48);
-                        break;
-                    case "right":
-                        if (speed < maxspeed)
-                            speed += 1;
-                        bounds.X += (int)speed;
-                        if (frameCount / delay >= 8)
-                            frameCount = 0;
-                        srcBounds = new Rectangle(frameCount / delay * 40, 48, 40, 48);
-                        break;
-                    case "up":
-                        debug = true;
-                        if (speed > -4 && speed < 4)
-                            srcBounds.Y = 96;
-                        else
-                            srcBounds.Y = 48;
-                        if (srcBounds.Y == 0 || srcBounds.Y == 96)
-                        {
-                            if (jumpCount < 2)
-                            {
-                                if (frameCount / delay >= 9)
-                                    frameCount = 0;
-                            }
-                            else if (jumpCount > 2 && jumpCount <= 10)
-                            {
-                                if (frameCount / delay > 3)
-                                    frameCount = 2 * delay;
-                            }
-                            else if (jumpCount > 10 && jumpCount <= 18)
-                            {
-                                if (frameCount / delay > 5)
-                                    frameCount = 4 * delay;
-                            }
-                            else if (jumpCount > 18 && CheckCollision(new Rectangle(bounds.X, bounds.Y + Map.size, bounds.Width, bounds.Height)))
-                            {
-                                if (frameCount / delay >= 9)
-                                    frameCount = 0;
-                            }
-                            else if (jumpCount > 18) //if he's falling a long time, don't loop the animation where he hits the ground
-                                frameCount = 4 * delay;
-
-                            srcBounds = new Rectangle(frameCount / delay * 40, 96, 40, 48);
-                        }
-                        else if (srcBounds.Y == 48)
-                        {
-                            if (frameCount / delay >= 8)
-                                frameCount = 0;
-                            if (jumpCount <= 10)
-                                srcBounds = new Rectangle((frameCount / delay) / 2 * 40, 48, 40, 48);
-                            else
-                                srcBounds = new Rectangle(frameCount / delay * 40, 48, 40, 48);
-                        }
-                        if (jumpCount == 0)
-                            startY = bounds.Y;
-
-                        //Sets function for determining jump y-position
-                        float jump_positionY = (jumpCount - 10) * (jumpCount - 10) - 100 + startY;
-                        //Sets terminal velocity
-                        float max_velocityY = 2 * (20 - 10); //derivative of jump_positionY where 20 is max jumpCount value
-                        float max_positionY = startY + max_velocityY * (jumpCount - 20);
-
-                        if (jumpCount >= 20)
-                            jump_positionY = max_positionY;
-
-                        bounds = new Rectangle(bounds.X + (int)speed,
-                            (int)jump_positionY, 40, 48);
-                        jumpCount++;
-                        break;
-                }
-            }
-
-            //Check collision
-            if (jumpCount >= 10 && CheckCollision(bounds))
-            {
-                //Stop
-                direction = "stand";
-                jumpCount = 0;
-            }
-
-            frameCount++;
-        }
-
-        public int[] GetPos()
-        {
-            return new int[] { bounds.X, bounds.Y };
-        }
-        public void SetPos(int x, int y)
-        {
-            bounds.X = x;
-            bounds.Y = y;
-        }
-
-
         //Checks collision
         private bool CheckCollision(Rectangle bounds)
         {
@@ -613,27 +469,6 @@ namespace Maplestory_SDK.Root_Class
                 return false;
             }
         }
-
-        private void Equalize(int i)
-        {
-            for (int k = 0; k < i; k++)
-            {
-                if (speed < 0f)
-                    speed += 1;
-                else if (speed > 0f)
-                    speed -= 1;
-            }
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Texture2D texture)
-        {
-            if (facing == "right")
-                spriteBatch.Draw(texture, bounds, srcBounds, Color.White);
-            else
-                spriteBatch.Draw(texture, bounds, srcBounds, Color.White,
-                    0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-        }
-
         */
     }
 }
