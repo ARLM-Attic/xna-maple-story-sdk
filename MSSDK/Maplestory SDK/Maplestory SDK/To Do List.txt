@@ -1,0 +1,16 @@
+﻿Root Class :
+1, Create Class Player :
+---- Using class character to create a actor
+---- Need : 
+--------- Listing atribute : OK!
+--------- Initialize
+--------- Create Method
+--------- Complete Character Gadget ( without weapon )
+2, Create Item Table 
+3, Create Player Invetori
+4, Create Weapons Class
+5, Create Enemy Class
+Editor Class :
+1, Create Gadget XML Export Class ( to export xml for gadget suck as armor, hair, face ,...)
+2, Create Map Editor : ( with XML export and import : *.map use encode by Byte[])
+---- Event Creater 

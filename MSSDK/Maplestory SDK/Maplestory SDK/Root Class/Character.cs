@@ -37,6 +37,14 @@ namespace Maplestory_SDK.Root_Class
         public string Skin;
         public string Face;
         public string Hair;
+        // equipment name
+        public string Weapon;
+        public string Armor;
+        public string Pant;
+        public string Acc;
+        public string Shoe;
+        public string Glove;
+        public string Cape;
         // khởi tạo texture chứa hình ảnh nhân vật
         Texture2D Pbody;
         public Rectangle Bodybounds;
@@ -73,12 +81,12 @@ namespace Maplestory_SDK.Root_Class
         Gadget Gglove;
         Gadget Gcape;
         // check equipment
-        bool haveArmor = false;
-        bool haveWeapon = false;
-        bool haveAcc = false;
-        bool havePant = false;
-        bool haveShoe = false;
-        bool haveGlove = false;
+        public bool haveArmor = false;
+        public bool haveWeapon = false;
+        public bool haveAcc = false;
+        public bool havePant = false;
+        public bool haveShoe = false;
+        public bool haveGlove = false;
         bool haveCape = false;
 
         /// <summary>
@@ -317,7 +325,9 @@ namespace Maplestory_SDK.Root_Class
             
                 
         }
-
+        /// <summary>
+        /// When player move
+        /// </summary>
         public void Move()
         {
             

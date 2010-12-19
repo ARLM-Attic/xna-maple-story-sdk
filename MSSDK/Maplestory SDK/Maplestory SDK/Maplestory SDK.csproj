@@ -121,6 +121,7 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="To Do List.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\XmlContent\XmlContent.csproj">

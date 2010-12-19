@@ -7,5 +7,8 @@ namespace Maplestory_SDK.Root_Class
 {
     class Weapon
     {
+        public Weapon()
+        {
+        }
     }
 }

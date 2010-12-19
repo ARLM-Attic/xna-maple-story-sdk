@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Action.cs" />
+    <Compile Include="EGadget.cs" />
     <Compile Include="Gadget.cs" />
     <Compile Include="Face.cs" />
     <Compile Include="Position.cs" />
