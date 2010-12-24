@@ -57,8 +57,8 @@ namespace Maplestory_SDK.Root_Class
         Texture2D PHair;
         public Rectangle Hairbounds;
         // chứa tổng số ảnh mà cần cho di chuyển
-        public int standmax;
-        public int walkmax;
+        public int standmax = 4;
+        public int walkmax = 4;
         // vị trí ảnh
         public int texture_position = 0;
         // biến main dùng để gọi content
@@ -98,7 +98,7 @@ namespace Maplestory_SDK.Root_Class
         /// <param name="hairname">tên thư mục chứa Tóc của nhân vật</param>
         /// <param name="standmax">số ảnh khi đứng</param>
         /// <param name="walkmax">số ảnh khi đi</param>
-        public Character( Run main,string skinname,string facename,string hairname, int standmax, int walkmax)
+        public Character( Run main,string skinname,string facename,string hairname)
         {
             // load texture
             Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + skinname + "\\" + Action + "\\body_" + texture_position.ToString());
@@ -123,9 +123,6 @@ namespace Maplestory_SDK.Root_Class
             // gadget
             Facebounds = new Rectangle(x + Gface.action[0].face[0].position[0].x, y + Gface.action[0].face[0].position[0].y, Pface.Width, Pface.Height);
             Hairbounds = new Rectangle(x - 13, y - 41, Pface.Width, Pface.Height);
-            // load max image
-            this.standmax = standmax;
-            this.walkmax = walkmax;
         }
 
 

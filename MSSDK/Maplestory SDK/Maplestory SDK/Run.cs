@@ -21,7 +21,7 @@ namespace Maplestory_SDK
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Character Player;
+        Player Actor;
 
         public Run()
         {
@@ -55,7 +55,9 @@ namespace Maplestory_SDK
             // initialize player   main  skin    face   hair  framestand  framewalk
             // frame's default value is : 4 for all skin in maple story
             // frame stand is 3, but i have been inserted 1 frame to improve smoothing
-            Player = new Character(this,"Skin1","0004","0001", 4, 4);
+
+            //Player = new Character(this,"Skin1","0004","0001");
+            Actor = new Player(this, "Skin1", "0004", "0001", new int[] {1,1 });
         }
 
         /// <summary>
@@ -80,44 +82,9 @@ namespace Maplestory_SDK
 
             // TODO: Add your update logic here
 
-            Player.KeyInput();
-            Player.Move();
+            Actor.Update();
 
             KeyboardState keyState = Keyboard.GetState(); 
-            // option
-            // choose skin and gadget
-            if (keyState.IsKeyDown(Keys.D1))
-                Player.Skin = "Skin1";
-                // face
-            else if (keyState.IsKeyDown(Keys.D3))
-                Player.Face = "0001";
-            else if (keyState.IsKeyDown(Keys.D4))
-                Player.Face = "0002";
-            else if (keyState.IsKeyDown(Keys.D5))
-                Player.Face = "0003";
-            else if (keyState.IsKeyDown(Keys.D6))
-                Player.Face = "0004";
-                // hair
-            else if (keyState.IsKeyDown(Keys.D7))
-                Player.Hair = "0001";
-            else if (keyState.IsKeyDown(Keys.D8))
-                Player.Hair = "0002";
-            else if (keyState.IsKeyDown(Keys.D9))
-                Player.Hair = "0003";
-            else if (keyState.IsKeyDown(Keys.D0))
-                Player.Hair = "0004";
-            // debug : haft-press
-            // - slow 
-            else if (keyState.IsKeyDown(Keys.PageUp))
-            {
-                if (Player.DEBUG == false) Player.DEBUG = true;
-                else Player.DEBUG = false;
-            } // show/hide infomation of body and gadget
-            else if (keyState.IsKeyDown(Keys.PageDown)) // haft-press
-            {
-                if (Player.INFO == false) Player.INFO = true;
-                else Player.INFO = false;
-            }
 
             base.Update(gameTime);
         }
@@ -135,7 +102,8 @@ namespace Maplestory_SDK
 
             //tileMap.DrawMap(spriteBatch, tileSheet);
 
-            Player.Draw(spriteBatch);
+            //Player.Draw(spriteBatch);
+            Actor.Draw(spriteBatch);
 
             spriteBatch.End();
 

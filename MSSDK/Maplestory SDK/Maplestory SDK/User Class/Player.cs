@@ -16,14 +16,14 @@ namespace Maplestory_SDK.User_Class
         /// <summary>
         /// Equipment
         /// </summary>
-        int[] Weapon; //  vũ khí
-        int[] Shield; // lá chắn
-        int[] Pant; // quần
-        int[] Shoes; // giày
-        int[] Coat; // áo
-        int[] Grover; // găng tay
-        int[] Hat; // mũ
-        int[] Cape; // áo choàng
+        string Weapon; //  vũ khí
+        string Shield; // lá chắn
+        string Pant; // quần
+        string Shoes; // giày
+        string Coat; // áo
+        string Grover; // găng tay
+        string Hat; // mũ
+        string Cape; // áo choàng
         /// <summary>
         /// thuộc tính của nhân vật
         ////////////////////////////
@@ -59,5 +59,25 @@ namespace Maplestory_SDK.User_Class
         public int crit;
         public int droprate;
         public int exprate;
+
+        public Character player;
+        Run main;
+
+        public Player(Run Main, string skin,string face, string hair,int[] Stat)
+        {
+            player = new Character(Main, skin, face, hair);
+            main = Main;
+        }
+
+        public void Update()
+        {
+            player.KeyInput();
+            player.Move();
+        }
+
+        public void Draw(SpriteBatch spritebatch)
+        {
+            player.Draw(spritebatch);
+        }
     }
 }
