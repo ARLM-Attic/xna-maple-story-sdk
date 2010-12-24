@@ -1,7 +1,7 @@
 ﻿Root Class :
-1, Create Class Player :
----- Using class character to create a actor
----- Need : 
+1, Create Class Player :                                             Save System
+---- Using class character to create a actor						 Must complete same time as Player
+---- Need :															 Use for decode Player infomation and save as a file
 --------- Listing atribute : OK!
 --------- Initialize
 --------- Create Method
