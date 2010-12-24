@@ -57,7 +57,7 @@ namespace Maplestory_SDK
             // frame stand is 3, but i have been inserted 1 frame to improve smoothing
 
             //Player = new Character(this,"Skin1","0004","0001");
-            Actor = new Player(this, "Skin1", "0004", "0001", new int[] {1,1 });
+            Actor = new Player(this, "Skin1", "0004", "0001", new int[] {1,1 },"Actor");
         }
 
         /// <summary>

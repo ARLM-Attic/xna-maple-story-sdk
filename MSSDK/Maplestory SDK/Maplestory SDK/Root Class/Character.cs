@@ -199,6 +199,14 @@ namespace Maplestory_SDK.Root_Class
             Bodybounds.Y = y;
         }
 
+        public int get_X()
+        {
+            return Bodybounds.X;
+        }
+        public int get_Y()
+        {
+            return Bodybounds.Y;
+        }
         /// <summary>
         /// update khi nhập từ bàn phím
         /// </summary>

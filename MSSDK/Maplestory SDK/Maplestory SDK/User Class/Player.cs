@@ -63,21 +63,29 @@ namespace Maplestory_SDK.User_Class
         public Character player;
         Run main;
 
-        public Player(Run Main, string skin,string face, string hair,int[] Stat)
+        public Player(Run Main, string skin,string face, string hair,int[] Stat,string name)
         {
             player = new Character(Main, skin, face, hair);
             main = Main;
+            this.name = name;
         }
 
+        /// <summary>
+        /// use for update movement and other
+        /// </summary>
         public void Update()
         {
             player.KeyInput();
             player.Move();
         }
 
+        /// <summary>
+        /// use for update Texture
+        /// </summary>
         public void Draw(SpriteBatch spritebatch)
         {
             player.Draw(spritebatch);
+            spritebatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), name, new Vector2(player.get_X() - 5, player.get_Y() + 30), Color.Black);
         }
     }
 }
