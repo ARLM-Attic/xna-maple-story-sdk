@@ -16,25 +16,31 @@ namespace Maplestory_SDK.User_Class
         /// <summary>
         /// Equipment
         /// </summary>
-        string Weapon; //  vũ khí
-        string Shield; // lá chắn
-        string Pant; // quần
-        string Shoes; // giày
-        string Coat; // áo
-        string Grover; // găng tay
-        string Hat; // mũ
-        string Cape; // áo choàng
+        public string Weapon; //  vũ khí
+        public string Shield; // lá chắn
+        public string Pant; // quần
+        public string Shoe; // giày
+        public string Armor; // áo
+        public string Glove; // găng tay
+        public string Hat; // mũ
+        public string Cape; // áo choàng
+        public string Acc; // áo choàng
+        public string Skin; // áo choàng
+        public string Face; // áo choàng
+        public string Hair; // áo choàng
         /// <summary>
         /// thuộc tính của nhân vật
         ////////////////////////////
         public string name;
+        public string titlename;
+        int[] stat;
         /// <summary>
         /// thuộc tính cơ bản
         /// </summary>
         public int str;
         public int agi;
         public int luk;
-        public int itel;
+        public int mag;
         /// <summary>
         /// thuộc tính nâng cao
         /// </summary>
@@ -63,11 +69,56 @@ namespace Maplestory_SDK.User_Class
         public Character player;
         Run main;
 
-        public Player(Run Main, string skin,string face, string hair,int[] Stat,string name)
+        /// <summary>
+        /// Create Player
+        /// </summary>
+        /// <param name="Main">main</param>
+        /// <param name="skin">skin of player</param>
+        /// <param name="face">face of player</param>
+        /// <param name="hair">hair of player</param>
+        /// <param name="Stat">list of stat</param>
+        /// <param name="name">name of player</param>
+        public Player(Run Main, string skin,string face, string hair,int[] Stat,string name,string title)
         {
+            Skin = skin;
+            Face = face;
+            Hair = hair;
             player = new Character(Main, skin, face, hair);
             main = Main;
+            titlename = title;
             this.name = name;
+            //stat
+            if (Stat.Length == 19) stat = Stat;
+            AddStat();
+        }
+
+        /// <summary>
+        /// Add stat
+        /// </summary>
+        private void AddStat()
+        {
+            if (stat != null)
+            {
+                str = stat[0];
+                agi = stat[1];
+                luk = stat[2];
+                mag = stat[3];
+                mgatk = stat[4];
+                mgdef = stat[5];
+                mgatkspeed = stat[6];
+                pysatk = stat[7];
+                pysdef = stat[8];
+                pysatkspeed = stat[9];
+                hp = stat[10];
+                maxhp = stat[11];
+                mp = stat[12];
+                maxmp = stat[13];
+                chari = stat[14];
+                maxchari = stat[15];
+                crit = stat[16];
+                droprate = stat[17];
+                exprate = stat[18];
+            }
         }
 
         /// <summary>
@@ -75,8 +126,23 @@ namespace Maplestory_SDK.User_Class
         /// </summary>
         public void Update()
         {
+            // movement
             player.KeyInput();
             player.Move();
+            // equipment
+            player.Weapon = Weapon;
+            player.Shield = Shield;
+            player.Armor = Armor;
+            player.Pant = Pant;
+            player.Shoe = Shoe;
+            player.Hat = Hat;
+            player.Acc = Acc;
+            player.Glove = Glove;
+            player.Cape = Cape;
+            // body gadget
+            player.Skin = Skin;
+            player.Face = Face;
+            player.Hair = Hair;
         }
 
         /// <summary>

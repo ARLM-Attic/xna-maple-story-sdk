@@ -39,12 +39,14 @@ namespace Maplestory_SDK.Root_Class
         public string Hair;
         // equipment name
         public string Weapon;
+        public string Shield;
         public string Armor;
         public string Pant;
         public string Acc;
         public string Shoe;
         public string Glove;
         public string Cape;
+        public string Hat;
         // khởi tạo texture chứa hình ảnh nhân vật
         Texture2D Pbody;
         public Rectangle Bodybounds;
@@ -80,14 +82,6 @@ namespace Maplestory_SDK.Root_Class
         Gadget Gshoe;
         Gadget Gglove;
         Gadget Gcape;
-        // check equipment
-        public bool haveArmor = false;
-        public bool haveWeapon = false;
-        public bool haveAcc = false;
-        public bool havePant = false;
-        public bool haveShoe = false;
-        public bool haveGlove = false;
-        bool haveCape = false;
 
         /// <summary>
         /// hàm khởi tạo 
@@ -153,6 +147,35 @@ namespace Maplestory_SDK.Root_Class
             Facebounds.Height = Pface.Height;
             Hairbounds.Width = PHair.Width;
             Hairbounds.Height = PHair.Height;
+
+            // check equipment 
+            if (Weapon != "")
+            {
+            }
+            if (Shield != "")
+            {
+            }
+            if (Armor != "")
+            {
+            }
+            if (Pant != "")
+            {
+            }
+            if (Shoe != "")
+            {
+            }
+            if (Glove != "")
+            {
+            }
+            if (Cape != "")
+            {
+            }
+            if (Acc != "")
+            {
+            }
+            if (Shoe != "")
+            {
+            }
         }
         /// <summary>
         /// hiển thị nhân vật lên màn hình
@@ -181,6 +204,34 @@ namespace Maplestory_SDK.Root_Class
                 spriteBatch.Draw(Pface, Facebounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 spriteBatch.Draw(PHair, Hairbounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 // draw hair
+                // check equipment get position
+                if (Weapon != "")
+                {
+                }
+                if (Shield != "")
+                {
+                }
+                if (Armor != "")
+                {
+                }
+                if (Pant != "")
+                {
+                }
+                if (Shoe != "")
+                {
+                }
+                if (Glove != "")
+                {
+                }
+                if (Cape != "")
+                {
+                }
+                if (Acc != "")
+                {
+                }
+                if (Shoe != "")
+                {
+                }
             }
             else // left
             {
@@ -190,6 +241,34 @@ namespace Maplestory_SDK.Root_Class
                 spriteBatch.Draw(Phead, Headbounds, Color.White);
                 spriteBatch.Draw(Pface, Facebounds, Color.White);
                 spriteBatch.Draw(PHair, Hairbounds, Color.White);
+                // check equipment get position
+                if (Weapon != "")
+                {
+                }
+                if (Shield != "")
+                {
+                }
+                if (Armor != "")
+                {
+                }
+                if (Pant != "")
+                {
+                }
+                if (Shoe != "")
+                {
+                }
+                if (Glove != "")
+                {
+                }
+                if (Cape != "")
+                {
+                }
+                if (Acc != "")
+                {
+                }
+                if (Shoe != "")
+                {
+                }
             }
         }
 
@@ -306,28 +385,33 @@ namespace Maplestory_SDK.Root_Class
             Hairbounds.X = Bodybounds.X + Ghair.action[ab].face[f].position[texture_position].x;
             Hairbounds.Y = Bodybounds.Y + Ghair.action[ab].face[f].position[texture_position].y;
             // check equipment get position
-            if (haveArmor)
+            if (Weapon != "")
             {
             }
-            if (haveWeapon)
+            if (Shield != "")
             {
             }
-            if (haveAcc)
+            if (Armor != "")
             {
             }
-            if (havePant)
+            if (Pant != "")
             {
             }
-            if (haveGlove)
+            if (Shoe != "")
             {
             }
-            if (haveShoe)
+            if (Glove != "")
             {
             }
-            if (haveCape)
+            if (Cape != "")
             {
             }
-            
+            if (Acc != "")
+            {
+            }
+            if (Shoe != "")
+            {
+            }
                 
         }
         /// <summary>
