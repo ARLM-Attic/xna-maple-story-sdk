@@ -873,6 +873,38 @@
     <Folder Include="Items\Armor\0001\Stand\" />
     <Folder Include="Items\Armor\0001\Walk\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_arm_1.xml">
+      <Name>data_arm_1</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_head_1.xml">
+      <SubType>Designer</SubType>
+      <Name>data_head_1</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_face_1.xml">
+      <SubType>Designer</SubType>
+      <Name>data_face_1</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_hair_1.xml">
+      <SubType>Designer</SubType>
+      <Name>data_hair_1</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

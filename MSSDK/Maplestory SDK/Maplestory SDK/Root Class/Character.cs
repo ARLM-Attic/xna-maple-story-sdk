@@ -11,6 +11,7 @@ using XmlContent;
 namespace Maplestory_SDK.Root_Class
 {
 
+    [System.Runtime.InteropServices.GuidAttribute("E144AE01-BEC5-4E5C-9384-D7D38BFBC291")]
     class Character
     {
 
@@ -150,25 +151,32 @@ namespace Maplestory_SDK.Root_Class
         public void UpdateTexture() // BMK update texture
         {
             // check if action = attack
-            if (Action == "Attack")
+            if (Action == "Attack") // maybe only attack action have diffirent
             {
                 Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\" + WeaponType + "\\" + AttackType + "\\body_" + texture_position.ToString());
                 Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\" + WeaponType + "\\" + AttackType + "\\arm_" + texture_position.ToString());
+
+                Garm = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_arm_" + AttackType );
+                Ghead = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_head_" + AttackType);
+                Gface = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_face_" + AttackType);
+                Ghair = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_hair_" + AttackType);
             }
-            else
+            else // reset
             { // for move or stand or jumb ... 
                 Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\body_" + texture_position.ToString());
                 Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\arm_" + texture_position.ToString());
+                
+                Garm = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\arm");
+                Ghead = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Head\\head");
+                Gface = main.Content.Load<Gadget>("Character\\Face\\" + Face + "\\" + Face);
+                Ghair = main.Content.Load<Gadget>("Character\\Hair\\" + Hair + "\\" + Hair);
             }
             // update texture
             Phead = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\Head\\head_front");
             Pface = main.Content.Load<Texture2D>("Character\\Face\\" + Face + "\\default");
             PHair = main.Content.Load<Texture2D>("Character\\Hair\\" + Hair + "\\hairOverHead_default");
             // update gadget
-            Ghead = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Head\\head");
-            Garm = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\arm");
-            Gface = main.Content.Load<Gadget>("Character\\Face\\" + Face + "\\" + Face);
-            Ghair = main.Content.Load<Gadget>("Character\\Hair\\" + Hair + "\\" + Hair);
+            
             // đặt lại kích cỡ
             Bodybounds.Width = Pbody.Width;
             Bodybounds.Height = Pbody.Height;
@@ -226,6 +234,8 @@ namespace Maplestory_SDK.Root_Class
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Head X : " + Headbounds.X.ToString() + " - Head Y : " + Headbounds.Y.ToString(), new Vector2(15f, 45f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Face X : " + Facebounds.X.ToString() + " - Face Y : " + Facebounds.Y.ToString(), new Vector2(15f, 65f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Hair X : " + Hairbounds.X.ToString() + " - Hair Y : " + Hairbounds.Y.ToString(), new Vector2(15f, 75f), Color.Black);
+
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Action : " + Action + "  -  Weapon Type : " + WeaponType + "  -  Attack Type : " + AttackType, new Vector2(15f, 95f), Color.Black);
             }
             if (facing == "right")
             {
@@ -325,6 +335,7 @@ namespace Maplestory_SDK.Root_Class
         /// </summary>
         public void KeyInput()
         {
+            
             // trạng thái keyboard
             KeyboardState keyState = Keyboard.GetState();
             if (direction != "up")
@@ -370,6 +381,15 @@ namespace Maplestory_SDK.Root_Class
                     Action = "Stand";
                     speed = 0;
                 }
+
+                // Attack
+                if (keyState.IsKeyDown(Keys.Z))
+                {
+                    texture_position = 0;
+                    Action = "Attack";
+                    direction = "Nothing";
+                }
+
             } // end if (direction != "up")
             else // jumping
             {
@@ -387,12 +407,7 @@ namespace Maplestory_SDK.Root_Class
                 }
             }
 
-            // Attack
-            if (keyState.IsKeyDown(Keys.Z))
-            {
-                Action = "Attack";
-                direction = "Nothing";
-            }
+            
         }
 
         /// <summary>
@@ -585,8 +600,11 @@ namespace Maplestory_SDK.Root_Class
                             Action = "Stand";
                             direction = "stand";
                         }
-
+                        // first update for config infomation of charater
+                        UpdateTexture();
+                        // fix gadget position
                         FixPosition(texture_position);
+                        // reupdate infomation
                         UpdateTexture();
 
                         break;
