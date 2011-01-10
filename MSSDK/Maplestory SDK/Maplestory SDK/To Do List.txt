@@ -3,8 +3,8 @@
 ---- Using class character to create a actor						 Must complete same time as Player
 ---- Need :															 Use for decode Player infomation and save as a file
 --------- Listing atribute : OK!
---------- Initialize
---------- Create Method
+--------- Initialize : OK!
+--------- Create Method : 30%
 --------- Complete Character Gadget ( without weapon )
 2, Create Item Table 
 3, Create Player Invetori

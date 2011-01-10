@@ -56,8 +56,8 @@ namespace Maplestory_SDK
             // frame's default value is : 4 for all skin in maple story
             // frame stand is 3, but i have been inserted 1 frame to improve smoothing
 
-            //Player = new Character(this,"Skin1","0004","0001");
-            Actor = new Player(this, "Skin1", "0004", "0001", new int[] {1,1 },"Actor","Beginner");
+            //                 main   Skin     Face    Hair        Stat           Name          Title
+            Actor = new Player(this, "Skin1", "0004", "0001", new int[] {1,1},"Actor Name","Actor Title");
         }
 
         /// <summary>

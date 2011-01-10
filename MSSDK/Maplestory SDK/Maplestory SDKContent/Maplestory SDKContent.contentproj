@@ -870,7 +870,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Enemy\" />
-    <Folder Include="Items\" />
+    <Folder Include="Items\Armor\0001\Stand\" />
+    <Folder Include="Items\Armor\0001\Walk\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

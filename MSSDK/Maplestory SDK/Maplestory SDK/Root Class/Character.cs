@@ -32,12 +32,15 @@ namespace Maplestory_SDK.Root_Class
 
         int x = 150;
         int y = 337;
+        int attackcount;
 
         // biến chứa ID
         public string Skin;
         public string Face;
         public string Hair;
         // equipment name
+        public string AttackType;
+        public string WeaponType;
         public string Weapon;
         public string Shield;
         public string Armor;
@@ -58,6 +61,25 @@ namespace Maplestory_SDK.Root_Class
         public Rectangle Facebounds;
         Texture2D PHair;
         public Rectangle Hairbounds;
+        // equipment
+        Texture2D PWeapon;
+        public Rectangle Weaponbounds;
+        Texture2D PShield;
+        public Rectangle Shieldbounds;
+        Texture2D PArmor;
+        public Rectangle Armorbounds;
+        Texture2D PPant;
+        public Rectangle Pantbounds;
+        Texture2D PAcc;
+        public Rectangle Accbounds;
+        Texture2D PShoe;
+        public Rectangle Shoebounds;
+        Texture2D PGlove;
+        public Rectangle Glovebounds;
+        Texture2D PCape;
+        public Rectangle Capebounds;
+        Texture2D PHat;
+        public Rectangle Hatbounds;
         // chứa tổng số ảnh mà cần cho di chuyển
         public int standmax = 4;
         public int walkmax = 4;
@@ -76,12 +98,14 @@ namespace Maplestory_SDK.Root_Class
         Gadget Ghair;
         // equipment gadget
         Gadget Garmor;
+        Gadget Gshield;
         Gadget Gweapon;
         Gadget Gacc;
         Gadget Gpant;
         Gadget Gshoe;
         Gadget Gglove;
         Gadget Gcape;
+        Gadget Ghat;
 
         /// <summary>
         /// hàm khởi tạo 
@@ -123,11 +147,20 @@ namespace Maplestory_SDK.Root_Class
         /// <summary>
         /// update dữ liệu
         /// </summary>
-        public void UpdateTexture()
+        public void UpdateTexture() // BMK update texture
         {
+            // check if action = attack
+            if (Action == "Attack")
+            {
+                Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\" + WeaponType + "\\" + AttackType + "\\body_" + texture_position.ToString());
+                Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\" + WeaponType + "\\" + AttackType + "\\arm_" + texture_position.ToString());
+            }
+            else
+            { // for move or stand or jumb ... 
+                Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\body_" + texture_position.ToString());
+                Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\arm_" + texture_position.ToString());
+            }
             // update texture
-            Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\body_" + texture_position.ToString());
-            Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\arm_" + texture_position.ToString());
             Phead = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\Head\\head_front");
             Pface = main.Content.Load<Texture2D>("Character\\Face\\" + Face + "\\default");
             PHair = main.Content.Load<Texture2D>("Character\\Hair\\" + Hair + "\\hairOverHead_default");
@@ -151,6 +184,7 @@ namespace Maplestory_SDK.Root_Class
             // check equipment 
             if (Weapon != "")
             {
+
             }
             if (Shield != "")
             {
@@ -193,8 +227,6 @@ namespace Maplestory_SDK.Root_Class
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Face X : " + Facebounds.X.ToString() + " - Face Y : " + Facebounds.Y.ToString(), new Vector2(15f, 65f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Hair X : " + Hairbounds.X.ToString() + " - Hair Y : " + Hairbounds.Y.ToString(), new Vector2(15f, 75f), Color.Black);
             }
-            spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 3, 4, 5, 6 to choose eye", new Vector2(15f, 415f), Color.Black);
-            spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Select 7, 8, 9, 0 to choose hair", new Vector2(15f, 430f), Color.Black);
             if (facing == "right")
             {
                 spriteBatch.Draw(Pbody, Bodybounds, null, Color.White, 0f,new Vector2(0,0),SpriteEffects.FlipHorizontally,0f);
@@ -286,6 +318,8 @@ namespace Maplestory_SDK.Root_Class
         {
             return Bodybounds.Y;
         }
+
+
         /// <summary>
         /// update khi nhập từ bàn phím
         /// </summary>
@@ -315,7 +349,7 @@ namespace Maplestory_SDK.Root_Class
                 }
                 // move to other map 
                 // wait for code
-                if (keyState.IsKeyDown(Keys.Up))
+                if (keyState.IsKeyDown(Keys.X))
                 {
                     direction = "up";
                     Action = "Jump";
@@ -352,6 +386,13 @@ namespace Maplestory_SDK.Root_Class
                     facing = "left";
                 }
             }
+
+            // Attack
+            if (keyState.IsKeyDown(Keys.Z))
+            {
+                Action = "Attack";
+                direction = "Nothing";
+            }
         }
 
         /// <summary>
@@ -367,10 +408,9 @@ namespace Maplestory_SDK.Root_Class
             if (Action == "Stand") ab = 0;
             if (Action == "Walk") ab = 1; 
             if (Action == "Jump") ab = 2;
-            if (Action == "Attack") ab = 3;
-            if (Action == "Ladder") ab = 4;
-            if (Action == "Rope") ab = 5;
-            if (Action == "Dead") ab = 6; 
+            if (Action == "Attack") ab = 0;
+            if (Action == "Rope") ab = 0;
+            if (Action == "Ladder") ab = 0; 
             // get face
             if (facing == "left") f = 0;
             if (facing == "right") f = 1;
@@ -384,6 +424,7 @@ namespace Maplestory_SDK.Root_Class
             Facebounds.Y = Bodybounds.Y + Gface.action[ab].face[f].position[texture_position].y;
             Hairbounds.X = Bodybounds.X + Ghair.action[ab].face[f].position[texture_position].x;
             Hairbounds.Y = Bodybounds.Y + Ghair.action[ab].face[f].position[texture_position].y;
+
             // check equipment get position
             if (Weapon != "")
             {
@@ -433,6 +474,12 @@ namespace Maplestory_SDK.Root_Class
             else if (Action == "Jump")
             {
                 delay = 3;
+                if (DEBUG == true) delay = 80;
+            }
+            else if (Action == "Attack")
+            {
+                delay = 3;
+                if (WeaponType == "Hand") delay = 4;       
                 if (DEBUG == true) delay = 80;
             }
 
@@ -526,6 +573,22 @@ namespace Maplestory_SDK.Root_Class
 
                         FixPosition(texture_position);
                         UpdateTexture();
+                        break;
+                }
+                // check if actor do something like attack, or anything lol
+                switch (Action)
+                {
+                    case "Attack" :
+                        // nếu vị trí ảnh lớn hơn số lượng ảnh
+                        if (texture_position >= 2)
+                        {
+                            Action = "Stand";
+                            direction = "stand";
+                        }
+
+                        FixPosition(texture_position);
+                        UpdateTexture();
+
                         break;
                 }
 
