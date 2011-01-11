@@ -11,7 +11,7 @@ namespace Maplestory_SDK.Root_Class
         string direction = "stand";
         string facing = "left";
 
-        public bool DEBUG = false;
+        public bool DEBUG = true;
         public bool INFO = true;
 
         int frameCount = 8; // frame count
@@ -375,6 +375,8 @@ namespace Maplestory_SDK.Root_Class
                 {
                     if (AttackTimeCount >= MaxAttackTimeCount) // check if have fully rest time, character will attack =)) lol
                     {
+                        System.Random rand = new System.Random();
+                        AttackType = (rand.Next(3) + 1).ToString();
                         AttackTimeCount = 0;
                         texture_position = 0;
                         Action = "Attack";
@@ -389,6 +391,8 @@ namespace Maplestory_SDK.Root_Class
                 {
                     if (AttackTimeCount >= MaxAttackTimeCount)
                     {
+                        System.Random rand = new System.Random();
+                        AttackType = (rand.Next(3) + 1).ToString();
                         AttackTimeCount = 0;
                         texture_position = 0;
                         Action = "Attack";
@@ -501,22 +505,64 @@ namespace Maplestory_SDK.Root_Class
             if (frameCount % delay == 0)
             {
                 // check if actor do something like attack, or anything lol
-                switch (Action)
+                switch (Action) // BMK check action
                 {
                     case "Attack":
-                        //if attack animation is complete
-                        if (texture_position >= 2)
+                        switch (WeaponType) // check weapon type
                         {
-                            if (direction == "up") // check if jumping
-                            {
-                                texture_position = 0;
-                                Action = "Jump"; // return jump action
-                            }
-                            else
-                            {
-                                Action = "Stand";
-                                direction = "stand";
-                            }
+                            case "Hand":
+                                switch (AttackType) // check attack type
+                                {
+                                    case "1":
+                                        //if attack animation is complete
+                                        if (texture_position >= 2)
+                                        {
+                                            if (direction == "up") // check if jumping
+                                            {
+                                                texture_position = 0;
+                                                Action = "Jump"; // return jump action
+                                            }
+                                            else
+                                            {
+                                                Action = "Stand";
+                                                direction = "stand";
+                                            }
+                                        }
+                                        break;
+                                    case "2":
+                                        //if attack animation is complete
+                                        if (texture_position >= 2)
+                                        {
+                                            if (direction == "up") // check if jumping
+                                            {
+                                                texture_position = 0;
+                                                Action = "Jump"; // return jump action
+                                            }
+                                            else
+                                            {
+                                                Action = "Stand";
+                                                direction = "stand";
+                                            }
+                                        }
+                                        break;
+                                    case "3":
+                                        //if attack animation is complete
+                                        if (texture_position >= 3)
+                                        {
+                                            if (direction == "up") // check if jumping
+                                            {
+                                                texture_position = 0;
+                                                Action = "Jump"; // return jump action
+                                            }
+                                            else
+                                            {
+                                                Action = "Stand";
+                                                direction = "stand";
+                                            }
+                                        }
+                                        break;
+                                }
+                                break;
                         }
                         // first update for config infomation of charater
                         UpdateTexture();

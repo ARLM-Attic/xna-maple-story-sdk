@@ -77,6 +77,10 @@ namespace Maplestory_SDK
             Actor.Update();
 
             KeyboardState keyState = Keyboard.GetState();
+            if (keyState.IsKeyUp(Keys.Home))
+                Actor.player.DEBUG = true;
+            if (keyState.IsKeyUp(Keys.End))
+                Actor.player.DEBUG = false;
 
             base.Update(gameTime);
         }

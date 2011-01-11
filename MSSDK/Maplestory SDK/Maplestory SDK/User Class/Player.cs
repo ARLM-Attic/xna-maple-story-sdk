@@ -9,8 +9,6 @@ namespace Maplestory_SDK.User_Class
         /// <summary>
         /// Equipment
         /// </summary>
-
-        public string AttackType = "1"; // any weapon have 3 type of attack, and it will change automatic :D
         // i think it maybe same in maplestory.
         // hope some one tweak code in here :)) lol
         public string WeaponType = "Hand"; // default = hand
@@ -85,7 +83,6 @@ namespace Maplestory_SDK.User_Class
             // create new character
             player = new Character(Main, skin, face, hair);
             player.WeaponType = WeaponType;
-            player.AttackType = AttackType;
             main = Main;
             // set character atribute
             titlename = title;
@@ -148,7 +145,6 @@ namespace Maplestory_SDK.User_Class
             player.Hair = Hair;
             // other
             player.WeaponType = WeaponType;
-            player.AttackType = AttackType;
             // check attack time count
             player.CheckAttacktimecount();
         }
