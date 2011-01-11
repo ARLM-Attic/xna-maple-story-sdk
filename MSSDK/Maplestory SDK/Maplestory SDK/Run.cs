@@ -1,15 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Maplestory_SDK.User_Class;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using Maplestory_SDK.User_Class;
-using Maplestory_SDK.Root_Class;
 
 namespace Maplestory_SDK
 {
@@ -57,7 +49,7 @@ namespace Maplestory_SDK
             // frame stand is 3, but i have been inserted 1 frame to improve smoothing
 
             //                 main   Skin     Face    Hair        Stat           Name          Title
-            Actor = new Player(this, "Skin1", "0004", "0001", new int[] {1,1},"Actor Name","Actor Title");
+            Actor = new Player(this, "Skin1", "0004", "0001", new int[] { 1, 1 }, "Actor Name", "Actor Title");
         }
 
         /// <summary>
@@ -84,7 +76,7 @@ namespace Maplestory_SDK
 
             Actor.Update();
 
-            KeyboardState keyState = Keyboard.GetState(); 
+            KeyboardState keyState = Keyboard.GetState();
 
             base.Update(gameTime);
         }

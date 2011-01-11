@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework;
 using XmlContent;
 
 namespace Maplestory_SDK.Root_Class
 {
-
     [System.Runtime.InteropServices.GuidAttribute("E144AE01-BEC5-4E5C-9384-D7D38BFBC291")]
-    class Character
+    internal class Character
     {
-
         string direction = "stand";
         string facing = "left";
 
@@ -35,6 +28,8 @@ namespace Maplestory_SDK.Root_Class
         int y = 337;
         int attackcount;
 
+        public int AttackTimeCount = 25;
+        public int MaxAttackTimeCount = 25;
         // biến chứa ID
         public string Skin;
         public string Face;
@@ -109,7 +104,7 @@ namespace Maplestory_SDK.Root_Class
         Gadget Ghat;
 
         /// <summary>
-        /// hàm khởi tạo 
+        /// hàm khởi tạo
         /// </summary>
         /// <param name="main">gọi đến main, mặc định là this</param>
         /// <param name="skinname">tên thư mục chứa da của nhân vật</param>
@@ -117,7 +112,7 @@ namespace Maplestory_SDK.Root_Class
         /// <param name="hairname">tên thư mục chứa Tóc của nhân vật</param>
         /// <param name="standmax">số ảnh khi đứng</param>
         /// <param name="walkmax">số ảnh khi đi</param>
-        public Character( Run main,string skinname,string facename,string hairname)
+        public Character(Run main, string skinname, string facename, string hairname)
         {
             // load texture
             Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + skinname + "\\" + Action + "\\body_" + texture_position.ToString());
@@ -144,7 +139,6 @@ namespace Maplestory_SDK.Root_Class
             Hairbounds = new Rectangle(x - 13, y - 41, Pface.Width, Pface.Height);
         }
 
-
         /// <summary>
         /// update dữ liệu
         /// </summary>
@@ -156,16 +150,16 @@ namespace Maplestory_SDK.Root_Class
                 Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\" + WeaponType + "\\" + AttackType + "\\body_" + texture_position.ToString());
                 Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\" + WeaponType + "\\" + AttackType + "\\arm_" + texture_position.ToString());
 
-                Garm = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_arm_" + AttackType );
+                Garm = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_arm_" + AttackType);
                 Ghead = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_head_" + AttackType);
                 Gface = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_face_" + AttackType);
                 Ghair = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Attack\\" + WeaponType + "\\" + AttackType + "\\data_hair_" + AttackType);
             }
             else // reset
-            { // for move or stand or jumb ... 
+            { // for move or stand or jumb ...
                 Pbody = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\body_" + texture_position.ToString());
                 Parm = main.Content.Load<Texture2D>("Character\\Skin\\" + Skin + "\\" + Action + "\\arm_" + texture_position.ToString());
-                
+
                 Garm = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\arm");
                 Ghead = main.Content.Load<Gadget>("Character\\Skin\\" + Skin + "\\Head\\head");
                 Gface = main.Content.Load<Gadget>("Character\\Face\\" + Face + "\\" + Face);
@@ -176,7 +170,7 @@ namespace Maplestory_SDK.Root_Class
             Pface = main.Content.Load<Texture2D>("Character\\Face\\" + Face + "\\default");
             PHair = main.Content.Load<Texture2D>("Character\\Hair\\" + Hair + "\\hairOverHead_default");
             // update gadget
-            
+
             // đặt lại kích cỡ
             Bodybounds.Width = Pbody.Width;
             Bodybounds.Height = Pbody.Height;
@@ -189,10 +183,9 @@ namespace Maplestory_SDK.Root_Class
             Hairbounds.Width = PHair.Width;
             Hairbounds.Height = PHair.Height;
 
-            // check equipment 
+            // check equipment
             if (Weapon != "")
             {
-
             }
             if (Shield != "")
             {
@@ -219,6 +212,7 @@ namespace Maplestory_SDK.Root_Class
             {
             }
         }
+
         /// <summary>
         /// hiển thị nhân vật lên màn hình
         /// </summary>
@@ -235,14 +229,14 @@ namespace Maplestory_SDK.Root_Class
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Face X : " + Facebounds.X.ToString() + " - Face Y : " + Facebounds.Y.ToString(), new Vector2(15f, 65f), Color.Black);
                 spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Hair X : " + Hairbounds.X.ToString() + " - Hair Y : " + Hairbounds.Y.ToString(), new Vector2(15f, 75f), Color.Black);
 
-                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Action : " + Action + "  -  Weapon Type : " + WeaponType + "  -  Attack Type : " + AttackType, new Vector2(15f, 95f), Color.Black);
+                spriteBatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), "Action : " + Action + "  -  Weapon Type : " + WeaponType + "  -  Attack Type : " + AttackType + "  -  Attack Count : " + AttackTimeCount, new Vector2(15f, 95f), Color.Black);
             }
             if (facing == "right")
             {
-                spriteBatch.Draw(Pbody, Bodybounds, null, Color.White, 0f,new Vector2(0,0),SpriteEffects.FlipHorizontally,0f);
+                spriteBatch.Draw(Pbody, Bodybounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 // must draw armor or anything.. in here
-                spriteBatch.Draw(Parm, Armbounds,null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
-                spriteBatch.Draw(Phead, Headbounds,null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(Parm, Armbounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
+                spriteBatch.Draw(Phead, Headbounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 spriteBatch.Draw(Pface, Facebounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 spriteBatch.Draw(PHair, Hairbounds, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
                 // draw hair
@@ -324,11 +318,11 @@ namespace Maplestory_SDK.Root_Class
         {
             return Bodybounds.X;
         }
+
         public int get_Y()
         {
             return Bodybounds.Y;
         }
-
 
         /// <summary>
         /// update khi nhập từ bàn phím
@@ -339,25 +333,20 @@ namespace Maplestory_SDK.Root_Class
             KeyboardState keyState = Keyboard.GetState();
             if (direction != "up")
             {
-
                 // khi nhấn nút di chuyển
                 if (keyState.IsKeyDown(Keys.Right))
                 {
-
                     direction = "right";
                     facing = "right";
                     Action = "Walk";
-
                 }
                 if (keyState.IsKeyDown(Keys.Left))
                 {
-                    
                     direction = "left";
                     facing = "left";
                     Action = "Walk";
-                    
                 }
-                // move to other map 
+                // move to other map
                 // wait for code
                 if (keyState.IsKeyDown(Keys.X))
                 {
@@ -384,19 +373,26 @@ namespace Maplestory_SDK.Root_Class
                 // Attack
                 if (keyState.IsKeyDown(Keys.Z))
                 {
-                    texture_position = 0;
-                    Action = "Attack";
-                    direction = "Nothing";
+                    if (AttackTimeCount >= MaxAttackTimeCount) // check if have fully rest time, character will attack =)) lol
+                    {
+                        AttackTimeCount = 0;
+                        texture_position = 0;
+                        Action = "Attack";
+                        direction = "Nothing";
+                    }
                 }
-
             } // end if (direction != "up")
             else // jumping
             {
                 // Attack
                 if (keyState.IsKeyDown(Keys.Z))
                 {
-                    texture_position = 0;
-                    Action = "Attack";
+                    if (AttackTimeCount >= MaxAttackTimeCount)
+                    {
+                        AttackTimeCount = 0;
+                        texture_position = 0;
+                        Action = "Attack";
+                    }
                 }
                 if (keyState.IsKeyDown(Keys.Right))
                 {
@@ -411,8 +407,6 @@ namespace Maplestory_SDK.Root_Class
                     facing = "left";
                 }
             }
-
-            
         }
 
         /// <summary>
@@ -426,11 +420,11 @@ namespace Maplestory_SDK.Root_Class
             int ab = 0;
             // get action
             if (Action == "Stand") ab = 0;
-            if (Action == "Walk") ab = 1; 
+            if (Action == "Walk") ab = 1;
             if (Action == "Jump") ab = 2;
             if (Action == "Attack") ab = 0;
             if (Action == "Rope") ab = 0;
-            if (Action == "Ladder") ab = 0; 
+            if (Action == "Ladder") ab = 0;
             // get face
             if (facing == "left") f = 0;
             if (facing == "right") f = 1;
@@ -473,14 +467,13 @@ namespace Maplestory_SDK.Root_Class
             if (Shoe != "")
             {
             }
-                
         }
+
         /// <summary>
         /// When player move
         /// </summary>
         public void Move()
         {
-            
             if (Action == "Stand")
             {
                 delay = 8;
@@ -499,13 +492,42 @@ namespace Maplestory_SDK.Root_Class
             else if (Action == "Attack")
             {
                 delay = 3;
-                if (WeaponType == "Hand") delay = 6;       
+                if (WeaponType == "Hand") delay = 6;
+                if (direction != "notthing") delay = 3; // check if jumping set delay = jump's delay
                 if (DEBUG == true) delay = 80;
             }
 
             // chuyển động
             if (frameCount % delay == 0)
             {
+                // check if actor do something like attack, or anything lol
+                switch (Action)
+                {
+                    case "Attack":
+                        //if attack animation is complete
+                        if (texture_position >= 2)
+                        {
+                            if (direction == "up") // check if jumping
+                            {
+                                texture_position = 0;
+                                Action = "Jump"; // return jump action
+                            }
+                            else
+                            {
+                                Action = "Stand";
+                                direction = "stand";
+                            }
+                        }
+                        // first update for config infomation of charater
+                        UpdateTexture();
+                        // fix gadget position
+                        FixPosition(texture_position);
+                        // reupdate infomation
+                        UpdateTexture();
+
+                        break;
+                }
+                // move,jump
                 switch (direction)
                 {
                     case "stand":
@@ -562,11 +584,19 @@ namespace Maplestory_SDK.Root_Class
                         UpdateTexture();
                         break;
                     case "up":
-                        // alws must set texture position = 0 if use update in jump action
-                        // i use it for furture lol =)) maybe need ifcharacter want to jump attack , lol
-                        if (texture_position > 0) // by default, jump have only 1 frame lolz
-                            texture_position = 0; // đặt vị trí về 0
-                        UpdateTexture();
+                        // check if action is "attack"
+                        if (Action == "Attack")
+                        {
+                            UpdateTexture();
+                        }
+                        else
+                        {
+                            ////////////////////////////////////////////
+                            // alws must set texture position = 0 if use update in jump action
+                            if (texture_position > 0) // by default, jump have only 1 frame lolz
+                                texture_position = 0; // because of that, set position is 0
+                            UpdateTexture();
+                        }
                         //////////////////////////////////////////////////////////////////////////////
                         // set start Y if jump start
                         if (jumpCount == 0)
@@ -592,39 +622,22 @@ namespace Maplestory_SDK.Root_Class
                             (int)jump_positionY, 40, 48);
                         jumpCount++;
 
-                        // set texture
-                        if (texture_position > 0) // by default, jump have only 1 frame lolz
-                            texture_position = 0; // đặt vị trí về 0
-
                         FixPosition(texture_position);
                         UpdateTexture();
                         break;
                 }
-                // check if actor do something like attack, or anything lol
-                switch (Action)
-                {
-                    case "Attack" :
-                        // nếu vị trí ảnh lớn hơn số lượng ảnh
-                        if (texture_position >= 2)
-                        {
-                            Action = "Stand";
-                            direction = "stand";
-                        }
-                        // first update for config infomation of charater
-                        UpdateTexture();
-                        // fix gadget position
-                        FixPosition(texture_position);
-                        // reupdate infomation
-                        UpdateTexture();
-
-                        break;
-                }
-
                 texture_position++; // cộng vị trí ảnh thêm 1
             } // end if
             frameCount++; // xác định độ trễ khi chạy ảnh
         }
 
+        public void CheckAttacktimecount()
+        {
+            if (AttackTimeCount <= MaxAttackTimeCount)
+            {
+                AttackTimeCount++;
+            }
+        }
 
         /*
         //Checks collision

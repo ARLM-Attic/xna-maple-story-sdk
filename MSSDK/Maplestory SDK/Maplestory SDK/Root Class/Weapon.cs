@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Maplestory_SDK.Root_Class
+﻿namespace Maplestory_SDK.Root_Class
 {
-    class Weapon
+    internal class Weapon
     {
         public Weapon()
         {
