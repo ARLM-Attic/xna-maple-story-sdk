@@ -335,7 +335,6 @@ namespace Maplestory_SDK.Root_Class
         /// </summary>
         public void KeyInput()
         {
-            
             // trạng thái keyboard
             KeyboardState keyState = Keyboard.GetState();
             if (direction != "up")
@@ -393,6 +392,12 @@ namespace Maplestory_SDK.Root_Class
             } // end if (direction != "up")
             else // jumping
             {
+                // Attack
+                if (keyState.IsKeyDown(Keys.Z))
+                {
+                    texture_position = 0;
+                    Action = "Attack";
+                }
                 if (keyState.IsKeyDown(Keys.Right))
                 {
                     if (speed < maxspeed)
@@ -494,7 +499,7 @@ namespace Maplestory_SDK.Root_Class
             else if (Action == "Attack")
             {
                 delay = 3;
-                if (WeaponType == "Hand") delay = 4;       
+                if (WeaponType == "Hand") delay = 6;       
                 if (DEBUG == true) delay = 80;
             }
 
@@ -508,7 +513,6 @@ namespace Maplestory_SDK.Root_Class
                         // nếu vị trí ảnh lớn hơn số lượng ảnh
                         if (texture_position >= standmax)
                             texture_position = 0; // đặt vị trí về 0
-
                         FixPosition(texture_position);
 
                         // fix body for stand left
@@ -539,7 +543,7 @@ namespace Maplestory_SDK.Root_Class
 
                         if (texture_position >= walkmax)
                             texture_position = 0; // đặt vị trí về 0
-
+                        UpdateTexture();
                         FixPosition(texture_position);
 
                         UpdateTexture();
@@ -553,11 +557,17 @@ namespace Maplestory_SDK.Root_Class
 
                         if (texture_position >= walkmax)
                             texture_position = 0; // đặt vị trí về 0
-
+                        UpdateTexture();
                         FixPosition(texture_position);
                         UpdateTexture();
                         break;
                     case "up":
+                        // alws must set texture position = 0 if use update in jump action
+                        // i use it for furture lol =)) maybe need ifcharacter want to jump attack , lol
+                        if (texture_position > 0) // by default, jump have only 1 frame lolz
+                            texture_position = 0; // đặt vị trí về 0
+                        UpdateTexture();
+                        //////////////////////////////////////////////////////////////////////////////
                         // set start Y if jump start
                         if (jumpCount == 0)
                             startY = Bodybounds.Y;

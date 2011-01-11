@@ -10,13 +10,13 @@
             <position>
               <Item>
                 <pos>0</pos>
-                <x>16</x>
-                <y>2</y>
+                <x>5</x>
+                <y>-33</y>
               </Item>
               <Item>
                 <pos>1</pos>
-                <x>16</x>
-                <y>2</y>
+                <x>-11</x>
+                <y>-33</y>
               </Item>
             </position>
           </Item>
@@ -25,13 +25,13 @@
             <position>
               <Item>
                 <pos>0</pos>
-                <x>-4</x>
-                <y>2</y>
+                <x>-10</x>
+                <y>-33</y>
               </Item>
               <Item>
                 <pos>1</pos>
-                <x>-5</x>
-                <y>2</y>
+                <x>5</x>
+                <y>-33</y>
               </Item>
             </position>
           </Item>
