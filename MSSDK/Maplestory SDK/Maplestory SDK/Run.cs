@@ -1,3 +1,4 @@
+using Maplestory_SDK.Root_Class;
 using Maplestory_SDK.User_Class;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,6 +15,8 @@ namespace Maplestory_SDK
         SpriteBatch spriteBatch;
 
         Player Actor;
+
+        EnemyBase enemy1;
 
         public Run()
         {
@@ -50,6 +53,8 @@ namespace Maplestory_SDK
 
             //                 main   Skin     Face    Hair        Stat           Name          Title
             Actor = new Player(this, "Skin1", "0004", "0001", new int[] { 1, 1 }, "Actor Name", "Actor Title");
+
+            enemy1 = new EnemyBase(this, "000001", false, false);
         }
 
         /// <summary>
@@ -76,6 +81,8 @@ namespace Maplestory_SDK
 
             Actor.Update();
 
+            enemy1.Animation();
+
             KeyboardState keyState = Keyboard.GetState();
             if (keyState.IsKeyUp(Keys.Home))
                 Actor.player.DEBUG = true;
@@ -100,6 +107,8 @@ namespace Maplestory_SDK
 
             //Player.Draw(spriteBatch);
             Actor.Draw(spriteBatch);
+
+            enemy1.Draw(spriteBatch);
 
             spriteBatch.End();
 

@@ -111,12 +111,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Root Class\Character.cs" />
     <Compile Include="Root Class\Editor.cs" />
+    <Compile Include="Root Class\EnemyBase.cs" />
     <Compile Include="Root Class\Item.cs" />
     <Compile Include="Root Class\Map.cs" />
     <Compile Include="Root Class\Weapon.cs" />
     <Compile Include="Root Class\WindowBase.cs" />
     <Compile Include="Run.cs" />
     <Compile Include="Tool\Gadget Editor.cs" />
+    <Compile Include="User Class\Enemy.cs" />
     <Compile Include="User Class\Player.cs" />
   </ItemGroup>
   <ItemGroup>

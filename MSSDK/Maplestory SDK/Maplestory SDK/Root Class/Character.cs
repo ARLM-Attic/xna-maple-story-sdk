@@ -10,24 +10,25 @@ namespace Maplestory_SDK.Root_Class
     {
         string direction = "stand";
         string facing = "left";
-
+        // debug variable
         public bool DEBUG = true;
         public bool INFO = true;
 
         int frameCount = 8; // frame count
-        int delay; // number frame when texture next positon
-
+        int delay; // number frame when texture next position
+        // speed
         float speed = 0f;
         const float maxspeed = 10f;
-
+        // jump attribute
         int startY = 0;
         int jumpCount = 0;
         const int maxjumpcount = 20;
-
+        // position
         int x = 150;
         int y = 337;
+        // attack count
         int attackcount;
-
+        // attack delay
         public int AttackTimeCount = 25;
         public int MaxAttackTimeCount = 25;
         // biến chứa ID
