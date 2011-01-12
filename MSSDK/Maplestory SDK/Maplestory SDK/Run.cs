@@ -1,4 +1,3 @@
-using Maplestory_SDK.Root_Class;
 using Maplestory_SDK.User_Class;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,7 +15,7 @@ namespace Maplestory_SDK
 
         Player Actor;
 
-        EnemyBase enemy1;
+        Enemy enemy;
 
         public Run()
         {
@@ -51,10 +50,10 @@ namespace Maplestory_SDK
             // frame's default value is : 4 for all skin in maple story
             // frame stand is 3, but i have been inserted 1 frame to improve smoothing
 
-            //                 main   Skin     Face    Hair        Stat           Name          Title
+            //                                           main   Skin     Face    Hair        Stat           Name          Title
             Actor = new Player(this, "Skin1", "0004", "0001", new int[] { 1, 1 }, "Actor Name", "Actor Title");
 
-            enemy1 = new EnemyBase(this, "000001", false, false);
+            enemy = new Enemy(this, "000001", true, false, true, new int[] { 3, 2, 5, 15, 15, 5, 5 }, "Test");
         }
 
         /// <summary>
@@ -81,7 +80,7 @@ namespace Maplestory_SDK
 
             Actor.Update();
 
-            enemy1.Animation();
+            enemy.Update();
 
             KeyboardState keyState = Keyboard.GetState();
             if (keyState.IsKeyUp(Keys.Home))
@@ -108,7 +107,7 @@ namespace Maplestory_SDK
             //Player.Draw(spriteBatch);
             Actor.Draw(spriteBatch);
 
-            enemy1.Draw(spriteBatch);
+            enemy.Draw(spriteBatch);
 
             spriteBatch.End();
 

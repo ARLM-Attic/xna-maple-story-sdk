@@ -434,6 +434,8 @@ namespace Maplestory_SDK.Root_Class
             if (facing == "left") f = 0;
             if (facing == "right") f = 1;
             // set body position
+            Bodybounds.X = Bodybounds.X;
+            Bodybounds.Y = Bodybounds.Y;
             Armbounds.X = Bodybounds.X + Garm.action[ab].face[f].position[texture_position].x;
             Armbounds.Y = Bodybounds.Y + Garm.action[ab].face[f].position[texture_position].y;
             Headbounds.X = Bodybounds.X + Ghead.action[ab].face[f].position[texture_position].x;
