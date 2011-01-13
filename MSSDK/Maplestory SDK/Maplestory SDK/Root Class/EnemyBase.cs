@@ -13,29 +13,25 @@ namespace Maplestory_SDK.Root_Class
 
         string direction = "stand";
         string facing = "left";
-        string Action = "stand";
-        string type = "";
+        string Action = "attack";
+        string type = "1";
+        int attacktype = 0;
 
         Run Main;
 
         public bool canattack;
         public bool canjump;
 
-        int standpos;
-        int walkpos;
-        int hitpos;
-        int diepos;
-        int attackpos;
-        int skillpos;
-
         int texture_position = 0;
 
         // position
-        int x = 150;
-        int y = 337;
+        int x = 400;
+        int y = 350;
 
         int framecount = 8;
         int delay = 8;
+        // create variable contain information of enemy
+        XmlContent.Enemy.Enemy EnemyData;
 
         /// <summary>
         /// Create base of Enemy
@@ -44,14 +40,15 @@ namespace Maplestory_SDK.Root_Class
         /// <param name="enemysprite">name of enemy sprite</param>
         /// <param name="canattack">can enemy attack ?</param>
         /// <param name="canjump">can enemy jump ?</param>
-        public EnemyBase(Run _Main, string enemysprite, bool canattack, bool canjump)
+        public EnemyBase(Run _Main, string enemysprite, bool canattack, bool canjump, XmlContent.Enemy.Enemy _EnemyData)
         {
             // put value into variable
             Main = _Main;
             this.enemysprite = enemysprite;
             this.canattack = canattack;
             this.canjump = canjump;
-
+            // load enemy data
+            EnemyData = _EnemyData;
             Sprite = Main.Content.Load<Texture2D>("Enemy\\" + enemysprite + "\\" + Action + type + "_" + texture_position);
             RSprite = new Rectangle(x - Sprite.Width, y - Sprite.Height, Sprite.Width, Sprite.Height);
         }
@@ -66,6 +63,27 @@ namespace Maplestory_SDK.Root_Class
         }
 
         /// <summary>
+        /// Update
+        /// </summary>
+        public void Update()
+        {
+        }
+
+        /// <summary>
+        /// Get random attack
+        /// </summary>
+        public void UpdateAttack()
+        {
+            // get random attack
+            if (Action == "attack" && texture_position == 0)
+            {
+                System.Random rand = new System.Random();
+                attacktype = rand.Next(EnemyData.attacktypecount);
+                type = (attacktype + 1).ToString();
+            }
+        }
+
+        /// <summary>
         /// Create animation for enemy
         /// </summary>
         public void Animation()
@@ -75,12 +93,33 @@ namespace Maplestory_SDK.Root_Class
                 switch (Action)
                 {
                     case "stand":
-                        if (texture_position >= 6)
+                        if (texture_position >= EnemyData.data[0].posecount)
                             texture_position = 0;
                         UpdateTexture();
                         break;
                     case "attack":
-                        if (texture_position >= 14)
+                        if (texture_position >= EnemyData.attack[attacktype].posecount)
+                            texture_position = 0;
+                        UpdateAttack();
+                        UpdateTexture();
+                        break;
+                    case "hit":
+                        if (texture_position >= EnemyData.data[1].posecount)
+                            texture_position = 0;
+                        UpdateTexture();
+                        break;
+                    case "skill":
+                        if (texture_position >= EnemyData.data[3].posecount)
+                            texture_position = 0;
+                        UpdateTexture();
+                        break;
+                    case "die":
+                        if (texture_position >= EnemyData.data[2].posecount)
+                            texture_position = 0;
+                        UpdateTexture();
+                        break;
+                    case "walk":
+                        if (texture_position >= EnemyData.data[0].posecount)
                             texture_position = 0;
                         UpdateTexture();
                         break;

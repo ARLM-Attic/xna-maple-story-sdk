@@ -1,6 +1,6 @@
 ﻿namespace XmlContent
 {
-    public class Position
+    public class Info
     {
         public int pos;
         public int x;

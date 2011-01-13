@@ -1,99 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="XmlContent.Gadget2">
-    <!-- Type -->
     <action>
       <Item>
         <left>
           <Item>
             <pos>0</pos>
-            <x>-25</x>
-            <y>1</y>
+            <x>-6</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>1</pos>
-            <x>-25</x>
-            <y>1</y>
+            <x>-6</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>2</pos>
-            <x>-25</x>
-            <y>1</y>
+            <x>-6</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>3</pos>
-            <x>-25</x>
-            <y>1</y>
+            <x>-6</x>
+            <y>20</y>
           </Item>
         </left>
         <right>
           <Item>
             <pos>0</pos>
-            <x>-12</x>
-            <y>1</y>
+            <x>-26</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>1</pos>
-            <x>-12</x>
-            <y>1</y>
+            <x>-26</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>2</pos>
-            <x>-12</x>
-            <y>1</y>
+            <x>-26</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>3</pos>
-            <x>-12</x>
-            <y>1</y>
+            <x>-26</x>
+            <y>20</y>
           </Item>
         </right>
       </Item>
       <!-- Stand -->
       <Item>
-
         <left>
           <Item>
             <pos>0</pos>
-            <x>-29</x>
-            <y>2</y>
+            <x>-7</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>1</pos>
-            <x>-30</x>
-            <y>2</y>
+            <x>-17</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>2</pos>
-            <x>-25</x>
-            <y>2</y>
+            <x>-5</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>3</pos>
-            <x>-28</x>
-            <y>2</y>
+            <x>-8</x>
+            <y>18</y>
           </Item>
         </left>
         <right>
           <Item>
             <pos>0</pos>
-            <x>-8</x>
-            <y>2</y>
+            <x>-26</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>1</pos>
-            <x>-7</x>
-            <y>2</y>
+            <x>-19</x>
+            <y>21</y>
           </Item>
           <Item>
             <pos>2</pos>
-            <x>-12</x>
-            <y>2</y>
+            <x>-28</x>
+            <y>20</y>
           </Item>
           <Item>
             <pos>3</pos>
-            <x>-9</x>
-            <y>2</y>
+            <x>-28</x>
+            <y>19</y>
           </Item>
         </right>
       </Item>
@@ -102,15 +100,15 @@
         <left>
           <Item>
             <pos>0</pos>
-            <x>-33</x>
-            <y>1</y>
+            <x>-18</x>
+            <y>12</y>
           </Item>
         </left>
         <right>
           <Item>
             <pos>0</pos>
-            <x>-4</x>
-            <y>1</y>
+            <x>-16</x>
+            <y>12</y>
           </Item>
         </right>
       </Item>

@@ -1,5 +1,4 @@
 ﻿using Maplestory_SDK.Root_Class;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Maplestory_SDK.User_Class
@@ -30,39 +29,27 @@ namespace Maplestory_SDK.User_Class
         public string name;
         public string titlename;
         int[] stat;
-        /// <summary>
-        /// thuộc tính cơ bản
-        /// </summary>
         public int str;
         public int agi;
         public int luk;
         public int mag;
-        /// <summary>
-        /// thuộc tính nâng cao
-        /// </summary>
         public int mgatk;
         public int mgdef;
         public int mgatkspeed;
         public int pysatk;
         public int pysdef;
         public int pysatkspeed;
-        /// <summary>
-        /// thuộc tính mềm
-        /// </summary>
         public int hp;
         public int maxhp;
         public int mp;
         public int maxmp;
         public int chari;
         public int maxchari;
-        /// <summary>
-        /// thuộc tính bổ xung
-        /// </summary>
         public int crit;
         public int droprate;
         public int exprate;
 
-        public Character player;
+        public PlayerBase player;
         Run main;
 
         /// <summary>
@@ -74,22 +61,18 @@ namespace Maplestory_SDK.User_Class
         /// <param name="hair">hair of player</param>
         /// <param name="Stat">list of stat</param>
         /// <param name="name">name of player</param>
-        public Player(Run Main, string skin, string face, string hair, int[] Stat, string name, string title)
+        public Player(Run Main, string skin, string face, string hair, string name)
         {
             // set body
             Skin = skin;
             Face = face;
             Hair = hair;
             // create new character
-            player = new Character(Main, skin, face, hair);
-            player.WeaponType = WeaponType;
+            player = new PlayerBase(Main, skin, face, hair);
+            //player.WeaponType = WeaponType;
             main = Main;
             // set character atribute
-            titlename = title;
             this.name = name;
-            //stat
-            if (Stat.Length == 19) stat = Stat;
-            AddStat();
         }
 
         /// <summary>
@@ -127,26 +110,27 @@ namespace Maplestory_SDK.User_Class
         public void Update()
         {
             // movement
+            player.Update();
             player.KeyInput();
-            player.Move();
-            // equipment
-            player.Weapon = Weapon;
-            player.Shield = Shield;
-            player.Armor = Armor;
-            player.Pant = Pant;
-            player.Shoe = Shoe;
-            player.Hat = Hat;
-            player.Acc = Acc;
-            player.Glove = Glove;
-            player.Cape = Cape;
-            // body gadget
-            player.Skin = Skin;
-            player.Face = Face;
-            player.Hair = Hair;
-            // other
-            player.WeaponType = WeaponType;
-            // check attack time count
-            player.CheckAttacktimecount();
+            player.Animation();
+            //// equipment
+            //player.Weapon = Weapon;
+            //player.Shield = Shield;
+            //player.Armor = Armor;
+            //player.Pant = Pant;
+            //player.Shoe = Shoe;
+            //player.Hat = Hat;
+            //player.Acc = Acc;
+            //player.Glove = Glove;
+            //player.Cape = Cape;
+            //// body gadget
+            //player.Skin = Skin;
+            //player.Face = Face;
+            //player.Hair = Hair;
+            //// other
+            //player.WeaponType = WeaponType;
+            //// check attack time count
+            //player.CheckAttacktimecount();
         }
 
         /// <summary>
@@ -155,7 +139,7 @@ namespace Maplestory_SDK.User_Class
         public void Draw(SpriteBatch spritebatch)
         {
             player.Draw(spritebatch);
-            spritebatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), name, new Vector2(player.get_X() - 5, player.get_Y() + 30), Color.Black);
+            //spritebatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), name, new Vector2(player.get_X() - 5, player.get_Y() + 30), Color.Black);
         }
     }
 }

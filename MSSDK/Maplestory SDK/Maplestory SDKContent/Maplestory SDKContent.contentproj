@@ -198,8 +198,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\Face\0001\default.png">
-      <Name>default</Name>
+    <Compile Include="Character\Face\0001\Stand.png">
+      <Name>Stand</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -232,134 +232,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Head\head_back.png">
-      <Name>head_back</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Head\head_front.png">
-      <Name>head_front</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\arm_0.png">
-      <Name>arm_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\arm_1.png">
-      <Name>arm_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\arm_2.png">
-      <Name>arm_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\body_0.png">
-      <Name>body_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\body_1.png">
-      <Name>body_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\body_2.png">
-      <Name>body_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\arm_0.png">
-      <Name>arm_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\arm_1.png">
-      <Name>arm_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\arm_2.png">
-      <Name>arm_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\arm_3.png">
-      <Name>arm_3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\body_0.png">
-      <Name>body_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\body_1.png">
-      <Name>body_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\body_2.png">
-      <Name>body_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Walk\body_3.png">
-      <Name>body_3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\arm_3.png">
-      <Name>arm_3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Stand\body_3.png">
-      <Name>body_3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Face\0002\default.png">
-      <Name>default</Name>
+    <Compile Include="Character\Face\0002\Stand.png">
+      <Name>Stand</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -370,8 +244,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\Face\0003\default.png">
-      <Name>default</Name>
+    <Compile Include="Character\Face\0003\Stand.png">
+      <Name>Stand</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -382,8 +256,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\Face\0004\default.png">
-      <Name>default</Name>
+    <Compile Include="Character\Face\0004\Stand.png">
+      <Name>Stand</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -502,6 +376,7 @@
       <Name>0001</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -509,25 +384,12 @@
       <Name>head</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\arm.xml">
-      <Name>arm</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Head\head.xml">
-      <Name>head</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\arm.xml">
-      <Name>arm</Name>
+    <Compile Include="Character\Skin\Skin1\arminfo.xml">
+      <Name>arminfo</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
@@ -577,18 +439,6 @@
       <Name>0001</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin2\Jump\arm_0.png">
-      <Name>arm_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Character\Skin\Skin2\Jump\body_0.png">
-      <Name>body_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -871,102 +721,6 @@
   <ItemGroup>
     <Folder Include="Items\Armor\0001\Stand\" />
     <Folder Include="Items\Armor\0001\Walk\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_arm_1.xml">
-      <Name>data_arm_1</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_head_1.xml">
-      <SubType>Designer</SubType>
-      <Name>data_head_1</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_face_1.xml">
-      <SubType>Designer</SubType>
-      <Name>data_face_1</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\1\data_hair_1.xml">
-      <SubType>Designer</SubType>
-      <Name>data_hair_1</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\2\data_arm_2.xml">
-      <SubType>Designer</SubType>
-      <Name>data_arm_2</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\2\data_face_2.xml">
-      <SubType>Designer</SubType>
-      <Name>data_face_2</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\2\data_hair_2.xml">
-      <SubType>Designer</SubType>
-      <Name>data_hair_2</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\2\data_head_2.xml">
-      <SubType>Designer</SubType>
-      <Name>data_head_2</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\3\data_arm_3.xml">
-      <SubType>Designer</SubType>
-      <Name>data_arm_3</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\3\data_face_3.xml">
-      <SubType>Designer</SubType>
-      <Name>data_face_3</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\3\data_hair_3.xml">
-      <SubType>Designer</SubType>
-      <Name>data_hair_3</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Character\Skin\Skin1\Attack\Hand\3\data_head_3.xml">
-      <SubType>Designer</SubType>
-      <Name>data_head_3</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enemy\000001\attack1_0.png">

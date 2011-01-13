@@ -24,6 +24,8 @@ namespace Maplestory_SDK.User_Class
 
         Run Main;
 
+        XmlContent.Enemy.Enemy EnemyData;
+
         /// <summary>
         /// Create new enemy
         /// </summary>
@@ -37,7 +39,8 @@ namespace Maplestory_SDK.User_Class
         {
             Main = _Main;
 
-            enemy = new EnemyBase(Main, sprite, canattack, canjump);
+            EnemyData = Main.Content.Load<XmlContent.Enemy.Enemy>("Enemy\\" + sprite + "\\info");
+            enemy = new EnemyBase(Main, sprite, canattack, canjump, EnemyData);
 
             CanAttack = canattack;
             CanJump = canjump;
@@ -51,6 +54,7 @@ namespace Maplestory_SDK.User_Class
         /// </summary>
         public void Update()
         {
+            enemy.Update();
             // update enemy animation
             enemy.Animation();
         }

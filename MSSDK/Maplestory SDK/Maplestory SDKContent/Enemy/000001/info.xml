@@ -1,5 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
-  <!-- TODO: replace this Asset with your own XML asset data. -->
-  <Asset Type="System.String"></Asset>
+  <!-- NamKazt -->
+  <Asset Type="XmlContent.Enemy.Enemy">
+    <!-- Attribute of enemy -->
+    <name>Very Big Pear</name>
+    <atk>5</atk>
+    <def>3</def>
+    <speed>4</speed>
+    <maxhp>20</maxhp>
+    <maxmp>10</maxmp>
+    <!-- Option -->
+    <canattack>true</canattack>
+    <canjump>false</canjump>
+    <canhit>true</canhit>
+    <haveskill>true</haveskill>
+    <!-- Attack type -->
+    <attacktypecount>2</attacktypecount>
+    <!-- Infomation of texture-->
+    <attack>
+      <!-- sử dụng attack type count để xác định số item attack . còn lại là các pose : die, hit, skill, stand-->
+      <!-- Attack-->
+      <Item>
+        <!-- Type 1 -->
+        <type>1</type>
+        <posecount>14</posecount>
+      </Item>
+      <Item>
+        <!-- Type 2 -->
+        <type>2</type>
+        <posecount>15</posecount>
+      </Item>
+    </attack>
+    <data>
+      <!-- Stand -->
+      <Item>
+        <type></type>
+        <posecount>5</posecount>
+      </Item>
+      <!-- Hit -->
+      <Item>
+        <type>1</type>
+        <posecount>0</posecount>
+      </Item>
+      <!-- Die -->
+      <Item>
+        <type>1</type>
+        <posecount>11</posecount>
+      </Item>
+      <!-- Skill-->
+      <Item>
+        <type>1</type>
+        <posecount>0</posecount>
+      </Item>
+      <!-- End infomation-->
+    </data>
+  </Asset>
 </XnaContent>

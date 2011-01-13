@@ -13,9 +13,9 @@ namespace Maplestory_SDK
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Player Actor;
-
+        // create test
         Enemy enemy;
+        Maplestory_SDK.User_Class.Player player;
 
         public Run()
         {
@@ -45,15 +45,9 @@ namespace Maplestory_SDK
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            // initialize player   main  skin    face   hair  framestand  framewalk
-            // frame's default value is : 4 for all skin in maple story
-            // frame stand is 3, but i have been inserted 1 frame to improve smoothing
-
-            //                                           main   Skin     Face    Hair        Stat           Name          Title
-            Actor = new Player(this, "Skin1", "0004", "0001", new int[] { 1, 1 }, "Actor Name", "Actor Title");
-
             enemy = new Enemy(this, "000001", true, false, true, new int[] { 3, 2, 5, 15, 15, 5, 5 }, "Test");
+
+            player = new Player(this, "Skin1", "0004", "0001", "Test");
         }
 
         /// <summary>
@@ -78,16 +72,8 @@ namespace Maplestory_SDK
 
             // TODO: Add your update logic here
 
-            Actor.Update();
-
             enemy.Update();
-
-            KeyboardState keyState = Keyboard.GetState();
-            if (keyState.IsKeyUp(Keys.Home))
-                Actor.player.DEBUG = true;
-            if (keyState.IsKeyUp(Keys.End))
-                Actor.player.DEBUG = false;
-
+            player.Update();
             base.Update(gameTime);
         }
 
@@ -104,11 +90,8 @@ namespace Maplestory_SDK
 
             //tileMap.DrawMap(spriteBatch, tileSheet);
 
-            //Player.Draw(spriteBatch);
-            Actor.Draw(spriteBatch);
-
             enemy.Draw(spriteBatch);
-
+            player.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
