@@ -29,7 +29,7 @@ namespace Maplestory_SDK.Root_Class
         int y = 350;
 
         int framecount = 8;
-        int delay = 8;
+        int delay = 400;
         // create variable contain information of enemy
         XmlContent.Enemy.Enemy EnemyData;
 

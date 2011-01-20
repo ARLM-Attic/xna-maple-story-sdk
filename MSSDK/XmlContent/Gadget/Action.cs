@@ -4,7 +4,8 @@ namespace XmlContent
 {
     public class Action
     {
-        public List<Info> left;
-        public List<Info> right;
+        public List<Info> left { get; set; }
+
+        public List<Info> right { get; set; }
     }
 }

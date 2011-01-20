@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="XmlContent.Gadget2">
+    <action>
+      <!-- Hand 1 -->
+      <Item>
+        <left>
+          <Item>
+            <pos>0</pos>
+            <x>-30</x>
+            <y>12</y>
+          </Item>
+          <Item>
+            <pos>1</pos>
+            <x>-26</x>
+            <y>18</y>
+          </Item>
+          <Item>
+            <pos>1</pos>
+            <x>-26</x>
+            <y>4</y>
+          </Item>
+        </left>
+        <right>
+          <Item>
+            <pos>0</pos>
+            <x>1</x>
+            <y>12</y>
+          </Item>
+          <Item>
+            <pos>1</pos>
+            <x>-8</x>
+            <y>18</y>
+          </Item>
+          <Item>
+            <pos>1</pos>
+            <x>-18</x>
+            <y>4</y>
+          </Item>
+        </right>
+      </Item>
+    </action>
+  </Asset>
+</XnaContent>

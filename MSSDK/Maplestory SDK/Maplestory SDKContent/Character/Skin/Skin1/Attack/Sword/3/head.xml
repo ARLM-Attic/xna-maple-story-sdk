@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+  <Asset Type="XmlContent.Gadget2">
+    <action>
+      <Item>
+        <left>
+          <Item>
+            <pos>0</pos>
+            <x>-40</x>
+            <y>1</y>
+          </Item>
+          <Item>
+            <pos>1</pos>
+            <x>-41</x>
+            <y>4</y>
+          </Item>
+          <Item>
+            <pos>2</pos>
+            <x>-42</x>
+            <y>3</y>
+          </Item>
+        </left>
+        <right>
+          <Item>
+            <pos>0</pos>
+            <x>4</x>
+            <y>1</y>
+          </Item>
+          <Item>
+            <pos>1</pos>
+            <x>3</x>
+            <y>4</y>
+          </Item>
+          <Item>
+            <pos>2</pos>
+            <x>3</x>
+            <y>3</y>
+          </Item>
+        </right>
+      </Item>
+    </action>
+  </Asset>
+</XnaContent>

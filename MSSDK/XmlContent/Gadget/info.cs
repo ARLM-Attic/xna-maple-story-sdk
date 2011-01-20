@@ -2,8 +2,10 @@
 {
     public class Info
     {
-        public int pos;
-        public int x;
-        public int y;
+        public int pos { get; set; }
+
+        public int x { get; set; }
+
+        public int y { get; set; }
     }
 }

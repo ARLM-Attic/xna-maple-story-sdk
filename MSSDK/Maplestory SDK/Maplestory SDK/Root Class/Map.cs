@@ -1,174 +1,190 @@
-﻿//using System;
-//using System.IO;
-//using System.Text.RegularExpressions;
-//using Microsoft.Xna.Framework;
-//using Microsoft.Xna.Framework.Graphics;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.RegularExpressions;
+using Maplestory_SDK.Root_Class.MapCompoment;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
-//namespace Maplestory_SDK.Root_Class
-//{
-//    internal class Map
-//    {
-//        public const int size = 32; //The size of each tile in pixels (this will be later stored in an XML loading file)
-//        public static int height; //in tiles
-//        public static int width; //in tiles
-//        public string path = @"C:\"; // path to save or load map data
+namespace Maplestory_SDK.Root_Class
+{
+    internal class Map
+    {
+        public Game game;
+        public bool DrawCollusion = false;
 
-//        // use for encode or decode
-//        string passPhrase = "nds9@(dsaklsan1@dsa";        // can be any string
-//        string saltValue = "smdsao@kdsap)_9231";        // can be any string
-//        string hashAlgorithm = "SHA1";             // can be "MD5"
-//        int passwordIterations = 1502;                  // can be any number
-//        string initVector = "@1B2c3D4e5F6g7H8"; // must be 16 bytes
-//        int keySize = 256;                // can be 192 or 128
+        public int[] Size = new int[2]; // contain width and height
 
-//        static int[,] tileMap;
+        public Layer[] MapLayer = new Layer[10];
 
-//        public Map(GraphicsDevice graphics) //Creates a new map based on the size of the screen
-//        {
-//            height = graphics.DisplayMode.Height / size;
-//            width = graphics.DisplayMode.Width / size;
+        public int[,] visualmatrix;
+        public List<int[]> collusionmap = new List<int[]>();
 
-//            tileMap = new int[height, width]; //Initializes the new map
+        Texture2D pixel;
 
-//            for (int y = 0; y < height; y++)  //Defaults all values to -1 (saves processing time)
-//                for (int x = 0; x < width; x++)
-//                    tileMap[y, x] = -1;
-//        }
+        public Map(Game _game)
+        {
+            game = _game;
+            pixel = game.Content.Load<Texture2D>("Temp\\pixel");
+            for (int i = 0; i < MapLayer.Length; i++)
+            {
+                MapLayer[i] = new Layer();
+            }
+            Size[0] = 800;
+            Size[1] = 600;
+            visualmatrix = new int[Size[0], Size[1]];
+            for (int x = 0; x < Size[0]; x++)
+            {
+                for (int y = 0; y < Size[1]; y++)
+                {
+                    visualmatrix[x, y] = 0;
+                }
+            }
+        }
 
-//        public static int getType(int y, int x)
-//        {
-//            if (!(x < 0 || y < 0) && !(x > width || y > height))
-//            {
-//                return tileMap[y, x];
-//            }
-//            else
-//                return -1;
-//        }
+        public void Update()
+        {
+        }
 
-//        public void Set(int y, int x, int currentTile) //SAFELY sets the value of a clicked tile based on the currently selected tile in the editor
-//        {
-//            if (!(x < 0 || y < 0))
-//            {
-//                tileMap[y, x] = currentTile;
-//            }
-//        }
+        public void Draw(SpriteBatch spritebatch)
+        {
+            // draw all layer
+            for (int i = 0; i < MapLayer.Length; i++)
+            {
+                foreach (TextureMap temp in MapLayer[i].data)
+                {
+                    spritebatch.Draw(temp.texture, temp.rectangle, Color.White);
+                }
+            }
+            //draw collusion
+            if (DrawCollusion)
+                foreach (int[] collusionpoin in collusionmap)
+                {
+                    spritebatch.Draw(pixel, new Rectangle(collusionpoin[0], collusionpoin[1], 1, 1), Color.Red);
+                }
+        }
 
-//        public void DrawMap(SpriteBatch spriteBatch, Texture2D tileSheet)
-//        {
-//            height = tileMap.GetLength(0); //Map height (in tiles)
-//            width = tileMap.GetLength(1); //Map width (in tiles)
+        /// <summary>
+        /// Load map from file
+        /// </summary>
+        /// <param name="name">name of file u want to load</param>
+        public void LoadMap(string name)
+        {
+            // load layer texture
+            FileStream fs = new FileStream("Content\\MapData\\" + name + ".ltm", FileMode.Open, FileAccess.Read);
+            BinaryReader sw = new BinaryReader(fs);
 
-//            for (int y = 0; y < height; y++)
-//                for (int x = 0; x < width; x++)
-//                {
-//                    int cell = tileMap[y, x]; //Cell = value of tile at map position (y,x)
+            byte[] bytes = Convert.FromBase64String(sw.ReadString());
+            string templayer = System.Text.ASCIIEncoding.ASCII.GetString(bytes);
 
-//                    if (cell > -1)//If cell exists; otherwise, continue (saves processing time)
-//                    {
-//                        Rectangle sourceBounds = SourcePoint(cell, tileSheet); //Gets coodinates of tile on the tilesheet
-//                        Rectangle bounds = new Rectangle(x * size, y * size, size, size); //Sets where and what size the tile will be in the game
+            //@"{(?<Layer>[\w-\W][^}]*)}"
+            Regex layerregex = new Regex(@"{(?<Layer>[\w-\W][^}]*)}");
+            MatchCollection matchs = layerregex.Matches(templayer);
+            for (int i = 0; i < 10; i++)
+            {
+                if (matchs[i].Value.Length > 4)
+                {
+                    Regex textureregex = new Regex(@"\[(?<Link>[\w-\W][^|]*)\|(?<Info>[\d-:]*)\]");
+                    MatchCollection textmap = textureregex.Matches(matchs[i].Groups["Layer"].Value);
+                    foreach (Match match in textmap)
+                    {
+                        string[] recdata = match.Groups["Info"].Value.Split(':');
+                        Rectangle rec = new Rectangle(Int32.Parse(recdata[0]), Int32.Parse(recdata[1]), Int32.Parse(recdata[2]), Int32.Parse(recdata[3]));
+                        Texture2D text = game.Content.Load<Texture2D>(match.Groups["Link"].Value);
+                        MapLayer[i].AddTexture(text, rec, match.Groups["Link"].Value, match.Groups["Info"].Value);
+                    }
+                }
+            }
+            sw.Close();
+            fs.Close();
 
-//                        spriteBatch.Draw(tileSheet, bounds, sourceBounds, Color.White); //Draws the tile
-//                    }
-//                }
-//        }
+            FileStream fs1 = new FileStream("Content\\MapData\\" + name + ".clm", FileMode.Open, FileAccess.Read);
+            BinaryReader sw1 = new BinaryReader(fs1);
+            bytes = Convert.FromBase64String(sw1.ReadString());
+            templayer = System.Text.ASCIIEncoding.ASCII.GetString(bytes);
 
-//        private Rectangle SourcePoint(int cell, Texture2D tileSheet) //Takes an integer value and converts it to its corresponding tile location
-//        {
-//            //Example of the data processed:
-//            //0  1  2
-//            //3  4  5
-//            //6  7  8
-//            //9  10 11
-//            //12 13 14
-//            //15 16 17
-//            //
-//            //If cell = 7, for example:
-//            //tileWidth = 3
-//            //y = 7 / 3 = 2
-//            //x = 7 % 3 (the remainder of 7 / 3) = 1
-//            //(x,y) value returned = (32,64)
+            layerregex = new Regex(@"\[(?<X>[\d]*):(?<Y>[\d]*)\]");
+            matchs = layerregex.Matches(templayer);
 
-//            Rectangle point = new Rectangle(0, 0, size, size); //The point to be returned
-//            int tileWidth = tileSheet.Width / size;              //How many tiles can fit in the tileset horizontally
-//            int y = cell / tileWidth;                         //Returns the row of the tile
-//            int x = cell % tileWidth;                         //Returns how many tiles "cell" is displaced by
+            collusionmap.Clear();
+            foreach (Match match in matchs)
+            {
+                collusionmap.Add(new int[] { Int32.Parse(match.Groups["X"].Value), Int32.Parse(match.Groups["Y"].Value) });
+            }
 
-//            point = new Rectangle(x * size, y * size, size, size); //Compacts the above data into a source rectangle
+            sw1.Close();
+            fs1.Close();
 
-//            return point; //returns value
-//        }
+            UpdateCollusionMap();
+        }
 
-//        /// <summary>
-//        /// Tạo file map cho map hiện tại
-//        /// dùng để import sau này khi cần dùng đến map
-//        /// [ cần làm : bổ sung tên title,layer,.. ]
-//        /// </summary>
-//        /// <param name="name">tên file save</param>
-//        /// <param name="mapname">tên map</param>
-//        /// <param name="titlename">tên titleset</param>
-//        public void CreateTextOutput(string filename, string mapname, string titlename, int[] charpos)
-//        {
-//            // initialize
-//            FileStream fs = new FileStream(path + filename + ".xml", FileMode.Create, FileAccess.Write);
-//            StreamWriter sw = new StreamWriter(fs);
-//            // write
-//            sw.WriteLine("<" + mapname + ">");
-//            sw.WriteLine("<Title name=" + titlename + "/>");
-//            sw.WriteLine("<Character>" + charpos[0].ToString() + ";" + charpos[1].ToString() + "</Character>");
-//            sw.WriteLine("<Matrix>");
-//            for (int i = 0; i < height; i++)
-//            {
-//                for (int j = 0; j < width; j++)
-//                {
-//                    if (j == width - 1)
-//                        sw.WriteLine(tileMap[i, j].ToString() + "|");
-//                    else
-//                        sw.Write(tileMap[i, j].ToString() + ";");
-//                }
-//            }
-//            sw.WriteLine("</Matrix>");
-//            sw.Write("</" + mapname + ">");
-//            // dispose
-//            sw.Flush();
-//            sw.Close();
-//            fs.Close();
-//        }
+        public void UpdateCollusionMap()
+        {
+            foreach (int[] collusionpoin in collusionmap)
+            {
+                visualmatrix[collusionpoin[0], collusionpoin[1]] = 1;
+            }
+        }
 
-//        /// <summary>
-//        /// Nhập map có sẵn vào
-//        /// </summary>
-//        /// <param name="filename">tên file load</param>
-//        public void ImportMap(string filename, Character mainplayer)
-//        {
-//            // initialize
-//            FileStream fs = new FileStream(path + filename + ".xml", FileMode.Open, FileAccess.Read);
-//            StreamReader sr = new StreamReader(fs);
-//            // read all
-//            string content = sr.ReadToEnd();
-//            Regex reg = new Regex(@"<Matrix>(?<content>[\d-\D][^<]+)</Matrix>");
-//            Match matrix = reg.Match(content);
-//            reg = new Regex(@"<Character>(?<charpos>[\d-\D][^<]+)</Character>");
-//            Match charpos = reg.Match(content);
-//            // return if cant find
-//            if (!matrix.Success) return;
-//            // import map data
-//            content = matrix.Groups["content"].Value.Replace("\r\n", "");
-//            string[] YY = content.Split('|');
-//            string[] XX;
-//            for (int y = 0; y < height; y++)
-//            {
-//                XX = YY[y].Split(';');
-//                for (int x = 0; x < width; x++)
-//                {
-//                    tileMap[y, x] = Int32.Parse(XX[x]);
-//                }
-//            }
-//            // import char position
-//            if (!charpos.Success) return;
-//            content = charpos.Groups["charpos"].Value.Replace("\r\n", "");
-//            XX = content.Split(';');
-//            mainplayer.SetPos(Int32.Parse(XX[0]), Int32.Parse(XX[1]));
-//        }
-//    }
-//}
+        public void UpdateCollusionVisual()
+        {
+            collusionmap.Clear();
+            for (int x = 0; x < Size[0]; x++)
+            {
+                for (int y = 0; y < Size[1]; y++)
+                {
+                    if (visualmatrix[x, y] == 1)
+                        collusionmap.Add(new int[] { x, y });
+                }
+            }
+        }
+
+        /// <summary>
+        /// save map to file
+        /// </summary>
+        /// <param name="name">name of file u want to save</param>
+        public void SaveMap(string name)
+        {
+            // create folder
+            Directory.CreateDirectory("Content\\MapData\\");
+            System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
+
+            // write map layer
+            FileStream fs = new FileStream("Content\\MapData\\" + name + ".ltm", FileMode.Create);
+            BinaryWriter sw = new BinaryWriter(fs);
+            string savetemp = "";
+            string temp = "";
+
+            for (int i = 0; i < MapLayer.Length; i++)
+            {
+                foreach (TextureMap tex in MapLayer[i].data)
+                {
+                    temp += "[" + tex.link + "|" + tex.info + "]";
+                }
+                if (temp == "")
+                    temp = "[]";
+                savetemp += "{" + temp + "}";
+                temp = "";
+            }
+
+            sw.Write(Convert.ToBase64String(encoding.GetBytes(savetemp)));
+            sw.Close();
+            fs.Close();
+
+            // write map collusion
+            FileStream fs1 = new FileStream("Content\\MapData\\" + name + ".clm", FileMode.Create);
+            BinaryWriter sw1 = new BinaryWriter(fs1);
+
+            temp = "";
+
+            foreach (int[] collusionpoin in collusionmap)
+            {
+                temp += "[" + collusionpoin[0] + ":" + collusionpoin[1] + "]";
+            }
+
+            sw1.Write(Convert.ToBase64String(encoding.GetBytes(temp)));
+            sw1.Close();
+            fs1.Close();
+        }
+    }
+}

@@ -11,6 +11,7 @@ namespace Maplestory_SDK.User_Class
         // i think it maybe same in maplestory.
         // hope some one tweak code in here :)) lol
         public string WeaponType = "Hand"; // default = hand
+
         public string Weapon; //  vũ khí
         public string Shield; // lá chắn
         public string Pant; // quần
@@ -28,26 +29,32 @@ namespace Maplestory_SDK.User_Class
         ////////////////////////////
         public string name;
         public string titlename;
-        int[] stat;
-        public int str;
-        public int agi;
-        public int luk;
-        public int mag;
-        public int mgatk;
-        public int mgdef;
-        public int mgatkspeed;
-        public int pysatk;
-        public int pysdef;
-        public int pysatkspeed;
-        public int hp;
-        public int maxhp;
-        public int mp;
-        public int maxmp;
-        public int chari;
-        public int maxchari;
-        public int crit;
-        public int droprate;
-        public int exprate;
+        // Main attribute
+        public int str = 5;
+        public int agi = 5;
+        public int luk = 5;
+        public int mag = 5;
+        // default
+        public int mgatk = 5;
+        public int mgdef = 5;
+        public int mgatkspeed = 5;
+        public int pysatk = 5;
+        public int pysdef = 5;
+        public int pysatkspeed = 5;
+        public int hp = 30;
+        public int maxhp = 30;
+        public int mp = 15;
+        public int maxmp = 15;
+        public int chari = 30;
+        public int maxchari = 30;
+
+        public float crit = .3f;
+        public float droprate = 0f;
+        public float exprate = 0f;
+
+        //
+        public int APoint = 10; // attribute point
+        public int SPoint = 0; // skill point
 
         public PlayerBase player;
         Run main;
@@ -75,43 +82,18 @@ namespace Maplestory_SDK.User_Class
             this.name = name;
         }
 
-        /// <summary>
-        /// Add stat
-        /// </summary>
-        private void AddStat()
+        public void Initialize()
         {
-            if (stat != null)
-            {
-                str = stat[0];
-                agi = stat[1];
-                luk = stat[2];
-                mag = stat[3];
-                mgatk = stat[4];
-                mgdef = stat[5];
-                mgatkspeed = stat[6];
-                pysatk = stat[7];
-                pysdef = stat[8];
-                pysatkspeed = stat[9];
-                hp = stat[10];
-                maxhp = stat[11];
-                mp = stat[12];
-                maxmp = stat[13];
-                chari = stat[14];
-                maxchari = stat[15];
-                crit = stat[16];
-                droprate = stat[17];
-                exprate = stat[18];
-            }
         }
 
         /// <summary>
         /// use for update movement and other
         /// </summary>
-        public void Update()
+        public void Update(Map _map, SpriteBatch spriteBatch)
         {
             // movement
-            player.Update();
             player.KeyInput();
+            player.Update(_map, spriteBatch);
             player.Animation();
             //// equipment
             //player.Weapon = Weapon;
@@ -123,12 +105,12 @@ namespace Maplestory_SDK.User_Class
             //player.Acc = Acc;
             //player.Glove = Glove;
             //player.Cape = Cape;
-            //// body gadget
-            //player.Skin = Skin;
-            //player.Face = Face;
-            //player.Hair = Hair;
+            // body gadget
+            player.Skin = Skin;
+            player.Face = Face;
+            player.Hair = Hair;
             //// other
-            //player.WeaponType = WeaponType;
+            player.WeaponType = WeaponType;
             //// check attack time count
             //player.CheckAttacktimecount();
         }

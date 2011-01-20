@@ -105,20 +105,26 @@
     <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
+    <Reference Include="TomShane.Neoforce.Controls, Version=0.7.2407.1915, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\..\..\..\..\..\XNA\TomShane.Neoforce.Controls.XNA4\Neoforce\Bin\TomShane.Neoforce.Controls.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Root Class\Character.cs" />
-    <Compile Include="Root Class\Editor.cs" />
+    <Compile Include="Root Class\BatterSystem.cs" />
     <Compile Include="Root Class\EnemyBase.cs" />
     <Compile Include="Root Class\Item.cs" />
     <Compile Include="Root Class\Map.cs" />
+    <Compile Include="Root Class\MapCompoment\Layer.cs" />
+    <Compile Include="Root Class\MapCompoment\Texture.cs" />
     <Compile Include="Root Class\PlayerBase.cs" />
     <Compile Include="Root Class\Weapon.cs" />
     <Compile Include="Root Class\WindowBase.cs" />
     <Compile Include="Run.cs" />
-    <Compile Include="Tool\Gadget Editor.cs" />
+    <Compile Include="Tool\GadgetEditor.cs" />
+    <Compile Include="Tool\IDEMain.cs" />
+    <Compile Include="Tool\MapEditor.cs" />
     <Compile Include="User Class\Enemy.cs" />
     <Compile Include="User Class\Player.cs" />
   </ItemGroup>
@@ -133,8 +139,9 @@
       <Name>XmlContent</Name>
     </ProjectReference>
     <ProjectReference Include="..\Maplestory SDKContent\Maplestory SDKContent.contentproj">
-      <Name>Maplestory_SDKContent</Name>
+      <Name>Maplestory SDKContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{7AD0CABA-EA0E-4489-BDD7-5EFB63EE2C4A}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

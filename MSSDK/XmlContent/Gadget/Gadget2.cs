@@ -4,6 +4,6 @@ namespace XmlContent
 {
     public class Gadget2
     {
-        public List<Action> action;
+        public List<Action> action { get; set; }
     }
 }

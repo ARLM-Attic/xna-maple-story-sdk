@@ -1,7 +1,10 @@
+using Maplestory_SDK.Root_Class;
+using Maplestory_SDK.Tool;
 using Maplestory_SDK.User_Class;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using TomShane.Neoforce.Controls;
+using System;
 
 namespace Maplestory_SDK
 {
@@ -15,12 +18,27 @@ namespace Maplestory_SDK
 
         // create test
         Enemy enemy;
-        Maplestory_SDK.User_Class.Player player;
+        Player player;
+
+        // create IDE menu
+        Manager manager;
+        Manager mapeditor;
+        IDEMain IDE;
+        // map
+        Map map;
 
         public Run()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            Window.Title = "Maple Story GDK";
+            IsMouseVisible = true;
+
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
+
+            manager = new Manager(this, graphics, "Default");
+            mapeditor = new Manager(this, graphics, "Default");
         }
 
         /// <summary>
@@ -32,8 +50,25 @@ namespace Maplestory_SDK
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
             base.Initialize();
+
+            manager.Initialize();
+            //manager.RenderTarget = new RenderTarget2D(GraphicsDevice, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.DiscardContents);
+            //manager.TargetFrames = 60;
+            mapeditor.Initialize();
+            //mapeditor.RenderTarget = new RenderTarget2D(GraphicsDevice, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.DiscardContents);
+            //mapeditor.TargetFrames = 60;
+
+            map = new Map(this);
+            map.LoadMap("testmap");
+            map.DrawCollusion = false;
+            // create test
+            enemy = new Enemy(this, "000001", true, false, true);
+            player = new Player(this, "Skin1", "0004", "0001", "Test");
+            // create manager
+            IDE = new IDEMain(manager, mapeditor, player, map);
+            // enable IDE
+            IDE.ENABLE = false;
         }
 
         /// <summary>
@@ -44,10 +79,6 @@ namespace Maplestory_SDK
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            enemy = new Enemy(this, "000001", true, false, true, new int[] { 3, 2, 5, 15, 15, 5, 5 }, "Test");
-
-            player = new Player(this, "Skin1", "0004", "0001", "Test");
         }
 
         /// <summary>
@@ -59,6 +90,22 @@ namespace Maplestory_SDK
             // TODO: Unload any non ContentManager content here
         }
 
+
+        int frameRate = 0;
+        int frameCounter = 0;
+        TimeSpan elapsedTime = TimeSpan.Zero;
+        public void FPSUpdate(GameTime gameTime)
+        {
+            elapsedTime += gameTime.ElapsedGameTime;
+
+            if (elapsedTime > TimeSpan.FromSeconds(1))
+            {
+                elapsedTime -= TimeSpan.FromSeconds(1);
+                frameRate = frameCounter;
+                frameCounter = 0;
+            }
+        }
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -66,15 +113,12 @@ namespace Maplestory_SDK
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
-            // TODO: Add your update logic here
-
             enemy.Update();
-            player.Update();
+            player.Update(map, spriteBatch);
+            FPSUpdate(gameTime);
             base.Update(gameTime);
+            if (IDE.ENABLE)
+                IDE.Update(gameTime);
         }
 
         /// <summary>
@@ -83,18 +127,43 @@ namespace Maplestory_SDK
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.ForestGreen);
+            frameCounter++;
+            if (IDE.ENABLE)
+            {
+                IDE.Draw(gameTime);
+                GraphicsDevice.Clear(Color.SkyBlue);
+                base.Draw(gameTime);
+                // TODO: Add your drawing code here
+                // for titles editor
+                IDE.DrawEditor(gameTime);
+                GraphicsDevice.Clear(Color.SkyBlue);
+                IDE.EndDrawEditor();
 
-            // TODO: Add your drawing code here
-            spriteBatch.Begin();
+                IDE.EndDraw();
+                spriteBatch.Begin();
+                map.Draw(spriteBatch);
+                IDE.MapEditor.CollusionDraw(spriteBatch);
+                enemy.Draw(spriteBatch);
+                player.Draw(spriteBatch);
+                spriteBatch.DrawString(Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), string.Format("fps: {0}", frameRate), new Vector2(33, 33), Color.Black);
+                spriteBatch.End();
 
-            //tileMap.DrawMap(spriteBatch, tileSheet);
+                IDE.EndDraw();
+            }
+            else
+            {
+                GraphicsDevice.Clear(Color.SkyBlue);
 
-            enemy.Draw(spriteBatch);
-            player.Draw(spriteBatch);
-            spriteBatch.End();
+                spriteBatch.Begin();
 
-            base.Draw(gameTime);
+                map.Draw(spriteBatch);
+                enemy.Draw(spriteBatch);
+                player.Draw(spriteBatch);
+
+                spriteBatch.End();
+
+                base.Draw(gameTime);
+            }
         }
     }
 }

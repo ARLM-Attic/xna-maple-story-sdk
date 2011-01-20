@@ -34,8 +34,7 @@ namespace Maplestory_SDK.User_Class
         /// <param name="canattack">can enemy attack ?</param>
         /// <param name="canjump">can enemy jump ? </param>
         /// <param name="hurtifhit">can hurt if hit ?</param>
-        /// <param name="listattribute"> list of attribute</param>
-        public Enemy(Run _Main, string sprite, bool canattack, bool canjump, bool hurtifhit, int[] listattribute, string name)
+        public Enemy(Run _Main, string sprite, bool canattack, bool canjump, bool hurtifhit)
         {
             Main = _Main;
 
@@ -46,7 +45,15 @@ namespace Maplestory_SDK.User_Class
             CanJump = canjump;
             HurtifHit = hurtifhit;
 
-            this.name = name;
+            this.name = EnemyData.name;
+            this.atk = EnemyData.atk;
+            this.def = EnemyData.def;
+            this.speed = EnemyData.speed;
+
+            this.maxhp = EnemyData.maxhp;
+            hp = maxhp;
+            this.maxmp = EnemyData.maxmp;
+            mp = maxmp;
         }
 
         /// <summary>
