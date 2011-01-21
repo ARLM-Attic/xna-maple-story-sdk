@@ -281,6 +281,9 @@ namespace Maplestory_SDK.Root_Class
             }
         }
 
+        /// <summary>
+        /// check left collison
+        /// </summary>
         public void CheckLeft()
         {
             bool passleft = CheckPassable(x, y, 4);
@@ -323,6 +326,9 @@ namespace Maplestory_SDK.Root_Class
             }
         }
 
+        /// <summary>
+        /// check right collision
+        /// </summary>
         public void CheckRight()
         {
             bool passright = CheckPassable(x, y, 6);
@@ -366,6 +372,10 @@ namespace Maplestory_SDK.Root_Class
             }
         }
 
+        /// <summary>
+        /// check if dont have any block below
+        /// actor will fall
+        /// </summary>
         public void CheckFall()
         {
             bool pass = CheckPassable(x, y, 2);
@@ -395,7 +405,7 @@ namespace Maplestory_SDK.Root_Class
             else
             {
                 if (Action == "Jump") Action = "Stand";
-                if (direction == "down") direction = "stand";
+                if (direction == "down") direction = Facing;
                 fallspeed = 0;
             }
         }

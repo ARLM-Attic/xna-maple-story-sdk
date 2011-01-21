@@ -1,5 +1,7 @@
 ﻿using Maplestory_SDK.Root_Class;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using TomShane.Neoforce.Controls;
 
 namespace Maplestory_SDK.User_Class
 {
@@ -59,6 +61,8 @@ namespace Maplestory_SDK.User_Class
         public PlayerBase player;
         Run main;
 
+        public Inventory inventory;
+
         /// <summary>
         /// Create Player
         /// </summary>
@@ -68,7 +72,7 @@ namespace Maplestory_SDK.User_Class
         /// <param name="hair">hair of player</param>
         /// <param name="Stat">list of stat</param>
         /// <param name="name">name of player</param>
-        public Player(Run Main, string skin, string face, string hair, string name)
+        public Player(Run Main,Manager _manager, string skin, string face, string hair, string name)
         {
             // set body
             Skin = skin;
@@ -78,8 +82,10 @@ namespace Maplestory_SDK.User_Class
             player = new PlayerBase(Main, skin, face, hair);
             //player.WeaponType = WeaponType;
             main = Main;
-            // set character atribute
+            // set character attribute
             this.name = name;
+
+            inventory = new Inventory(Main, _manager);
         }
 
         public void Initialize()
@@ -95,6 +101,7 @@ namespace Maplestory_SDK.User_Class
             player.KeyInput();
             player.Update(_map, spriteBatch);
             player.Animation();
+            inventory.Update();
             //// equipment
             //player.Weapon = Weapon;
             //player.Shield = Shield;
@@ -118,9 +125,10 @@ namespace Maplestory_SDK.User_Class
         /// <summary>
         /// use for update Texture
         /// </summary>
-        public void Draw(SpriteBatch spritebatch)
+        public void Draw(SpriteBatch spritebatch,GameTime gametime)
         {
             player.Draw(spritebatch);
+            inventory.Draw();
             //spritebatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), name, new Vector2(player.get_X() - 5, player.get_Y() + 30), Color.Black);
         }
     }

@@ -64,11 +64,11 @@ namespace Maplestory_SDK
             map.DrawCollusion = false;
             // create test
             enemy = new Enemy(this, "000001", true, false, true);
-            player = new Player(this, "Skin1", "0004", "0001", "Test");
+            player = new Player(this,manager, "Skin1", "0004", "0001", "Test");
             // create manager
             IDE = new IDEMain(manager, mapeditor, player, map);
             // enable IDE
-            IDE.ENABLE = false;
+            IDE.ENABLE = true;
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace Maplestory_SDK
                 map.Draw(spriteBatch);
                 IDE.MapEditor.CollusionDraw(spriteBatch);
                 enemy.Draw(spriteBatch);
-                player.Draw(spriteBatch);
+                player.Draw(spriteBatch,gameTime);
                 spriteBatch.DrawString(Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), string.Format("fps: {0}", frameRate), new Vector2(33, 33), Color.Black);
                 spriteBatch.End();
 
@@ -158,7 +158,7 @@ namespace Maplestory_SDK
 
                 map.Draw(spriteBatch);
                 enemy.Draw(spriteBatch);
-                player.Draw(spriteBatch);
+                player.Draw(spriteBatch,gameTime);
 
                 spriteBatch.End();
 

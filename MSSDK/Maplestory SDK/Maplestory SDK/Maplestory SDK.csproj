@@ -114,7 +114,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Root Class\BatterSystem.cs" />
     <Compile Include="Root Class\EnemyBase.cs" />
+    <Compile Include="Root Class\Inventory.cs" />
     <Compile Include="Root Class\Item.cs" />
+    <Compile Include="Root Class\ItemOps.cs" />
     <Compile Include="Root Class\Map.cs" />
     <Compile Include="Root Class\MapCompoment\Layer.cs" />
     <Compile Include="Root Class\MapCompoment\Texture.cs" />
