@@ -727,8 +727,9 @@
     <Folder Include="Data\Items\Other\" />
     <Folder Include="Data\Items\Usage\" />
     <Folder Include="Data\Player\" />
-    <Folder Include="Items\Armor\0001\Stand\" />
-    <Folder Include="Items\Armor\0001\Walk\" />
+    <Folder Include="Items\Armor\0001\Attack\" />
+    <Folder Include="Items\Armor\0001\Dead\" />
+    <Folder Include="Items\Armor\0001\Jump\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enemy\000001\attack1_0.png">
@@ -1525,6 +1526,96 @@
       <Name>MapList</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mailArm_0.png">
+      <Name>mailArm_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mailArm_1.png">
+      <Name>mailArm_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mailArm_2.png">
+      <Name>mailArm_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mailArm_3.png">
+      <Name>mailArm_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mail_0.png">
+      <Name>mail_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mail_1.png">
+      <Name>mail_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mail_2.png">
+      <Name>mail_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Walk\mail_3.png">
+      <Name>mail_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mailArm_0.png">
+      <Name>mailArm_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mailArm_1.png">
+      <Name>mailArm_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mailArm_2.png">
+      <Name>mailArm_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mail_0.png">
+      <Name>mail_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mail_1.png">
+      <Name>mail_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mail_2.png">
+      <Name>mail_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mail_3.png">
+      <Name>mail_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\Stand\mailArm_3.png">
+      <Name>mailArm_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\iconRaw_info.png">
+      <Name>iconRaw_info</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Items\Armor\0001\icon_info.png">
+      <Name>icon_info</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
     <Content Include="Skins\Default.skin">
       <Name>Default</Name>

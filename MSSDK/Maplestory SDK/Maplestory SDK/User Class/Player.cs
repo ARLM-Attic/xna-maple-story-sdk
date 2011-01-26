@@ -85,7 +85,26 @@ namespace Maplestory_SDK.User_Class
             // set character attribute
             this.name = name;
 
+            // initialize for player
             inventory = new Inventory(Main, _manager);
+
+            // add some test item into inventory
+            // load content
+            // this detail below must put into a XML file in item folder
+            Texture2D temp1 = main.Content.Load<Texture2D>("Items\\Armor\\0001\\icon_info");
+            Texture2D temp2 = main.Content.Load<Texture2D>("Items\\Armor\\0001\\iconRaw_info");
+            Item testitem = new Item(temp1, temp2, "Items\\Armor\\0001\\", 0);
+            testitem.name = "T-Shirt";
+            testitem.info = "This is a test item.";
+
+            // not complete yet
+            // demo add option to item
+            // e.g : Agi + 5
+            //         Atk + 10
+            // -> testitem.option.Add(new ItemOps("Add 10 Agi","Agi",10));
+
+            // add item into inventory
+            inventory.AddItem(testitem);
         }
 
         public void Initialize()
@@ -128,7 +147,7 @@ namespace Maplestory_SDK.User_Class
         public void Draw(SpriteBatch spritebatch,GameTime gametime)
         {
             player.Draw(spritebatch);
-            inventory.Draw();
+            inventory.Draw(spritebatch);
             //spritebatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), name, new Vector2(player.get_X() - 5, player.get_Y() + 30), Color.Black);
         }
     }

@@ -23,6 +23,7 @@ namespace Maplestory_SDK
         // create IDE menu
         Manager manager;
         Manager mapeditor;
+        Manager UI;
         IDEMain IDE;
         // map
         Map map;
@@ -39,6 +40,8 @@ namespace Maplestory_SDK
 
             manager = new Manager(this, graphics, "Default");
             mapeditor = new Manager(this, graphics, "Default");
+            UI = new Manager(this, graphics, "Default");
+
         }
 
         /// <summary>
@@ -58,17 +61,18 @@ namespace Maplestory_SDK
             mapeditor.Initialize();
             //mapeditor.RenderTarget = new RenderTarget2D(GraphicsDevice, graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight, false, SurfaceFormat.Color, DepthFormat.None, 0, RenderTargetUsage.DiscardContents);
             //mapeditor.TargetFrames = 60;
+            UI.Initialize();
 
             map = new Map(this);
             map.LoadMap("testmap");
             map.DrawCollusion = false;
             // create test
             enemy = new Enemy(this, "000001", true, false, true);
-            player = new Player(this,manager, "Skin1", "0004", "0001", "Test");
+            player = new Player(this,UI, "Skin1", "0004", "0001", "Test");
             // create manager
             IDE = new IDEMain(manager, mapeditor, player, map);
             // enable IDE
-            IDE.ENABLE = true;
+            IDE.ENABLE = false;
         }
 
         /// <summary>
@@ -116,6 +120,7 @@ namespace Maplestory_SDK
             enemy.Update();
             player.Update(map, spriteBatch);
             FPSUpdate(gameTime);
+            UI.Update(gameTime);
             base.Update(gameTime);
             if (IDE.ENABLE)
                 IDE.Update(gameTime);
@@ -139,30 +144,37 @@ namespace Maplestory_SDK
                 GraphicsDevice.Clear(Color.SkyBlue);
                 IDE.EndDrawEditor();
 
-                IDE.EndDraw();
                 spriteBatch.Begin();
                 map.Draw(spriteBatch);
                 IDE.MapEditor.CollusionDraw(spriteBatch);
                 enemy.Draw(spriteBatch);
                 player.Draw(spriteBatch,gameTime);
                 spriteBatch.DrawString(Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), string.Format("fps: {0}", frameRate), new Vector2(33, 33), Color.Black);
+
+                UI.BeginDraw(gameTime);
+                UI.EndDraw();
+                
                 spriteBatch.End();
 
                 IDE.EndDraw();
             }
             else
             {
+                
+                // draw interface
+                UI.BeginDraw(gameTime);
                 GraphicsDevice.Clear(Color.SkyBlue);
-
+                base.Draw(gameTime);
+                
                 spriteBatch.Begin();
-
                 map.Draw(spriteBatch);
                 enemy.Draw(spriteBatch);
                 player.Draw(spriteBatch,gameTime);
-
                 spriteBatch.End();
 
-                base.Draw(gameTime);
+                UI.EndDraw();
+
+                
             }
         }
     }
