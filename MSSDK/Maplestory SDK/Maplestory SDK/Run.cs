@@ -168,13 +168,18 @@ namespace Maplestory_SDK
                 
                 spriteBatch.Begin();
                 map.Draw(spriteBatch);
+                spriteBatch.End();
+
+                spriteBatch.Begin();
                 enemy.Draw(spriteBatch);
-                player.Draw(spriteBatch,gameTime);
                 spriteBatch.End();
 
                 UI.EndDraw();
 
-                
+                spriteBatch.Begin();
+                player.Draw(spriteBatch,gameTime);
+                spriteBatch.End();
+
             }
         }
     }

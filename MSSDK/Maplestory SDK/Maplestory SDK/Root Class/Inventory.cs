@@ -15,7 +15,7 @@ namespace Maplestory_SDK.Root_Class
         Game game;
         // manager
         Manager manager;
-        // provide maximum slot available
+        // maximum slot available
         public int slot = 36;
         // texture of slot
         Texture2D textureSlot;
@@ -29,6 +29,7 @@ namespace Maplestory_SDK.Root_Class
         TabControl tab;
         // item detail layout
         GroupPanel gp;
+        Label lbdetail;
 
 
         KeyboardState keyState;
@@ -52,16 +53,6 @@ namespace Maplestory_SDK.Root_Class
             manager = _manager;
             // tạo giao diện
             CreateInterface();
-        }
-
-        public void SHOW()
-        {
-
-        }
-
-        public void HIDE()
-        {
-
         }
 
         /// <summary>
@@ -148,22 +139,33 @@ namespace Maplestory_SDK.Root_Class
             win.Width = 224;
             win.Text = "Inventory";
             win.AutoScroll = false;
-            win.Resizable = true;
+            win.Resizable = false;
             win.IconVisible = false;
-            win.ResizeEnd += new TomShane.Neoforce.Controls.EventHandler(win_ResizeEnd);
             win.Visible = false;
             manager.Add(win);
 
-            //gp = new GroupPanel(manager);
-            //gp.Init();
-            //gp.Alpha = 150;
-            //gp.Text = "Test";
-            //gp.Width = 100;
-            //gp.Height = 100;
-            //gp.Top = 0;
-            //gp.Left = 0;
+            gp = new GroupPanel(manager);
+            gp.Init();
+            gp.Alpha = 210;
+            gp.Text = "Thông tin";
+            gp.Width = 100;
+            gp.Height = 100;
+            gp.Top = 0;
+            gp.Left = 0;
+            gp.Visible = false;
 
-            //manager.Add(gp);
+            manager.Add(gp);
+
+            lbdetail = new Label(manager);
+            lbdetail.Init();
+            lbdetail.Parent = gp;
+            lbdetail.Top = 0;
+            lbdetail.Left = 0;
+            lbdetail.Width = 100;
+            lbdetail.Height = 70;
+            lbdetail.Alignment = Alignment.TopLeft;
+            lbdetail.Text = "info";
+
 
 
             tab = new TabControl(manager);
@@ -205,6 +207,8 @@ namespace Maplestory_SDK.Root_Class
                     imgslot.Init();
                     imgslot.Left = x * 32;
                     imgslot.Top = y * 32;
+                    imgslot.Width = 32;
+                    imgslot.Height = 32;
                     imgslot.Parent = tab.TabPages[j];
                     imgslot.Image = textureSlot;
                     //imgslot.SizeMode = SizeMode.Centered;
@@ -231,12 +235,15 @@ namespace Maplestory_SDK.Root_Class
         {
             if (!ismoveitem)
             {
-                ismoveitem = true;
-                tempp = listImagebox[tab.SelectedIndex][(int)((ImageBox)sender).Tag].Image;
-                tempi = listItem[tab.SelectedIndex][(int)((ImageBox)sender).Tag];
+                if (listItem[tab.SelectedIndex][(int)((ImageBox)sender).Tag] != null)
+                {
+                    ismoveitem = true;
+                    tempp = listImagebox[tab.SelectedIndex][(int)((ImageBox)sender).Tag].Image;
+                    tempi = listItem[tab.SelectedIndex][(int)((ImageBox)sender).Tag];
 
-                listImagebox[tab.SelectedIndex][(int)((ImageBox)sender).Tag].Image = textureSlot;
-                listItem[tab.SelectedIndex][(int)((ImageBox)sender).Tag] = null;
+                    listImagebox[tab.SelectedIndex][(int)((ImageBox)sender).Tag].Image = textureSlot;
+                    listItem[tab.SelectedIndex][(int)((ImageBox)sender).Tag] = null;
+                }
             }
             else
             {
@@ -244,7 +251,6 @@ namespace Maplestory_SDK.Root_Class
 
                 listImagebox[tab.SelectedIndex][(int)((ImageBox)sender).Tag].Image = tempp;
                 listItem[tab.SelectedIndex][(int)((ImageBox)sender).Tag] = tempi;
-
 
                 tempp = null;
                 tempi = null;
@@ -254,7 +260,8 @@ namespace Maplestory_SDK.Root_Class
         // khi di chuột ra
         void imgslot_MouseOut(object sender, MouseEventArgs e)
         {
-            win.Text = "inventory";
+            //win.Text = "inventory";
+            gp.Visible = false;
         }
 
         // xảy ra khi di chuột đến item
@@ -263,12 +270,16 @@ namespace Maplestory_SDK.Root_Class
             int index  = (int)((ImageBox)sender).Tag;
             // kiểm tra xem item không phải null
             if (listItem[tab.SelectedIndex][index] != null)
-                win.Text = listItem[tab.SelectedIndex][index].name + " - " + listItem[tab.SelectedIndex][index].info;
-        }
+            {
+                gp.TextColor = listItem[tab.SelectedIndex][index].color;
 
-        void win_ResizeEnd(object sender, TomShane.Neoforce.Controls.EventArgs e)
-        {
-            win.Text = win.Width.ToString() + " : " + win.Height.ToString();
+                gp.Visible = true;
+                gp.Text = listItem[tab.SelectedIndex][index].name;
+                gp.Left = Mouse.GetState().X;
+                gp.Top = Mouse.GetState().Y;
+                gp.BringToFront();
+                lbdetail.Text = listItem[tab.SelectedIndex][index].info;
+            }
         }
 
         void CreateItemDetailLayout()

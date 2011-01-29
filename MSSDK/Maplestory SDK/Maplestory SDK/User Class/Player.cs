@@ -95,16 +95,48 @@ namespace Maplestory_SDK.User_Class
             Texture2D temp2 = main.Content.Load<Texture2D>("Items\\Armor\\0001\\iconRaw_info");
             Item testitem = new Item(temp1, temp2, "Items\\Armor\\0001\\", 0);
             testitem.name = "T-Shirt";
-            testitem.info = "This is a test item.";
+            testitem.info = "This is a test\nitem.";
+            // add item into inventory
+            inventory.AddItem(testitem);
 
+            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000000\\icon_info");
+            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000000\\iconRaw_info");
+            testitem = new Item(temp1, temp2, "Items\\Potion\\02000000\\", 1,Color.Aqua);
+            testitem.name = "Potion 1";
+            testitem.info = "This is a test\nitem.";
+            // add item into inventory
+            inventory.AddItem(testitem);
+
+            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000001\\icon_info");
+            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000001\\iconRaw_info");
+            testitem = new Item(temp1, temp2, "Items\\Potion\\02000001\\", 1,Color.Bisque);
+            testitem.name = "Potion 2";
+            testitem.info = "This is a test\nitem.";
+            // add item into inventory
+            inventory.AddItem(testitem);
+
+            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000002\\icon_info");
+            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000002\\iconRaw_info");
+            testitem = new Item(temp1, temp2, "Items\\Potion\\02000002\\", 1,Color.Chocolate);
+            testitem.name = "Potion 3";
+            testitem.info = "This is a test\nitem.";
+            // add item into inventory
+            inventory.AddItem(testitem);
+
+            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000003\\icon_info");
+            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000003\\iconRaw_info");
+            testitem = new Item(temp1, temp2, "Items\\Potion\\02000003\\", 1,Color.DarkGoldenrod);
+            testitem.name = "Potion 4";
+            testitem.info = "TThis is a test\nitem.";
+            // add item into inventory
+            inventory.AddItem(testitem);
             // not complete yet
             // demo add option to item
             // e.g : Agi + 5
             //         Atk + 10
             // -> testitem.option.Add(new ItemOps("Add 10 Agi","Agi",10));
 
-            // add item into inventory
-            inventory.AddItem(testitem);
+            
         }
 
         public void Initialize()

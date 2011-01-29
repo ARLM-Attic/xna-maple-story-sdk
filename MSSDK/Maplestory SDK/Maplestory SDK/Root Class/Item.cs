@@ -40,7 +40,7 @@ namespace Maplestory_SDK.Root_Class
 
             name = "No Name";
             info = "No Info";
-            color = Color.White;
+            color = Color.Black;
         }
 
         public Item(Texture2D _icon, Texture2D _drop, string _link, int _type,List<ItemOps> _option)
@@ -53,7 +53,32 @@ namespace Maplestory_SDK.Root_Class
 
             name = "No Name";
             info = "No Info";
-            color = Color.White;
+            color = Color.Black;
+        }
+
+        public Item(Texture2D _icon, Texture2D _drop, string _link, int _type, List<ItemOps> _option, Color _color)
+        {
+            icon = _icon;
+            drop = _drop;
+            link = _link;
+            type = _type;
+            option = _option;
+
+            name = "No Name";
+            info = "No Info";
+            color = _color;
+        }
+
+        public Item(Texture2D _icon, Texture2D _drop, string _link, int _type, Color _color)
+        {
+            icon = _icon;
+            drop = _drop;
+            link = _link;
+            type = _type;
+
+            name = "No Name";
+            info = "No Info";
+            color = _color;
         }
     }
 }
