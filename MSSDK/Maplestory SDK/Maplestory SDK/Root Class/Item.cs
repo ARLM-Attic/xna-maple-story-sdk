@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace Maplestory_SDK.Root_Class
 {
@@ -30,6 +26,7 @@ namespace Maplestory_SDK.Root_Class
         public int type;
         // list of option
         public List<ItemOps> option = new List<ItemOps>();
+        public List<List<object>> stringdetails = new List<List<object>>();
 
         public Item(Texture2D _icon, Texture2D _drop, string _link, int _type)
         {
@@ -43,7 +40,7 @@ namespace Maplestory_SDK.Root_Class
             color = Color.Black;
         }
 
-        public Item(Texture2D _icon, Texture2D _drop, string _link, int _type,List<ItemOps> _option)
+        public Item(Texture2D _icon, Texture2D _drop, string _link, int _type, List<ItemOps> _option)
         {
             icon = _icon;
             drop = _drop;
@@ -79,6 +76,16 @@ namespace Maplestory_SDK.Root_Class
             name = "No Name";
             info = "No Info";
             color = _color;
+        }
+
+        public void LoadItem(string name)
+        {
+            // TODO: sử dụng để lấy thông tin 1 item bất kì từ data xml
+        }
+
+        public void LoadItem(int id)
+        {
+            // TODO: sử dụng để lấy thông tin 1 item bất kì từ data xml
         }
     }
 }

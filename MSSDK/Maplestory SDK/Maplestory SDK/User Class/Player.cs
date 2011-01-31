@@ -62,6 +62,7 @@ namespace Maplestory_SDK.User_Class
         Run main;
 
         public Inventory inventory;
+        Status status;
 
         /// <summary>
         /// Create Player
@@ -72,7 +73,7 @@ namespace Maplestory_SDK.User_Class
         /// <param name="hair">hair of player</param>
         /// <param name="Stat">list of stat</param>
         /// <param name="name">name of player</param>
-        public Player(Run Main,Manager _manager, string skin, string face, string hair, string name)
+        public Player(Run Main, Manager _manager, string skin, string face, string hair, string name)
         {
             // set body
             Skin = skin;
@@ -87,6 +88,7 @@ namespace Maplestory_SDK.User_Class
 
             // initialize for player
             inventory = new Inventory(Main, _manager);
+            status = new Status(this, _manager);
 
             // add some test item into inventory
             // load content
@@ -97,46 +99,12 @@ namespace Maplestory_SDK.User_Class
             testitem.name = "T-Shirt";
             testitem.info = "This is a test\nitem.";
             // add item into inventory
-            inventory.AddItem(testitem);
-
-            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000000\\icon_info");
-            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000000\\iconRaw_info");
-            testitem = new Item(temp1, temp2, "Items\\Potion\\02000000\\", 1,Color.Aqua);
-            testitem.name = "Potion 1";
-            testitem.info = "This is a test\nitem.";
-            // add item into inventory
-            inventory.AddItem(testitem);
-
-            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000001\\icon_info");
-            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000001\\iconRaw_info");
-            testitem = new Item(temp1, temp2, "Items\\Potion\\02000001\\", 1,Color.Bisque);
-            testitem.name = "Potion 2";
-            testitem.info = "This is a test\nitem.";
-            // add item into inventory
-            inventory.AddItem(testitem);
-
-            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000002\\icon_info");
-            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000002\\iconRaw_info");
-            testitem = new Item(temp1, temp2, "Items\\Potion\\02000002\\", 1,Color.Chocolate);
-            testitem.name = "Potion 3";
-            testitem.info = "This is a test\nitem.";
-            // add item into inventory
-            inventory.AddItem(testitem);
-
-            temp1 = main.Content.Load<Texture2D>("Items\\Potion\\02000003\\icon_info");
-            temp2 = main.Content.Load<Texture2D>("Items\\Potion\\02000003\\iconRaw_info");
-            testitem = new Item(temp1, temp2, "Items\\Potion\\02000003\\", 1,Color.DarkGoldenrod);
-            testitem.name = "Potion 4";
-            testitem.info = "TThis is a test\nitem.";
-            // add item into inventory
-            inventory.AddItem(testitem);
+            inventory.AddItem(testitem, 1);
             // not complete yet
             // demo add option to item
             // e.g : Agi + 5
             //         Atk + 10
             // -> testitem.option.Add(new ItemOps("Add 10 Agi","Agi",10));
-
-            
         }
 
         public void Initialize()
@@ -153,6 +121,7 @@ namespace Maplestory_SDK.User_Class
             player.Update(_map, spriteBatch);
             player.Animation();
             inventory.Update();
+            status.Update();
             //// equipment
             //player.Weapon = Weapon;
             //player.Shield = Shield;
@@ -176,7 +145,7 @@ namespace Maplestory_SDK.User_Class
         /// <summary>
         /// use for update Texture
         /// </summary>
-        public void Draw(SpriteBatch spritebatch,GameTime gametime)
+        public void Draw(SpriteBatch spritebatch, GameTime gametime)
         {
             player.Draw(spritebatch);
             inventory.Draw(spritebatch);
