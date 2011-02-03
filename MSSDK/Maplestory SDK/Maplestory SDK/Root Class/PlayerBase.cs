@@ -290,7 +290,7 @@ namespace Maplestory_SDK.Root_Class
             int xnext = x;
             if (speed > -maxspeed)
                 speed -= 1f;
-            // check pass 
+            // check pass
             for (int i = 0; i > (int)speed; i--)
             {
                 if (x + i < 0) xnext = 0;
@@ -302,10 +302,10 @@ namespace Maplestory_SDK.Root_Class
 
                 if (!passleft)
                 {
-                    // check 
+                    // check
                     for (int j = 5; j > -1; j--)
                     {
-                        // check pass at point 
+                        // check pass at point
                         passleft = CheckPassable(xnext, y - j, 4);
                         if (!passleft)
                         {
@@ -318,7 +318,6 @@ namespace Maplestory_SDK.Root_Class
                     }
                     break;
                 }
-
             }
             if (passleft)
             {
@@ -336,22 +335,22 @@ namespace Maplestory_SDK.Root_Class
             if (speed < maxspeed)
                 speed += 1f;
 
-            // check pass 
+            // check pass
             for (int i = 0; i <= (int)speed; i++)
             {
                 if (x + i >= map.Size[0]) xnext = map.Size[0] - 2;
                 xnext = x + i;
-                
+
                 // get pass info
 
                 passright = CheckPassable(xnext, y, 6);
 
                 if (!passright)
                 {
-                    // check 
+                    // check
                     for (int j = 5; j > -1; j--)
                     {
-                        // check pass at point 
+                        // check pass at point
                         passright = CheckPassable(xnext, y - j, 6);
                         if (!passright)
                         {
@@ -363,8 +362,7 @@ namespace Maplestory_SDK.Root_Class
                         }
                     }
                     break;
-                }      
-
+                }
             }
             if (passright)
             {
@@ -477,7 +475,6 @@ namespace Maplestory_SDK.Root_Class
             }
             catch (System.Exception ex)
             {
-
             }
 
             spriteBatch.Draw(pixel, new Rectangle(x, y, 4, 4), Color.Black);

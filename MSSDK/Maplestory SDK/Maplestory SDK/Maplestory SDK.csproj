@@ -111,9 +111,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\ItemBox.cs" />
+    <Compile Include="Control\StatusBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Root Class\BatterSystem.cs" />
     <Compile Include="Root Class\EnemyBase.cs" />
     <Compile Include="Root Class\Inventory.cs" />
     <Compile Include="Root Class\Item.cs" />
@@ -123,8 +124,6 @@
     <Compile Include="Root Class\MapCompoment\Texture.cs" />
     <Compile Include="Root Class\PlayerBase.cs" />
     <Compile Include="Root Class\Status.cs" />
-    <Compile Include="Root Class\Weapon.cs" />
-    <Compile Include="Root Class\WindowBase.cs" />
     <Compile Include="Run.cs" />
     <Compile Include="Tool\GadgetEditor.cs" />
     <Compile Include="Tool\IDEMain.cs" />

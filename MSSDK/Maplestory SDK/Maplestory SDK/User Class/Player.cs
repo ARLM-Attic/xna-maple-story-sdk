@@ -30,7 +30,16 @@ namespace Maplestory_SDK.User_Class
         /// thuộc tính của nhân vật
         ////////////////////////////
         public string name;
-        public string titlename;
+        public string titlename = "";
+        public int level = 1;
+        public int exp = 0;
+        // base exp up per level and is the first lvl
+        public int expbase = 15;
+        // expstep need larger than 1
+        public int expstep = 2;
+        // expnextlevel = expbase x expstep + (level - 1) x expbase x expstep
+        public int expnextlevel = 0;
+        public int gold = 1000;
         // Main attribute
         public int str = 5;
         public int agi = 5;
@@ -54,6 +63,14 @@ namespace Maplestory_SDK.User_Class
         public float droprate = 0f;
         public float exprate = 0f;
 
+        public float av_fire = 0;
+        public float av_air = 0;
+        public float av_lighting = 0;
+        public float av_light = 0;
+        public float av_wind = 0;
+        public float av_water = 0;
+        public float av_earth = 0;
+        public float av_shadow = 0;
         //
         public int APoint = 10; // attribute point
         public int SPoint = 0; // skill point
@@ -85,7 +102,7 @@ namespace Maplestory_SDK.User_Class
             main = Main;
             // set character attribute
             this.name = name;
-
+            expnextlevel = expbase * expstep + (level - 1) * expbase * expstep;
             // initialize for player
             inventory = new Inventory(Main, _manager);
             status = new Status(this, _manager);
@@ -149,6 +166,7 @@ namespace Maplestory_SDK.User_Class
         {
             player.Draw(spritebatch);
             inventory.Draw(spritebatch);
+            status.Draw(spritebatch);
             //spritebatch.DrawString(main.Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), name, new Vector2(player.get_X() - 5, player.get_Y() + 30), Color.Black);
         }
     }

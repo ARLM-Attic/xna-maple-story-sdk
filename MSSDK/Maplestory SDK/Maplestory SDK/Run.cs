@@ -1,10 +1,10 @@
+using System;
 using Maplestory_SDK.Root_Class;
 using Maplestory_SDK.Tool;
 using Maplestory_SDK.User_Class;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using TomShane.Neoforce.Controls;
-using System;
 
 namespace Maplestory_SDK
 {
@@ -41,7 +41,6 @@ namespace Maplestory_SDK
             manager = new Manager(this, graphics, "Default");
             mapeditor = new Manager(this, graphics, "Default");
             UI = new Manager(this, graphics, "Default");
-
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace Maplestory_SDK
             map.DrawCollusion = false;
             // create test
             enemy = new Enemy(this, "000001", true, false, true);
-            player = new Player(this,UI, "Skin1", "0004", "0001", "Test");
+            player = new Player(this, UI, "Skin1", "0004", "0001", "NamKazt");
             // create manager
             IDE = new IDEMain(manager, mapeditor, player, map);
             // enable IDE
@@ -94,10 +93,10 @@ namespace Maplestory_SDK
             // TODO: Unload any non ContentManager content here
         }
 
-
         int frameRate = 0;
         int frameCounter = 0;
         TimeSpan elapsedTime = TimeSpan.Zero;
+
         public void FPSUpdate(GameTime gameTime)
         {
             elapsedTime += gameTime.ElapsedGameTime;
@@ -148,24 +147,23 @@ namespace Maplestory_SDK
                 map.Draw(spriteBatch);
                 IDE.MapEditor.CollusionDraw(spriteBatch);
                 enemy.Draw(spriteBatch);
-                player.Draw(spriteBatch,gameTime);
+                player.Draw(spriteBatch, gameTime);
                 spriteBatch.DrawString(Content.Load<SpriteFont>("Fonts\\Segoe UI Mono"), string.Format("fps: {0}", frameRate), new Vector2(33, 33), Color.Black);
 
                 UI.BeginDraw(gameTime);
                 UI.EndDraw();
-                
+
                 spriteBatch.End();
 
                 IDE.EndDraw();
             }
             else
             {
-                
                 // draw interface
                 UI.BeginDraw(gameTime);
                 GraphicsDevice.Clear(Color.SkyBlue);
                 base.Draw(gameTime);
-                
+
                 spriteBatch.Begin();
                 map.Draw(spriteBatch);
                 spriteBatch.End();
@@ -177,9 +175,8 @@ namespace Maplestory_SDK
                 UI.EndDraw();
 
                 spriteBatch.Begin();
-                player.Draw(spriteBatch,gameTime);
+                player.Draw(spriteBatch, gameTime);
                 spriteBatch.End();
-
             }
         }
     }

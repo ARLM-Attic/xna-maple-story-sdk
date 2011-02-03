@@ -67,7 +67,6 @@ namespace Maplestory_SDK.Root_Class
         /// </summary>
         public void Update()
         {
-
         }
 
         /// <summary>
